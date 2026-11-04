@@ -1,28 +1,20 @@
-# GCC Intel portal
+# GCC Intel — the daily record of India's GCC boom
 
-Next.js + Postgres + Python workers.
+Inc42-style news + intelligence portal for Global Capability Centers in India. Next.js 14 + Postgres + Python workers.
 
-## Features
-- Landing page with live stats + email capture, pricing, SEO (sitemap/robots/meta)
-- Real auth: email+password (bcrypt), signed JWT cookie, middleware gate, admin role (`ADMIN_EMAILS`)
-- Plans (free/pro/team) enforced in `web/lib/plans.js`: row limits, job/signal history, CSV export, alerts, saved items
-- Company explorer (search, city/industry filters, newest-refreshed first), company detail pages, save/star
-- Dashboard (saved companies, alerts), Admin (stats, CSV import, plan management, ingestion runs)
-- Billing webhook `/api/billing/webhook` (HMAC-signed; map Razorpay/Stripe payloads to it)
-- `workers/`: `seed.py` + `refresh.py` (jobs + news, stalest first) on a 3-day schedule
-
-## Media hub (v3)
-- `/news` (newest first, filter by city/type), `/expansions` tracker grouped by year+quarter, `/reports/[year]/[q1-4]` auto-built from data, `/jobs`, `/cities/[city]` hubs, `/learn` (GCC vs Gulf Cooperation Council explainer + FAQ schema)
-- `workers/news.py`: pulls topic headlines (headline + source + link only, no full text) and auto-detects unverified expansions; admin can verify, publish original articles, add expansions
-
-## Run
+## Test it (no payment gateway)
 ```
-export DATABASE_URL=postgresql://user:pass@localhost/gcc JWT_SECRET=$(openssl rand -hex 32)
-export ADMIN_EMAILS=you@company.com BILLING_WEBHOOK_SECRET=... SITE_URL=https://yourdomain
-psql $DATABASE_URL -f db/schema.sql
-cd web && npm i && npm run build && npm start
+./run-test.sh            # needs Postgres; sets BILLING_MODE=test, seeds demo users, serves :3111
 ```
-Load data later: log in as admin -> /admin -> upload CSV (see `seed_sample.csv`), or `python workers/seed.py file.csv`.
+Demo logins (password `demo12345`): `admin@gccintel.test` (admin) · `pro@gccintel.test` (Pro) · `free@gccintel.test` (Free).
+In test mode the Dashboard has a plan switcher (free / pro / team) so you can try every tier instantly.
 
-## Not done
-Razorpay/Stripe checkout + provider payload mapping, email delivery (alerts, password reset), rate limiting, more job sources.
+## What's in it
+- **Public:** front page (masthead, live data map, three doors), news (filters, top), story pages with comments/votes/follows, expansion tracker, people moves, deals, state-policy tracker, events, quarterly reports (from May 2026), city hubs, jobs, company profiles (Wikidata-enriched), search, methodology, learn (GCC vs Gulf Cooperation Council), The GCC Weekly archive, RSS.
+- **Accounts:** stepped signup/login, saved companies, follows + personal feed, alerts (Pro), CSV export (Pro), subscribe/unsubscribe with double opt-in.
+- **Admin:** stats, publish articles, add/verify expansions, CSV import, plan management, subscribers, ingestion runs.
+- **Workers (free sources only):** `news.py`/`sources_rss.py` (90 feeds + Google News), `ats_jobs.py` (Greenhouse/Lever/Ashby/SmartRecruiters), `enrich_wikidata.py`, `classify.py`, `link_articles.py`, `extract_trackers.py`, `digest.py`, `scheduler.py` (news daily, refresh weekly, digest Monday).
+- **Deploy:** `DEPLOY.md`, `Dockerfile`, `docker-compose.yml`, `.env.example`, CI/cron workflows.
+
+## Known limits
+Payments not built (webhook endpoint exists, `BILLING_MODE=live` later). Email sending needs SMTP env vars. Jobs cover 24 companies (public ATS only; banks use Workday/Taleo). Expansions/people moves are auto-detected and marked until verified; several outlets covering one event can show it more than once.

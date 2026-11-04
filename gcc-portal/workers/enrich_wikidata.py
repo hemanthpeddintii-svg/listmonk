@@ -17,7 +17,7 @@ Report: workers/data/wikidata_report.json (per-company match method / QID) + mat
 
 Run: DATABASE_URL=... python workers/enrich_wikidata.py [--refresh] [--limit N] [--dry]
 """
-import json, os, re, sys, time, argparse, urllib.parse
+import json, os, re, sys, time, argparse, urllib.parse, unicodedata
 import requests, psycopg
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -74,7 +74,7 @@ def save_cache(c):
 
 
 def norm(s):
-    s = (s or "").lower().replace("&", " and ")
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower().replace("&", " and ")
     s = re.sub(r"\(.*?\)", " ", s)
     s = re.sub(r"[^a-z0-9 ]+", " ", s)
     toks = [t for t in s.split() if t not in STOP]
@@ -194,18 +194,36 @@ def fetch_entities(c, qids):
     return [c["ent"].get(q) for q in qids]
 
 
+BAD_DESC = re.compile(r"\b(newspaper|magazine|city|county|town|village|municipality|township|river|film|album|band|football|cricket|club|school|university|surname|given name|constituency|settlement|"
+                      r"human|disambiguation|television|tv series|song|novel|video game|airport|district|neighbou?rhood|commune|species|genus)\b", re.I)
+CO_DESC = re.compile(r"\b(company|corporation|multinational|bank|firm|manufacturer|retailer|conglomerate|insurer|insurance|business|limited|plc|group|holding|provider|maker|enterprise|consultancy|"
+                     r"services|technology|software|pharmaceutical|chain|brand|fund|asset manager|exchange|airline|carrier|producer|supplier|operator|video game|developer|publisher|distributor)\b", re.I)
+
+
 def score(ent, name_variants, domain):
     """Return (score, method) or (0, None)."""
     if not ent or ent.get("missing"): return 0, None
     if set(ent.get("p31", [])) & NOT_COMPANY_P31: return 0, None
+    if BAD_DESC.search(ent.get("desc") or "") and not CO_DESC.search(ent.get("desc") or ""): return 0, None
+    company_ev = bool(ent.get("employees") or ent.get("tickers") or CO_DESC.search(ent.get("desc") or ""))
     lab = norm(ent.get("label") or ent.get("enwiki"))
     label_eq = bool(lab) and lab in name_variants
     dom = regdomain(domain)
     dom_eq = any(regdomain(w) == dom for w in ent.get("websites", [])) if dom else False
     toks = set(lab.split())
     overlap = any(toks & set(v.split()) for v in name_variants if v)
-    if dom_eq and (label_eq or overlap): return 100 + (50 if label_eq else 0) + min(ent.get("nsite", 0), 300) / 100, "domain"
-    if label_eq and ent.get("enwiki") and ent.get("company_like"): return 50 + min(ent.get("nsite", 0), 300) / 100, "label"
+    alias_eq = any(norm(a) in name_variants for a in ent.get("aliases", []))
+    if dom_eq and (label_eq or overlap or alias_eq): return 100 + (50 if label_eq else 0) + min(ent.get("nsite", 0), 300) / 100, "domain"
+    sld = lambda h: regdomain(h).split(".")[0]
+    acr_alias = any(a.isupper() and len(a) >= 3 and norm(a) in name_variants for a in ent.get("aliases", []))
+    starts = any(lab.startswith(v + " ") for v in name_variants if v)
+    # same second-level domain on a different TLD (takeda.com vs takeda.co.jp) + name overlap + a real Wikipedia article
+    if dom and any(sld(w) == sld(dom) for w in ent.get("websites", [])) and ent.get("enwiki") and ent.get("company_like") and company_ev and (label_eq or starts or acr_alias):
+        return 80 + min(ent.get("nsite", 0), 300) / 100, "domain-tld"
+    if label_eq and ent.get("enwiki") and ent.get("company_like") and company_ev: return 50 + min(ent.get("nsite", 0), 300) / 100, "label"
+    # 'Ferguson' -> 'Ferguson Enterprises': label starts with our name AND the entity is a listed / sized company with an English article
+    if starts and ent.get("enwiki") and (ent.get("tickers") or ent.get("employees")): return 45 + min(ent.get("nsite", 0), 300) / 100, "label"
+    if False: return 50 + min(ent.get("nsite", 0), 300) / 100, "label"
     return 0, None
 
 
@@ -325,7 +343,7 @@ def main():
         report = []; matched = 0; methods = {}; writes = []
         for cid, name, parent, domain in rows:
             how, qid = res[cid]
-            ent = c["ent"].get(qid) if qid and how in ("domain", "label") else None
+            ent = c["ent"].get(qid) if qid and how in ("domain", "domain-tld", "label") else None
             if ent:
                 matched += 1; methods[how] = methods.get(how, 0) + 1
                 site = next((w for w in ent.get("websites", [])), None)
@@ -337,7 +355,8 @@ def main():
                 vals = dict(wikidata_id=qid, wikipedia_url=wp, description=desc, global_employees=ent.get("employees"), founded_year=ent.get("founded"),
                             website=site, ticker=build_ticker(c, ent), logo_url=logo, aliases=aliases_for(name, parent, ent))
             else:
-                vals = dict(aliases=aliases_for(name, parent, None))
+                vals = dict(wikidata_id=None, wikipedia_url=None, description=None, global_employees=None, founded_year=None, website=None, ticker=None, logo_url=None,
+                            aliases=aliases_for(name, parent, None))   # unmatched: leave blank (also clears stale values from earlier runs)
             report.append(dict(id=cid, name=name, parent=parent, method=how if ent else None, qid=qid if ent else None,
                                label=ent.get("label") if ent else None, **{k: v for k, v in vals.items() if k in ("website", "ticker", "global_employees", "founded_year")}))
             if not a.dry:

@@ -3,7 +3,7 @@
 Rules (transparent):
   * Terms per company = company name, parent_company (raw + without "(…)"), simple de-suffixed variants
     ("Infineon Technologies" -> "Infineon", "The Home Depot" -> "Home Depot"), and Wikidata aliases.
-  * A term that maps to MORE THAN ONE company is dropped (unless it is that company's exact name/parent).
+  * A term that maps to MORE THAN ONE company is dropped (unless one owner holds it with stronger provenance: exact name/parent > name-derived variant > Wikidata alias).
   * Matching is on word boundaries, never substring ("Target" must not hit "Targets").
   * STRONG terms (>= 5 chars, not in the ambiguous list): case-insensitive match is enough.
   * AMBIGUOUS terms (<= 4 chars, or in AMBIGUOUS: Target, Visa, Intel, Apple, Oracle, Shell, Meta, ...):
@@ -30,9 +30,10 @@ INDIA_TAIL = re.compile(r"\s+(india|gcc|global services|usi india|usi)$", re.I)
 def variants(name, parent, aliases):
     """Return {term: kind} where kind 'exact' (name/parent as stored) or 'derived'."""
     out = {}
+    RANK = {"exact": 3, "derived": 2, "alias": 1}
     def add(t, kind):
         t = (t or "").strip(" .,-")
-        if len(t) >= 2 and re.search(r"[A-Za-z]", t) and (t not in out or kind == "exact"): out[t] = kind
+        if len(t) >= 2 and re.search(r"[A-Za-z]", t) and (t not in out or RANK[kind] > RANK[out[t]]): out[t] = kind
     for raw in (name, parent):
         if not raw: continue
         add(raw, "exact"); base = re.sub(r"\s*\(.*?\)\s*", " ", raw).strip(); add(base, "exact")
@@ -44,7 +45,7 @@ def variants(name, parent, aliases):
             if b2 != b and len(b2) >= 2: add(b2, "derived"); b = b2
         b3 = INDIA_TAIL.sub("", base).strip()
         if b3 != base: add(b3, "derived")
-    for a in aliases or []: add(a, "derived")
+    for a in aliases or []: add(a, "alias")
     return out
 
 
@@ -61,7 +62,9 @@ def build(companies):
     for key, lst in owners.items():
         ids = {cid for cid, _, _ in lst}
         if len(ids) > 1:
-            lst = [x for x in lst if x[2] == "exact"]       # shared alias: keep only exact name/parent owners
+            # shared term: the owner(s) with the strongest provenance win (exact name/parent > name-derived > Wikidata alias); a tie is dropped
+            top = max({"exact": 3, "derived": 2, "alias": 1}[x[2]] for x in lst)
+            lst = [x for x in lst if {"exact": 3, "derived": 2, "alias": 1}[x[2]] == top]
             ids = {cid for cid, _, _ in lst}
             if len(ids) != 1: continue
         cid, term, _ = lst[0]

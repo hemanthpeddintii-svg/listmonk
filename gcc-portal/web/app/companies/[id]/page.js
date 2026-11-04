@@ -31,10 +31,9 @@ export default async function Company({ params }) {
   if (!c) notFound();
   const names = [...new Set([c.name, c.parent_company, (c.parent_company || "").replace(/\s*\(.*?\)\s*/g, ""), ...(c.aliases || [])].filter(Boolean).map(s => s.toLowerCase()))];
   const lim = p.signals;
-  const [news, jobs, sigs, exps, moves, funds, sib, [sv], [cnt]] = await Promise.all([
+  const [news, jobs, exps, moves, funds, sib, [sv], [cnt]] = await Promise.all([
     q("SELECT id,title,source_name,published_at,category,city FROM articles WHERE company_id=$1 AND coalesce(relevant,true) ORDER BY published_at DESC NULLS LAST, id DESC LIMIT $2", [id, lim]),
     q("SELECT * FROM job_postings WHERE company_id=$1 ORDER BY first_seen DESC LIMIT $2", [id, p.jobs]),
-    q("SELECT * FROM signals WHERE company_id=$1 ORDER BY published_at DESC NULLS LAST, id DESC LIMIT $2", [id, lim]),
     q("SELECT id,city,event,summary,company_name,source_url,announced_at FROM expansions WHERE company_id=$1 ORDER BY announced_at DESC NULLS LAST LIMIT $2", [id, lim]),
     q("SELECT id,person,role,city,kind,source_url,published_at FROM people_moves WHERE company_id=$1 ORDER BY published_at DESC NULLS LAST LIMIT $2", [id, lim]),
     q("SELECT id,company_name,kind,amount_text,round,investors,summary,source_url,published_at FROM fundings WHERE lower(company_name)=ANY($1) ORDER BY published_at DESC NULLS LAST LIMIT $2", [names, lim]),
@@ -42,12 +41,11 @@ export default async function Company({ params }) {
     u ? q("SELECT 1 FROM saved_companies WHERE user_id=$1 AND company_id=$2", [u.id, id]) : [null],
     q(`SELECT (SELECT count(*)::int FROM job_postings WHERE company_id=$1) nj,
               (SELECT count(*)::int FROM articles WHERE company_id=$1 AND coalesce(relevant,true)) nn,
-              (SELECT count(*)::int FROM signals WHERE company_id=$1) ns,
               (SELECT count(*)::int FROM expansions WHERE company_id=$1) ne,
               (SELECT count(*)::int FROM people_moves WHERE company_id=$1) nm,
               (SELECT count(*)::int FROM fundings WHERE lower(company_name)=ANY($2)) nf`, [id, names])]);
-  const { nj, nn, ns, ne, nm, nf } = cnt;
-  const clipped = nj > jobs.length || nn > news.length || ns > sigs.length || ne > exps.length || nm > moves.length || nf > funds.length;
+  const { nj, nn, ne, nm, nf } = cnt;
+  const clipped = nj > jobs.length || nn > news.length || ne > exps.length || nm > moves.length || nf > funds.length;
   const cities = c.india_cities || [];
   const ld = { "@context": "https://schema.org", "@type": "Organization", name: c.parent_company || c.name, url: c.website || undefined,
     description: c.description || undefined, foundingDate: c.founded_year ? String(c.founded_year) : undefined,
@@ -65,14 +63,13 @@ export default async function Company({ params }) {
     <CompanyHeader c={c} actions={actions} />
 
     <dl className="co-facts" aria-label="Key facts">
-      <Fact k="India headcount" v={c.india_headcount_range} />
-      <Fact k="Global employees" v={num(c.global_employees)} sub={c.global_employees ? "parent company, Wikidata" : null} />
-      <Fact k="GCC function" v={c.gcc_function} />
-      <Fact k="GCC set up in India" v={c.year_established} />
-      <Fact k="Parent founded" v={c.founded_year} />
-      <Fact k="Cities in India" v={cities.length ? String(cities.length) : null} sub={cities.slice(0, 3).join(", ") || null} />
-      <Fact k="Open India jobs" v={String(nj)} sub={nj ? "from public job boards" : "none seen in last refresh"} />
-      <Fact k="Stories linked" v={String(nn)} sub={ne + nm + nf ? `${ne} expansions · ${nm} moves · ${nf} deals` : null} />
+      {[
+        ["India headcount", c.india_headcount_range], ["Global employees", num(c.global_employees), c.global_employees ? "parent company, Wikidata" : null],
+        ["GCC function", c.gcc_function], ["GCC set up in India", c.year_established], ["Parent founded", c.founded_year],
+        ["Cities in India", cities.length ? String(cities.length) : null, cities.slice(0, 3).join(", ") || null],
+        ["Open India jobs", String(nj), nj ? "from public job boards" : "none seen in last refresh"],
+        ["Stories linked", String(nn), [ne && `${ne} expansion${ne > 1 ? "s" : ""}`, nm && `${nm} move${nm > 1 ? "s" : ""}`, nf && `${nf} deal${nf > 1 ? "s" : ""}`].filter(Boolean).join(" · ") || null],
+      ].filter(f => f[1] != null && f[1] !== "").map(([k, v, sub]) => <Fact key={k} k={k} v={String(v)} sub={sub} />)}
     </dl>
     {c.tech_stack?.length > 0 && <p className="co-stack" aria-label="Tech stack">{c.tech_stack.map(t => <span key={t} className="tag">{t}</span>)}</p>}
 
@@ -84,11 +81,6 @@ export default async function Company({ params }) {
             <div><a className="t" href={`/story/${a.id}`}>{clean(a.title)}</a>
               <div className="sub"><span>{a.source_name}</span>{a.city && <span>{a.city}</span>}{a.category && a.category !== "other" && <span className="ev">{a.category}</span>}</div></div></li>))}</ul>
           : <p className="co-empty">No stories linked to {c.parent_company || c.name} yet. We match headlines on the company name and its known aliases; new matches appear after each news run.</p>}
-        {sigs.length > 0 && <>
-          <h2>Other signals <span className="co-n">{ns}</span></h2>
-          <ul className="co-list">{sigs.map(s => (
-            <li key={s.id}><span className="co-when">{ymd(s.published_at)}</span>
-              <div><a className="t" href={s.url} target="_blank" rel="nofollow noopener">{s.headline}</a><div className="sub"><span>{s.kind}</span></div></div></li>))}</ul></>}
 
         <h2>India jobs <span className="co-n">{nj}</span></h2>
         {jobs.length > 0 ? <ul className="co-list">{jobs.map(j => (
