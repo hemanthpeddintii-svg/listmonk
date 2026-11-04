@@ -9,7 +9,7 @@ def main():
     with psycopg.connect(os.environ["DATABASE_URL"]) as conn:
         rows = conn.execute(
             "SELECT id,name,domain,careers_url FROM companies "
-            "ORDER BY last_refreshed_at NULLS FIRST LIMIT %s", (BATCH,)).fetchall()
+            "ORDER BY last_refreshed_at ASC NULLS FIRST LIMIT %s", (BATCH,)).fetchall()
         for cid, name, domain, careers in rows:
             for j in job_postings(name, domain, careers):
                 conn.execute(
