@@ -12,12 +12,12 @@ const inside = (x, y) => { let c = false;
     if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; }
   return c; };
 
-export default function IndiaMap({ className }) {
+export default function IndiaMap({ className, stats = {}, events = [] }) {
   const ref = useRef(null);
   useEffect(() => {
     const cv = ref.current, ctx = cv.getContext("2d");
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let W, H, dots = [], pts = [], mouse = { x: -999, y: -999 }, raf, t0 = performance.now();
+    let W, H, dots = [], pts = [], mouse = { x: -999, y: -999 }, raf, t0 = performance.now(), hov = null, evs = events.filter(e => CITIES.some(c => c[0] === e.city)).slice(0, 12), ei = 0, bub = null;
     const LON = [67, 98.5], LAT = [6, 37.5];
     const setup = () => {
       const dpr = Math.min(devicePixelRatio || 1, 2), r = cv.getBoundingClientRect();
@@ -32,7 +32,7 @@ export default function IndiaMap({ className }) {
           const lon = LON[0] + ((x - ox) / mw) * (LON[1] - LON[0]), lat = LAT[1] - ((y - oy) / mh) * (LAT[1] - LAT[0]);
           if (inside(lon, lat)) dots.push({ x, y, ox: x, oy: y, vx: 0, vy: 0, s: Math.random() });
         }
-      pts = CITIES.map(([n, lo, la, w, side = 1, dy = 4], i) => ({ n, x: px(lo), y: py(la), w, side, dy, ph: i * 0.9 }));
+      const mx = Math.max(1, ...Object.values(stats).map(v => v.n)); pts = CITIES.map(([n, lo, la, w, side = 1, dy = 4], i) => { const st = stats[n] || { n: 0, c: 0 }; return { n, x: px(lo), y: py(la), w: Math.max(.25, Math.sqrt(st.n / mx)), st, side, dy, ph: i * 0.9 }; });
     };
     const frame = (now) => {
       const t = (now - t0) / 1000; ctx.clearRect(0, 0, W, H);
@@ -63,12 +63,21 @@ export default function IndiaMap({ className }) {
         ctx.lineWidth = 2; ctx.strokeStyle = "#f2ede4"; ctx.stroke();
         ctx.fillStyle = "#121212"; const lbl = p.n.toUpperCase(), off = 12 + p.w * 4; ctx.fillText(lbl, p.side < 0 ? p.x - off - ctx.measureText(lbl).width : p.x + off, p.y + p.dy);
       }
+      // hover tooltip + live event bubble
+      hov = pts.find(p => Math.hypot(p.x - mouse.x, p.y - mouse.y) < 18) || null; cv.style.cursor = hov ? "pointer" : "default";
+      if (!bub || t - bub.t0 > 5.2) { const e = evs[ei++ % Math.max(evs.length, 1)]; const p = e && pts.find(x => x.n === e.city); bub = p ? { p, text: String(e.text || "").replace(/\s+-\s+[^-]+$/, "").slice(0, 44) + (String(e.text || "").length > 44 ? "…" : ""), t0: t } : null; }
+      const box = (p, lines, a, accent) => { ctx.globalAlpha = a; ctx.font = "600 12px ui-monospace, Menlo, monospace"; const w = Math.max(...lines.map(l => ctx.measureText(l).width)) + 24, h = lines.length * 17 + 14;
+        let x = p.x - w / 2, y = p.y - h - 22; x = Math.max(8, Math.min(W - w - 8, x)); if (y < 8) y = p.y + 24;
+        ctx.fillStyle = "#121212"; ctx.beginPath(); ctx.roundRect(x, y, w, h, 10); ctx.fill(); ctx.fillStyle = accent; ctx.fillRect(x, y + 8, 4, h - 16);
+        ctx.fillStyle = "#f2ede4"; lines.forEach((l, i) => ctx.fillText(l, x + 14, y + 20 + i * 17)); ctx.globalAlpha = 1; };
+      if (bub) { const k = t - bub.t0, a = Math.min(1, k * 3, (5.2 - k) * 2); if (a > 0) box(bub.p, ["NEW · " + bub.p.n.toUpperCase(), bub.text], Math.max(0, a), "#ff4b1f"); }
+      if (hov) box(hov, [hov.n.toUpperCase(), `${hov.st.n} stories · ${hov.st.c} companies`, "click to open city hub →"], 1, "#d7f25a");
       if (!reduce) raf = requestAnimationFrame(frame);
     };
     const move = (e) => { const r = cv.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; };
     setup(); raf = requestAnimationFrame(frame);
-    addEventListener("resize", setup); addEventListener("pointermove", move);
-    return () => { cancelAnimationFrame(raf); removeEventListener("resize", setup); removeEventListener("pointermove", move); };
+    addEventListener("resize", setup); addEventListener("pointermove", move); const click = () => { if (hov) location.href = "/cities/" + encodeURIComponent(hov.n); }; cv.addEventListener("click", click);
+    return () => { cancelAnimationFrame(raf); removeEventListener("resize", setup); removeEventListener("pointermove", move); cv.removeEventListener("click", click); };
   }, []);
-  return <canvas ref={ref} className={className} aria-hidden="true" />;
+  return <canvas ref={ref} className={className} role="img" aria-label="Map of India showing GCC hubs and live announcements" />;
 }
