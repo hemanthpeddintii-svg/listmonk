@@ -14,3 +14,5 @@ jobs:
       - run: pip install -r workers/requirements.txt
       - run: python workers/refresh.py
         env: { DATABASE_URL: "${{ secrets.DATABASE_URL }}" }
+      - run: python workers/news.py
+        env: { DATABASE_URL: "${{ secrets.DATABASE_URL }}" }

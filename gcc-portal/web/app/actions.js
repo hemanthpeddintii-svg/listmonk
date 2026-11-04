@@ -107,3 +107,27 @@ export async function setPlan(fd) {
     [Number(fd.get("id")), plan, days]);
   revalidatePath("/admin");
 }
+
+const slugify = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 80) + "-" + Date.now().toString(36);
+export async function publishArticle(prev, fd) {
+  await requireAdmin();
+  const title = String(fd.get("title") || "").trim(), body = String(fd.get("body") || "").trim();
+  if (!title || !body) return { error: "Title and body are required." };
+  await q("INSERT INTO articles(kind,slug,title,summary,body,city,source_name) VALUES($1,$2,$3,$4,$5,NULLIF($6,''),'GCC Intel')",
+    [fd.get("kind") || "analysis", slugify(title), title, body.slice(0, 200), body, fd.get("city") || ""]);
+  revalidatePath("/news"); revalidatePath("/");
+  return { ok: "Published." };
+}
+export async function addExpansion(prev, fd) {
+  await requireAdmin();
+  const name = String(fd.get("company") || "").trim(); if (!name) return { error: "Company is required." };
+  await q("INSERT INTO expansions(company_name,city,event,headcount,summary,source_url,verified) VALUES($1,NULLIF($2,''),$3,NULLIF($4,'')::int,$5,NULLIF($6,''),true)",
+    [name, fd.get("city") || "", fd.get("event") || "opened", fd.get("headcount") || "", String(fd.get("summary") || name), fd.get("url") || ""]);
+  revalidatePath("/expansions"); revalidatePath("/");
+  return { ok: "Added (verified)." };
+}
+export async function verifyExpansion(fd) {
+  await requireAdmin();
+  await q("UPDATE expansions SET verified=NOT verified WHERE id=$1", [Number(fd.get("id"))]);
+  revalidatePath("/admin"); revalidatePath("/expansions");
+}

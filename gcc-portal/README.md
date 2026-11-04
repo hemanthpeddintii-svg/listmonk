@@ -11,6 +11,10 @@ Next.js + Postgres + Python workers.
 - Billing webhook `/api/billing/webhook` (HMAC-signed; map Razorpay/Stripe payloads to it)
 - `workers/`: `seed.py` + `refresh.py` (jobs + news, stalest first) on a 3-day schedule
 
+## Media hub (v3)
+- `/news` (newest first, filter by city/type), `/expansions` tracker grouped by year+quarter, `/reports/[year]/[q1-4]` auto-built from data, `/jobs`, `/cities/[city]` hubs, `/learn` (GCC vs Gulf Cooperation Council explainer + FAQ schema)
+- `workers/news.py`: pulls topic headlines (headline + source + link only, no full text) and auto-detects unverified expansions; admin can verify, publish original articles, add expansions
+
 ## Run
 ```
 export DATABASE_URL=postgresql://user:pass@localhost/gcc JWT_SECRET=$(openssl rand -hex 32)

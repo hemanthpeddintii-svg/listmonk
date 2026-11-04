@@ -2,6 +2,8 @@ import { q } from "../lib/db";
 import { ActionForm } from "../components/Forms";
 import IndiaMap from "../components/IndiaMap";
 import Finder from "../components/Finder";
+import NewsCard from "../components/NewsCard";
+import { clean, ago } from "../lib/content";
 import Reveal from "../components/Reveal";
 import CountUp from "../components/CountUp";
 import { captureLead } from "./actions";
@@ -14,6 +16,9 @@ export default async function Home() {
   const inds = (await q("SELECT industry i,count(*) n FROM companies WHERE industry IS NOT NULL GROUP BY 1 ORDER BY 2 DESC").catch(() => [])).map(r => r.i);
   const names = (await q("SELECT name FROM companies ORDER BY last_refreshed_at DESC NULLS LAST LIMIT 20").catch(() => [])).map(r => r.name);
   const ticker = names.length ? names : ["Microsoft", "Goldman Sachs", "Walmart", "JPMorgan", "Airbus", "Siemens", "Target", "Cisco"];
+  const news = await q("SELECT * FROM articles ORDER BY published_at DESC NULLS LAST LIMIT 7").catch(() => []);
+  const exps = await q("SELECT * FROM expansions ORDER BY announced_at DESC LIMIT 6").catch(() => []);
+  const now = new Date(), cq = Math.floor(now.getUTCMonth() / 3) + 1, cy = now.getUTCFullYear();
   const cities = [...new Set([...CITIES, ...dbCities])];
   return (<main>
     <section className="hero"><IndiaMap />
@@ -33,6 +38,17 @@ export default async function Home() {
           <Reveal className="block c2" delay={100}><b><CountUp to={s.jobs} /></b><span>India job postings</span></Reveal>
           <Reveal className="block c3" delay={200}><b><CountUp to={s.signals} /></b><span>news &amp; expansion signals</span></Reveal>
           <Reveal className="block c4" delay={300}><b><CountUp to={3} suffix="d" /></b><span>refresh cycle</span></Reveal></div></section>
+
+
+      <section className="section"><Reveal><div className="sec-head"><h2>Latest from the <em>GCC world</em></h2><a href="/news">All news →</a></div></Reveal>
+        <div className="ngrid">{news.map((a, i) => <NewsCard key={a.id} a={a} big={i === 0} />)}</div></section>
+
+      <section className="section" style={{ paddingTop: 0 }}><div className="split">
+        <Reveal><div className="sec-head"><h2 style={{ fontSize: "clamp(30px,4vw,52px)" }}>Opening, expanding, <em>closing.</em></h2><a href="/expansions">Tracker →</a></div>
+          <ul className="timeline">{exps.map(r => <li key={r.id}><span className={"ev " + r.event}>{r.event}</span><div><a href={r.source_url} target="_blank" rel="nofollow noopener"><b>{clean(r.summary || r.company_name)}</b></a><div className="mut">{r.city} {ago(r.announced_at)}</div></div></li>)}</ul></Reveal>
+        <Reveal delay={120}><div className="sec-head"><h2 style={{ fontSize: "clamp(30px,4vw,52px)" }}>Every quarter, <em>a report.</em></h2><a href="/reports">All reports →</a></div>
+          <div className="qgrid">{[0, 1, 2, 3].map(i => { let y = cy, qn = cq - i; while (qn < 1) { qn += 4; y--; } return <a key={i} className="card qcard" href={`/reports/${y}/q${qn}`}><small className="mut">{i === 0 ? "LIVE" : "REPORT"}</small><h2 style={{ margin: "4px 0 0" }}>Q{qn} {y}</h2></a>; })}</div>
+          <p className="mut" style={{ marginTop: 18 }}>Searching &ldquo;GCC&rdquo;? It can also mean the Gulf Cooperation Council. <a href="/learn">Here&apos;s the difference →</a></p></Reveal></div></section>
 
       <Reveal><div className="finder-wrap"><h2 style={{ fontSize: "clamp(30px,4.5vw,56px)" }}>Three questions. <em>One shortlist.</em></h2>
         <Finder cities={cities} industries={inds} /></div></Reveal>

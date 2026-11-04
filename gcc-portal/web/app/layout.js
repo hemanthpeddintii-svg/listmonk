@@ -11,7 +11,7 @@ export default async function Root({ children }) {
   return (<html lang="en"><body><Cursor />
     <header className="nav"><nav className="nav-in">
       <a className="logo" href="/"><i />gcc·intel</a>
-      <a href="/companies">Companies</a><a href="/pricing">Pricing</a>
+      <a href="/news">News</a><a href="/expansions">Expansions</a><a href="/reports">Reports</a><a href="/companies">Companies</a><a href="/jobs">Jobs</a><a href="/learn">Learn</a>
       <span className="sp" />
       {u ? (<>{u.role === "admin" && <a href="/admin">Admin</a>}<a href="/dashboard">Dashboard</a>
         <form action={logout}><button className="btn pill-ghost" style={{ background: "rgba(255,255,255,.12)", boxShadow: "none" }}>Log out</button></form></>)
@@ -21,6 +21,6 @@ export default async function Root({ children }) {
     <footer className="foot"><div className="wrap">
       <div className="mark">gcc·intel</div>
       <div className="foot-row"><span>Every Global Capability Center in India, refreshed every 72 hours.</span>
-        <span><a href="/companies">Companies</a> · <a href="/pricing">Pricing</a> · <a href="/login">Log in</a></span></div></div></footer>
+        <span><a href="/news">News</a> · <a href="/expansions">Expansions</a> · <a href="/reports">Reports</a> · <a href="/cities">Cities</a> · <a href="/learn">What is a GCC?</a> · <a href="/pricing">Pricing</a></span></div></div></footer>
   </body></html>);
 }

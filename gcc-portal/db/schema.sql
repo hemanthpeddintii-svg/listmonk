@@ -62,3 +62,21 @@ CREATE TABLE IF NOT EXISTS leads (            -- landing-page email capture
 CREATE INDEX IF NOT EXISTS idx_companies_name ON companies (lower(name));
 CREATE INDEX IF NOT EXISTS idx_companies_refreshed ON companies (last_refreshed_at DESC NULLS LAST);
 CREATE INDEX IF NOT EXISTS idx_signals_company_date ON signals (company_id, published_at DESC);
+
+-- v3: media hub (news, expansions tracker, quarterly reports)
+CREATE TABLE IF NOT EXISTS articles (
+  id SERIAL PRIMARY KEY,
+  kind TEXT NOT NULL DEFAULT 'news',        -- news | analysis | explainer
+  slug TEXT UNIQUE, title TEXT NOT NULL, summary TEXT, body TEXT,
+  source_name TEXT, source_url TEXT UNIQUE,  -- external news: we store headline+link only, never full text
+  city TEXT, tags TEXT[] DEFAULT '{}', company_id INT REFERENCES companies(id) ON DELETE SET NULL,
+  published_at TIMESTAMPTZ DEFAULT now());
+CREATE TABLE IF NOT EXISTS expansions (      -- GCC launches / expansions / closures
+  id SERIAL PRIMARY KEY,
+  company_id INT REFERENCES companies(id) ON DELETE SET NULL, company_name TEXT NOT NULL,
+  city TEXT, event TEXT NOT NULL DEFAULT 'opened',   -- opened | expanded | closed | announced
+  headcount INT, summary TEXT, source_url TEXT UNIQUE,
+  verified BOOLEAN DEFAULT false,            -- auto-detected rows start unverified
+  announced_at TIMESTAMPTZ DEFAULT now());
+CREATE INDEX IF NOT EXISTS idx_articles_pub ON articles (published_at DESC);
+CREATE INDEX IF NOT EXISTS idx_exp_date ON expansions (announced_at DESC);
