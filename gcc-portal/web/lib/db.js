@@ -1,4 +1,4 @@
 import pg from "pg";
-export const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
-// TODO: replace with real auth (NextAuth email magic link) + Stripe/Razorpay webhooks setting users.plan.
-export function currentPlan() { return process.env.DEMO_PLAN || "free"; }
+const g = globalThis;
+export const pool = g.__pool ?? (g.__pool = new pg.Pool({ connectionString: process.env.DATABASE_URL }));
+export const q = (text, params) => pool.query(text, params).then(r => r.rows);

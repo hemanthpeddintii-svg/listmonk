@@ -1,7 +1,15 @@
-export default function Pricing() {
-  return (<main><h1>Pricing</h1>
-    <ul><li><b>Free</b> – browse 25 companies, basic fields</li>
-    <li><b>Pro</b> – full database, job signals, CSV export, alerts</li>
-    <li><b>Team</b> – seats, API access</li></ul>
-    <p>Prices TBD. Checkout: Razorpay (India) / Stripe (international).</p></main>);
+import { PLANS } from "../../lib/plans";
+import { getUser } from "../../lib/auth";
+export const metadata = { title: "Pricing" };
+const feat = (p) => [`${p.maxRows >= 1000 ? "Full" : p.maxRows} companies in search`, `${p.jobs} latest jobs per company`,
+  p.export ? "CSV export" : "No export", p.alerts ? `${p.alerts} saved-search alerts` : "No alerts", `${p.saved} saved companies`];
+export default async function Pricing() {
+  const u = await getUser();
+  return (<main><h1>Pricing</h1><p className="mut">Start free. Upgrade when you need the full database.</p>
+    <div className="grid plans">{Object.entries(PLANS).map(([k, p]) => (
+      <div key={k} className={"card" + (k === "pro" ? " hl" : "")}><h3>{p.label}</h3><h2>{p.price}</h2>
+        <ul>{feat(p).map(f => <li key={f}>{f}</li>)}</ul>
+        {k === "free" ? <a className="btn ghost" href={u ? "/dashboard" : "/signup"}>Start free</a>
+          : <a className="btn" href={`/dashboard?upgrade=${k}`}>Choose {p.label}</a>}</div>))}</div>
+    <p className="mut">Payments: Razorpay (India) / Stripe (international) — webhook at <code>/api/billing/webhook</code>.</p></main>);
 }

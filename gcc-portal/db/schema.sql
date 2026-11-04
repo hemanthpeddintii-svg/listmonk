@@ -32,3 +32,33 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMPTZ DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS idx_jobs_company ON job_postings(company_id);
+
+-- v2: auth, plans, saved items, billing, ingestion tracking
+ALTER TABLE users ADD COLUMN IF NOT EXISTS password_hash TEXT;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS name TEXT;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS role TEXT NOT NULL DEFAULT 'user';  -- user | admin
+ALTER TABLE users ADD COLUMN IF NOT EXISTS plan_expires_at TIMESTAMPTZ;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS billing_customer_id TEXT;
+CREATE TABLE IF NOT EXISTS saved_companies (
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  company_id INT REFERENCES companies(id) ON DELETE CASCADE,
+  note TEXT, created_at TIMESTAMPTZ DEFAULT now(),
+  PRIMARY KEY (user_id, company_id));
+CREATE TABLE IF NOT EXISTS saved_searches (   -- powers email alerts
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  name TEXT, query JSONB NOT NULL, alert BOOLEAN DEFAULT false,
+  created_at TIMESTAMPTZ DEFAULT now());
+CREATE TABLE IF NOT EXISTS payments (
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id) ON DELETE SET NULL,
+  provider TEXT, provider_ref TEXT UNIQUE, plan TEXT, amount_minor INT, currency TEXT,
+  status TEXT, created_at TIMESTAMPTZ DEFAULT now());
+CREATE TABLE IF NOT EXISTS ingestion_runs (
+  id SERIAL PRIMARY KEY, kind TEXT, started_at TIMESTAMPTZ DEFAULT now(),
+  finished_at TIMESTAMPTZ, rows_in INT DEFAULT 0, rows_ok INT DEFAULT 0, note TEXT);
+CREATE TABLE IF NOT EXISTS leads (            -- landing-page email capture
+  id SERIAL PRIMARY KEY, email TEXT UNIQUE NOT NULL, source TEXT, created_at TIMESTAMPTZ DEFAULT now());
+CREATE INDEX IF NOT EXISTS idx_companies_name ON companies (lower(name));
+CREATE INDEX IF NOT EXISTS idx_companies_refreshed ON companies (last_refreshed_at DESC NULLS LAST);
+CREATE INDEX IF NOT EXISTS idx_signals_company_date ON signals (company_id, published_at DESC);
