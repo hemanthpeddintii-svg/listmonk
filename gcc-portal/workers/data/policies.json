@@ -15,7 +15,9 @@
         "Five-year electricity duty exemption for Beyond-Bengaluru GCCs; fast-track approvals within 45 days (India Briefing)"
       ],
       "source_url": "https://khaitanco.com/thought-leadership/Karnatakas-Final-GCC-Policy-Launched",
-      "extra_sources": ["https://india-briefing.com/news/karnataka-global-capability-center-policy-2024-2029-key-features-35441.html"]
+      "extra_sources": [
+        "https://india-briefing.com/news/karnataka-global-capability-center-policy-2024-2029-key-features-35441.html"
+      ]
     },
     {
       "state": "Telangana",
@@ -29,7 +31,9 @@
         "Existing general support is the TS-iPASS single-window clearance system (per a Legal500/Mondaq comparison; not a GCC-specific scheme)"
       ],
       "source_url": "https://www.siasat.com/new-telangana-gcc-policy-to-focus-on-ai-space-semiconductors-3543873/",
-      "extra_sources": ["https://www.legal500.com/intelligence/india/government-public-sector/choosing-the-right-location-in-india-for-your-gcc"]
+      "extra_sources": [
+        "https://www.legal500.com/intelligence/india/government-public-sector/choosing-the-right-location-in-india-for-your-gcc"
+      ]
     },
     {
       "state": "Tamil Nadu",
@@ -59,7 +63,9 @@
         "24x7 operations and flexible employment conditions"
       ],
       "source_url": "https://corporate.cyrilamarchandblogs.com/2025/10/maharashtra-pushes-toward-claiming-a-bigger-piece-of-the-gcc-pie-mh-gcc-policy-2025/",
-      "extra_sources": ["https://www.legal500.com/intelligence/india/tax/the-maharashtra-government-has-recently-issued-the-global-capability-center-gcc-policy-2025-which-will-remain-in-effect-for-five-years-ie-till-fy-2029-30"]
+      "extra_sources": [
+        "https://www.legal500.com/intelligence/india/tax/the-maharashtra-government-has-recently-issued-the-global-capability-center-gcc-policy-2025-which-will-remain-in-effect-for-five-years-ie-till-fy-2029-30"
+      ]
     },
     {
       "state": "Uttar Pradesh",
@@ -75,7 +81,9 @@
         "INR 20,000 per UP-domicile fresher for five years (minimum 30 hires a year); land front-end subsidy of 30-50%"
       ],
       "source_url": "https://invest.up.gov.in/up-gcc-policy-2024/",
-      "extra_sources": ["https://www.theweek.in/news/biz-tech/2025/05/06/up-cabinet-approves-gcc-policy-to-benefit-developing-tier-2-and-3-cities-in-the-state.html"]
+      "extra_sources": [
+        "https://www.theweek.in/news/biz-tech/2025/05/06/up-cabinet-approves-gcc-policy-to-benefit-developing-tier-2-and-3-cities-in-the-state.html"
+      ]
     },
     {
       "state": "Gujarat",
@@ -83,7 +91,7 @@
       "year": 2025,
       "status": "notified",
       "source_type": "press",
-      "summary": "Launched 11 Feb 2025 at GIFT City by CM Bhupendra Patel; formulated by the Department of Science and Technology. Targets at least 250 new GCC units, over 50,000 jobs and over INR 10,000 crore investment (the state DST page confirms name, period and targets but gives no rates).",
+      "summary": "Launched 11 Feb 2025 at GIFT City by CM Bhupendra Patel; formulated by the Department of Science and Technology. Targets at least 250 new GCC units, over 50,000 jobs and over INR 10,000 crore investment (the state DST page confirms name, period and targets but gives no rates). Operational Guidelines 1.0 were issued per The Hans India (3 Oct 2026): single Integrated Incentive Management Portal, eligible investment counted up to two years after commercial operations begin.",
       "incentives": [
         "CAPEX assistance up to INR 50 crore (GFCI below INR 250 crore) or up to INR 200 crore (above)",
         "OPEX assistance up to INR 20 crore (GFCI below INR 250 crore) or up to INR 40 crore (above)",
@@ -91,7 +99,10 @@
         "EPF reimbursement 100% for female and 75% for male employees; hiring aid of 50% of one month's CTC (cap INR 50,000 male / INR 60,000 female)"
       ],
       "source_url": "https://deshgujarat.com/2025/02/11/gujarat-global-capability-centre-policy-2025-30-launched-at-gift-city-gandhinagar/",
-      "extra_sources": ["https://dst.gujarat.gov.in/Home/GujaratGlobalCapabilityCenter"]
+      "extra_sources": [
+        "https://dst.gujarat.gov.in/Home/GujaratGlobalCapabilityCenter",
+        "https://www.thehansindia.com/news/national/gujarats-new-gcc-rules-single-portal-for-incentives-two-year-window-for-eligible-investment-1128435"
+      ]
     },
     {
       "state": "Andhra Pradesh",
@@ -121,7 +132,9 @@
         "Dedicated support teams at Technopark (Thiruvananthapuram) and Infopark (Kochi)"
       ],
       "source_url": "https://themainstream.co.in/?p=93060",
-      "extra_sources": ["https://www.gktoday.in/kerala-targets-150-global-capability-centres-by-2031/"]
+      "extra_sources": [
+        "https://www.gktoday.in/kerala-targets-150-global-capability-centres-by-2031/"
+      ]
     },
     {
       "state": "Odisha",
@@ -232,7 +245,24 @@
       "summary": "Announced by the Finance Minister in the Union Budget 2025-26 to guide states in attracting GCCs to tier-II cities. Inc42 (28 May 2025) reports MeitY formed a panel with Nasscom, Zinnov, ANSR, KPMG and Invest India. Outlook Business says it is still in draft with consultations ongoing and there is 'no central, enforceable national GCC policy yet'.",
       "incentives": [],
       "source_url": "https://www.outlookbusiness.com/budget/gccs-await-national-framework-as-states-lure-global-firms-to-tier-2-3-cities",
-      "extra_sources": ["https://inc42.com/?p=515926"]
+      "extra_sources": [
+        "https://inc42.com/?p=515926"
+      ]
+    },
+    {
+      "state": "Bihar",
+      "name": "Bihar Global Capability Centre (GCC) Policy 2026",
+      "year": 2026,
+      "status": "notified",
+      "source_type": "press",
+      "summary": "Not in the requested list but surfaced by the news ingest (DQ India, 4 Jul 2026). TeamLease RegTech: the Bihar IT Department issued approval on 5 Feb 2026; effective for five years. All incentives except salary reimbursement run five years from commercial operations.",
+      "incentives": [
+        "Capex assistance up to 30% of fixed capital investment, capped at INR 50 crore; extra 10% for units outside Patna and Danapur",
+        "50% lease rental reimbursement; 25% power bill and 50% cloud reimbursement for five years",
+        "Salary reimbursement for three years (higher for Bihar residents), up to 200 direct employees per unit a year",
+        "Tailor-made packages for units creating 500 or more direct jobs"
+      ],
+      "source_url": "https://teamleaseregtech.com/updates/article/52546/govt-of-bihar-issued-the-approval-for-the-bihar-global-capability-centre-gcc-policy-2026/"
     }
   ]
 }

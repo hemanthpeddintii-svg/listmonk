@@ -47,29 +47,38 @@ GULF = re.compile(r"gulf cooperation|\bgcc (countries|nations|states|region|mark
                   r"gulf)\b", re.I)
 GULF_SECTOR = re.compile(r"\bGCC\b.{0,40}\b(industrial|logistics|property|real estate|bonds?|sukuk|sovereign|stocks?|equit(y|ies)|"
                          r"economy|banks?|airlines?|telecom|tourism|visa|oil|gas|energy|data cent(er|re)s?|warehous\w*)\b|"
-                         r"\b(industrial|logistics|property|real estate|sukuk|sovereign|oil|tourism)\b.{0,40}\bGCC\b", re.I)
+                         r"\b(sukuk|sovereign|oil|tourism)\b.{0,40}\bGCC\b", re.I)
+GULF_MISC = re.compile(r"\b(and|with|between)\s+(the\s+)?GCC\b(?=\s*$|\s*[,;:|.]|\s+(countries|nations|region|markets|states))|"
+                       r"\bIndia,\s*(the\s+)?GCC\b|\bIndia-GCC\b|\bin the GCC\b|"
+                       r"\bGCC\b.{0,40}\b(cooperation|FTA|free trade|bottling|beverage|HIS/EHR)\b|\b(cooperation|FTA|bottling)\b.{0,40}\bGCC\b", re.I)
+CIVIC = re.compile(r"\b(relief|kitchens?|monsoon|waterlogged|beach|clean-?ups?|stalls|fatalit\w+|heavy rain|rains?|councillors?|"
+                   r"corporation|dump|garbage|stray|shelter|overdraft|mayor|commissioner)\b", re.I)
 GCC_SENSE = re.compile(r"\b(hiring|talent|jobs|leaders?|leadership|cxo|ai|agentic|operating model|ecosystem|workforce|roles?|"
                        r"engineering|innovation|skills?|upskilling|offshore|set(s|ting)? up|expan\w+|head|heads|cio|cto|"
                        r"enterprise|digital|transformation|mandate|maturity|value|scale|capabilit\w+)\b", re.I)
-CHENNAI_CORP = re.compile(r"greater chennai|chennai corporation|\bGCC\b.{0,30}\b(commissioner|mayor|school|park|ward|zone|"
-                          r"councillor|councillors|corporation)\b", re.I)
+CHENNAI_CORP = re.compile(                      # Greater Chennai Corporation also abbreviates to GCC
+    r"greater chennai|chennai corporation|"
+    r"\bGCC\b.{0,60}\b(commissioner|mayor|school|park|ward|zone|councillors?|corporation|shelter|dump|garbage|waste|"
+    r"overdraft|bills|stray|dogs?|rain|flood|storm|drain|sanitation|road|fire|op|sewage|ration|hawkers?|vendors?)\b|"
+    r"\b(shelter|dump|garbage|waste|overdraft|stray|flood|drain|sanitation|sewage|ration)\b.{0,60}\bGCC\b", re.I)
 
 
 def relevant(title, desc=""):
-    """Return (ok, why). `desc` is the feed snippet; it may only trigger on the full phrases."""
+    """Return (ok, why). Headline-only: `desc` (the feed snippet) is accepted for API symmetry but deliberately unused,
+    because snippet matches were too noisy (passing mentions)."""
     t = title or ""
     if GCC_PHRASE.search(t):
         return True, "phrase-title"
     if GCC_BARE.search(t) and not CHENNAI_CORP.search(t):
-        if GULF.search(t) or GULF_SECTOR.search(t):
+        if GULF.search(t) or GULF_SECTOR.search(t) or GULF_MISC.search(t):
             return False, "gulf"
+        if CIVIC.search(t):
+            return False, "civic-gcc"
         if INDIA_CTX.search(t):
             return True, "gcc-india-title"
         if GCC_SENSE.search(t):
             return True, "gcc-capability-sense"
         return False, "gcc-no-india-ctx"
-    if desc and GCC_PHRASE.search(desc) and not GULF.search(t + " " + desc[:300]):
-        return True, "phrase-desc"
     return False, "no-match"
 
 
@@ -377,6 +386,8 @@ def fetch_feed(feed):
         return feed, "failed", 0, []
 
 
+import threading
+_LOCK = threading.Lock()
 _CACHE = {}
 _CACHE_PATH = os.environ.get("SOURCES_CACHE")      # optional: raw Google News results, so filter tweaks need no refetch
 if _CACHE_PATH and os.path.exists(_CACHE_PATH):
@@ -392,9 +403,10 @@ def gnews(domain, a, b, sleep=1.0):
         return [dict(i, at=parse_date(i["at"])) for i in _CACHE[key]]
     out = _gnews(domain, a, b, sleep)
     if out is not None and _CACHE_PATH:
-        _CACHE[key] = [dict(i, at=i["at"].isoformat() if i["at"] else None) for i in out]
-        if len(_CACHE) % 20 == 0:
-            json.dump(_CACHE, open(_CACHE_PATH, "w"))
+        with _LOCK:
+            _CACHE[key] = [dict(i, at=i["at"].isoformat() if i["at"] else None) for i in out]
+            if len(_CACHE) % 20 == 0:
+                json.dump(_CACHE, open(_CACHE_PATH, "w"))
     return out
 
 
