@@ -153,14 +153,8 @@
   "name": "Amgen India"
  },
  "analog.com": {
-  "checked": "2026-11-04T22:04:52+00:00",
-  "hits": [
-   {
-    "ats": "ashby",
-    "board_url": "https://jobs.ashbyhq.com/analog",
-    "slug": "analog"
-   }
-  ],
+  "checked": "2026-11-04T22:17:16+00:00",
+  "hits": [],
   "name": "Analog Devices India"
  },
  "ansys.com": {
@@ -184,7 +178,7 @@
   "name": "Apple India"
  },
  "appliedmaterials.com": {
-  "checked": "2026-11-04T22:04:57+00:00",
+  "checked": "2026-11-04T22:17:22+00:00",
   "hits": [],
   "name": "Applied Materials India"
  },
@@ -210,7 +204,7 @@
   "name": "Arista Networks India"
  },
  "arm.com": {
-  "checked": "2026-11-04T22:04:58+00:00",
+  "checked": "2026-11-04T22:17:29+00:00",
   "hits": [],
   "name": "Arm India"
  },
@@ -235,7 +229,7 @@
   "name": "Atlassian India"
  },
  "att.com": {
-  "checked": "2026-11-04T22:05:02+00:00",
+  "checked": "2026-11-04T22:17:41+00:00",
   "hits": [],
   "name": "AT&T India"
  },
@@ -260,12 +254,12 @@
   "name": "AXA India"
  },
  "bain.com": {
-  "checked": "2026-11-04T22:05:15+00:00",
+  "checked": "2026-11-04T22:18:41+00:00",
   "hits": [],
   "name": "Bain Capability Network India"
  },
  "bakerhughes.com": {
-  "checked": "2026-11-04T22:05:10+00:00",
+  "checked": "2026-11-04T22:18:04+00:00",
   "hits": [],
   "name": "Baker Hughes India"
  },
@@ -290,7 +284,7 @@
   "name": "Bayer India"
  },
  "bcg.com": {
-  "checked": "2026-11-04T22:05:14+00:00",
+  "checked": "2026-11-04T22:18:40+00:00",
   "hits": [],
   "name": "Boston Consulting Group India"
  },
@@ -397,7 +391,7 @@
   "name": "Boston Scientific India"
  },
  "bp.com": {
-  "checked": "2026-11-04T22:05:10+00:00",
+  "checked": "2026-11-04T22:17:59+00:00",
   "hits": [],
   "name": "BP India"
  },
@@ -417,7 +411,7 @@
   "name": "Brookfield India"
  },
  "cadence.com": {
-  "checked": "2026-11-04T22:04:57+00:00",
+  "checked": "2026-11-04T22:17:18+00:00",
   "hits": [],
   "name": "Cadence India"
  },
@@ -452,7 +446,7 @@
   "name": "Centene India"
  },
  "chevron.com": {
-  "checked": "2026-11-04T22:05:10+00:00",
+  "checked": "2026-11-04T22:17:59+00:00",
   "hits": [],
   "name": "Chevron India"
  },
@@ -487,7 +481,7 @@
   "name": "Cohesity India"
  },
  "comcast.com": {
-  "checked": "2026-11-04T22:05:02+00:00",
+  "checked": "2026-11-04T22:17:44+00:00",
   "hits": [],
   "name": "Comcast India"
  },
@@ -606,7 +600,7 @@
   "name": "Dell Technologies India"
  },
  "deloitte.com": {
-  "checked": "2026-11-04T22:05:12+00:00",
+  "checked": "2026-11-04T22:18:25+00:00",
   "hits": [],
   "name": "Deloitte USI India"
  },
@@ -701,12 +695,12 @@
   "name": "Equiniti India"
  },
  "equinor.com": {
-  "checked": "2026-11-04T22:05:12+00:00",
+  "checked": "2026-11-04T22:18:20+00:00",
   "hits": [],
   "name": "Equinor India"
  },
  "ericsson.com": {
-  "checked": "2026-11-04T22:04:59+00:00",
+  "checked": "2026-11-04T22:17:38+00:00",
   "hits": [],
   "name": "Ericsson India"
  },
@@ -727,12 +721,12 @@
   "name": "Experian India"
  },
  "exxonmobil.com": {
-  "checked": "2026-11-04T22:05:10+00:00",
+  "checked": "2026-11-04T22:18:02+00:00",
   "hits": [],
   "name": "ExxonMobil India"
  },
  "ey.com": {
-  "checked": "2026-11-04T22:05:13+00:00",
+  "checked": "2026-11-04T22:18:25+00:00",
   "hits": [],
   "name": "EY GDS India"
  },
@@ -792,7 +786,7 @@
   "name": "FIS India"
  },
  "flutter.com": {
-  "checked": "2026-11-04T22:05:06+00:00",
+  "checked": "2026-11-04T22:17:51+00:00",
   "hits": [],
   "name": "Flutter Entertainment India"
  },
@@ -823,7 +817,7 @@
   "name": "Gap Inc India"
  },
  "gartner.com": {
-  "checked": "2026-11-04T22:05:06+00:00",
+  "checked": "2026-11-04T22:17:51+00:00",
   "hits": [],
   "name": "Gartner India"
  },
@@ -873,7 +867,7 @@
   "name": "GSK India"
  },
  "halliburton.com": {
-  "checked": "2026-11-04T22:05:11+00:00",
+  "checked": "2026-11-04T22:18:10+00:00",
   "hits": [],
   "name": "Halliburton India"
  },
@@ -898,7 +892,7 @@
   "name": "Hexagon India"
  },
  "hitachienergy.com": {
-  "checked": "2026-11-04T22:05:12+00:00",
+  "checked": "2026-11-04T22:18:21+00:00",
   "hits": [],
   "name": "Hitachi Energy India"
  },
@@ -1076,7 +1070,7 @@
   "name": "KKR India"
  },
  "kla.com": {
-  "checked": "2026-11-04T22:04:58+00:00",
+  "checked": "2026-11-04T22:17:24+00:00",
   "hits": [],
   "name": "KLA India"
  },
@@ -1086,7 +1080,7 @@
   "name": "Kohl's India"
  },
  "kpmg.com": {
-  "checked": "2026-11-04T22:05:13+00:00",
+  "checked": "2026-11-04T22:18:33+00:00",
   "hits": [
    {
     "ats": "lever",
@@ -1112,7 +1106,7 @@
   "name": "Labcorp India"
  },
  "lamresearch.com": {
-  "checked": "2026-11-04T22:04:57+00:00",
+  "checked": "2026-11-04T22:17:20+00:00",
   "hits": [],
   "name": "Lam Research India"
  },
@@ -1162,7 +1156,7 @@
   "name": "LSEG India"
  },
  "lumen.com": {
-  "checked": "2026-11-04T22:05:03+00:00",
+  "checked": "2026-11-04T22:17:47+00:00",
   "hits": [
    {
     "ats": "ashby",
@@ -1218,7 +1212,7 @@
   "name": "McKesson India"
  },
  "mckinsey.com": {
-  "checked": "2026-11-04T22:05:14+00:00",
+  "checked": "2026-11-04T22:18:34+00:00",
   "hits": [],
   "name": "McKinsey India"
  },
@@ -1264,12 +1258,12 @@
   "name": "MetLife India"
  },
  "mheducation.com": {
-  "checked": "2026-11-04T22:05:09+00:00",
+  "checked": "2026-11-04T22:17:58+00:00",
   "hits": [],
   "name": "McGraw Hill India"
  },
  "microchip.com": {
-  "checked": "2026-11-04T22:04:52+00:00",
+  "checked": "2026-11-04T22:17:17+00:00",
   "hits": [],
   "name": "Microchip India"
  },
@@ -1381,7 +1375,7 @@
   "name": "NetApp India"
  },
  "nielseniq.com": {
-  "checked": "2026-11-04T22:05:04+00:00",
+  "checked": "2026-11-04T22:17:50+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -1397,7 +1391,7 @@
   "name": "Nike India"
  },
  "nokia.com": {
-  "checked": "2026-11-04T22:05:00+00:00",
+  "checked": "2026-11-04T22:17:40+00:00",
   "hits": [],
   "name": "Nokia India"
  },
@@ -1463,7 +1457,7 @@
   "name": "OneMagnify India"
  },
  "onsemi.com": {
-  "checked": "2026-11-04T22:04:59+00:00",
+  "checked": "2026-11-04T22:17:32+00:00",
   "hits": [],
   "name": "onsemi India"
  },
@@ -1498,7 +1492,7 @@
   "name": "PayPal India"
  },
  "pearson.com": {
-  "checked": "2026-11-04T22:05:08+00:00",
+  "checked": "2026-11-04T22:17:55+00:00",
   "hits": [],
   "name": "Pearson India"
  },
@@ -1579,7 +1573,7 @@
   "name": "PVH India"
  },
  "pwc.com": {
-  "checked": "2026-11-04T22:05:13+00:00",
+  "checked": "2026-11-04T22:18:28+00:00",
   "hits": [],
   "name": "PwC Acceleration Centers India"
  },
@@ -1609,7 +1603,7 @@
   "name": "Red Hat India"
  },
  "relx.com": {
-  "checked": "2026-11-04T22:05:07+00:00",
+  "checked": "2026-11-04T22:17:54+00:00",
   "hits": [],
   "name": "RELX India"
  },
@@ -1619,7 +1613,7 @@
   "name": "Renault Nissan Technology and Business Centre India"
  },
  "renesas.com": {
-  "checked": "2026-11-04T22:04:53+00:00",
+  "checked": "2026-11-04T22:17:18+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -1727,7 +1721,7 @@
   "name": "ServiceNow India"
  },
  "shell.com": {
-  "checked": "2026-11-04T22:05:09+00:00",
+  "checked": "2026-11-04T22:17:58+00:00",
   "hits": [],
   "name": "Shell India"
  },
@@ -1742,12 +1736,12 @@
   "name": "Siemens Technology India"
  },
  "silabs.com": {
-  "checked": "2026-11-04T22:04:58+00:00",
+  "checked": "2026-11-04T22:17:28+00:00",
   "hits": [],
   "name": "Silicon Labs India"
  },
  "slb.com": {
-  "checked": "2026-11-04T22:05:10+00:00",
+  "checked": "2026-11-04T22:18:09+00:00",
   "hits": [],
   "name": "SLB India"
  },
@@ -1850,12 +1844,12 @@
   "name": "Syngenta India"
  },
  "synopsys.com": {
-  "checked": "2026-11-04T22:04:56+00:00",
+  "checked": "2026-11-04T22:17:18+00:00",
   "hits": [],
   "name": "Synopsys India"
  },
  "t-mobile.com": {
-  "checked": "2026-11-04T22:05:02+00:00",
+  "checked": "2026-11-04T22:17:41+00:00",
   "hits": [],
   "name": "T-Mobile India"
  },
@@ -1875,7 +1869,7 @@
   "name": "TE Connectivity India"
  },
  "telstra.com": {
-  "checked": "2026-11-04T22:05:03+00:00",
+  "checked": "2026-11-04T22:17:47+00:00",
   "hits": [],
   "name": "Telstra India"
  },
@@ -1905,7 +1899,7 @@
   "name": "Thermo Fisher Scientific India"
  },
  "thomsonreuters.com": {
-  "checked": "2026-11-04T22:05:04+00:00",
+  "checked": "2026-11-04T22:17:49+00:00",
   "hits": [],
   "name": "Thomson Reuters India"
  },
@@ -2033,12 +2027,12 @@
   "name": "Verisk India"
  },
  "verizon.com": {
-  "checked": "2026-11-04T22:05:01+00:00",
+  "checked": "2026-11-04T22:17:41+00:00",
   "hits": [],
   "name": "Verizon India"
  },
  "vestas.com": {
-  "checked": "2026-11-04T22:05:12+00:00",
+  "checked": "2026-11-04T22:18:22+00:00",
   "hits": [],
   "name": "Vestas India"
  },
@@ -2063,7 +2057,7 @@
   "name": "VMware India (Broadcom)"
  },
  "vodafone.com": {
-  "checked": "2026-11-04T22:05:01+00:00",
+  "checked": "2026-11-04T22:17:40+00:00",
   "hits": [],
   "name": "Vodafone India"
  },
@@ -2135,7 +2129,7 @@
   "name": "Williams-Sonoma India"
  },
  "wolterskluwer.com": {
-  "checked": "2026-11-04T22:05:07+00:00",
+  "checked": "2026-11-04T22:17:51+00:00",
   "hits": [],
   "name": "Wolters Kluwer India"
  },

@@ -30,7 +30,7 @@ import psycopg
 from psycopg.rows import dict_row
 
 IST = ZoneInfo("Asia/Kolkata")
-ISSUE_EPOCH = date(2026, 4, 27)        # issue no. 1 = the first Monday we have data for
+ISSUE_EPOCH = date(2026, 5, 4)        # issue no. 1 = the first week in the backfill
 TOPICS = ["expansions", "leadership", "funding", "policy", "hiring", "ai"]
 CAPS = dict(new=8, expanded=6, closed=5, leadership=6, funding=6, policy=5, ai=5, hiring=6, cities=5, reads=8, mine=6)
 
@@ -60,6 +60,14 @@ def classify(a):
         if re.search(rx, t):
             return cat
     return "other"
+
+
+GULF = re.compile(r"\b(gulf|saudi|uae|emirates|qatar|kuwait|oman|bahrain|dubai|abu dhabi|gcc (ecm|states|countries|markets|region|economies|nations|central bank)|gcc-based)\b", re.I)
+
+
+def gulf_noise(t):
+    """The other GCC (Gulf Cooperation Council): keep it out of the digest unless it is clearly about capability centres."""
+    return bool(GULF.search(t or "")) and not re.search(r"capabilit", t or "", re.I)
 
 
 def clean_title(t):
@@ -112,6 +120,7 @@ def collect(conn, monday):
                                 (body IS NOT NULL AND body<>'') AS own
                          FROM articles WHERE published_at>=%s AND published_at<%s
                          ORDER BY published_at DESC""", args)
+    arts = [a for a in arts if not gulf_noise(a["title"])]
     for a in arts:
         a["cat"] = classify(a)
         a["clean"] = clean_title(a["title"])
@@ -119,6 +128,10 @@ def collect(conn, monday):
     exps = rows(conn, """SELECT id,company_name,city,event,headcount,summary,source_url,announced_at,verified
                          FROM expansions WHERE announced_at>=%s AND announced_at<%s
                          ORDER BY announced_at DESC""", args)
+    exps = [x for x in exps if not gulf_noise(f"{x['company_name']} {x['summary']}")]
+    exp_urls = {x["source_url"] for x in exps if x["source_url"]}
+    story_n = len(arts)
+    arts = [a for a in arts if a["source_url"] not in exp_urls]    # the centres table already carries these
     moves = rows(conn, """SELECT person,role,company_name,city,kind,source_url,published_at FROM people_moves
                           WHERE published_at>=%s AND published_at<%s ORDER BY published_at DESC""", args)
     funds = rows(conn, """SELECT company_name,kind,amount_text,round,investors,summary,source_url,published_at FROM fundings
@@ -131,7 +144,7 @@ def collect(conn, monday):
     new_roles = conn.execute("SELECT count(*)::int n FROM job_postings WHERE first_seen>=%s AND first_seen<%s", args).fetchone()["n"]
     prev_s = s - timedelta(days=7)
     prev = conn.execute("SELECT count(*)::int n FROM articles WHERE published_at>=%s AND published_at<%s", (prev_s, s)).fetchone()["n"]
-    return dict(arts=arts, exps=exps, moves=moves, funds=funds, hiring=hiring, new_roles=new_roles, prev_stories=prev)
+    return dict(story_n=story_n, arts=arts, exps=exps, moves=moves, funds=funds, hiring=hiring, new_roles=new_roles, prev_stories=prev)
 
 
 def build_data(conn, monday):
@@ -165,9 +178,28 @@ def build_data(conn, monday):
         return dict(company=x["company_name"], city=x["city"] or "", headcount=x["headcount"], event=x["event"],
                     summary=(x["summary"] or "")[:200], url=x["source_url"] or "")
 
-    new = [ex_item(x) for x in exps if x["event"] in ("opened", "announced")]
-    expanded = [ex_item(x) for x in exps if x["event"] == "expanded"]
-    closed = [ex_item(x) for x in exps if x["event"] == "closed"]
+    seen_ex = set()
+
+    def uniq(items):
+        out = []
+        for i in items:
+            k = re.sub(r"[^a-z0-9]", "", f"{i['company']}{i['summary']}".lower())[:34]
+            k2 = re.sub(r"[^a-z0-9]", "", i["summary"].lower())[:28]
+            if k in seen_ex or (k2 and k2 in seen_ex):
+                continue
+            seen_ex.update({k, k2})
+            out.append(i)
+        return out
+
+    def ex_item(x, _f=ex_item):
+        i = _f(x)
+        sm = (x["summary"] or "")
+        i["summary"] = sm if len(sm) <= 160 else sm[:160].rsplit(" ", 1)[0] + "\u2026"
+        return i
+
+    new = uniq([ex_item(x) for x in exps if x["event"] in ("opened", "announced")])
+    expanded = uniq([ex_item(x) for x in exps if x["event"] == "expanded"])
+    closed = uniq([ex_item(x) for x in exps if x["event"] == "closed"])
 
     # leadership: people_moves first, then categorised articles
     leadership = [dict(title=f"{m['person']}, {m['role']}, {m['company_name']}".replace(", None", "").replace(", ,", ","),
@@ -179,7 +211,9 @@ def build_data(conn, monday):
     buckets = {"leadership": leadership, "funding": funding, "policy": [], "ai": [], "expansion": [], "hiring": []}
     seen_titles = set()
     for a in arts:
-        if a["id"] in used or a["cat"] not in buckets:
+        if a["id"] in used or len(a["clean"]) < 25:
+            continue
+        if a["cat"] not in buckets:
             continue
         key = a["clean"].lower()[:60]
         if key in seen_titles:
@@ -195,6 +229,8 @@ def build_data(conn, monday):
                   key=lambda a: ((a["score"] or 0) + (a["comment_count"] or 0), a["published_at"]), reverse=True)
     reads, seen = [], set()
     for a in rest:
+        if len(a["clean"]) < 25:
+            continue
         k = a["clean"].lower()[:60]
         if k in seen:
             continue
@@ -216,9 +252,9 @@ def build_data(conn, monday):
             cc[x["city"]] = cc.get(x["city"], 0) + 1
     cities = [dict(city=c, n=n) for c, n in sorted(cc.items(), key=lambda kv: (-kv[1], kv[0]))[: CAPS["cities"]]]
 
-    hiring = [dict(company=h["name"], parent=h["parent_company"] or "", n=h["n"], loc=h["loc"] or "") for h in d["hiring"]]
+    hiring = [dict(company=h["name"], parent=h["parent_company"] or "", n=h["n"], loc=re.sub(r"(\s*,)+\s*", ", ", h["loc"] or "").strip(", ")) for h in d["hiring"]]
     heads = sum(x["headcount"] or 0 for x in exps if x["event"] in ("opened", "expanded", "announced"))
-    numbers = dict(stories=len(arts), prev_stories=d["prev_stories"], new_centres=len(new), expanded=len(expanded), closed=len(closed),
+    numbers = dict(stories=d["story_n"], prev_stories=d["prev_stories"], new_centres=len(new), expanded=len(expanded), closed=len(closed),
                    headcount=heads, new_roles=d["new_roles"], top_city=cities[0]["city"] if cities else "",
                    leadership=len(leadership), funding=len(funding))
     data = dict(week_start=monday.isoformat(), week_end=(monday + timedelta(days=6)).isoformat(), issue=issue_no(monday),
