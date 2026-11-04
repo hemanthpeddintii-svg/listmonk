@@ -34,7 +34,7 @@ export default async function Companies({ searchParams: sp }) {
     q("SELECT DISTINCT industry i FROM companies WHERE industry IS NOT NULL ORDER BY 1")]);
   const saved = u ? new Set((await q("SELECT company_id FROM saved_companies WHERE user_id=$1", [u.id])).map(r => r.company_id)) : new Set();
   const qs = (o) => "?" + new URLSearchParams(Object.entries({ ...sp, ...o }).filter(([, v]) => v)).toString();
-  return (<main><h1>GCC companies in India</h1>
+  return (<main className="wrap page"><h1>GCC companies in India</h1>
     <form className="row"><input name="q" placeholder="Search company or parent" defaultValue={sp.q} />
       <select name="city" defaultValue={sp.city || ""}><option value="">All cities</option>{cities.map(r => <option key={r.c}>{r.c}</option>)}</select>
       <select name="industry" defaultValue={sp.industry || ""}><option value="">All industries</option>{inds.map(r => <option key={r.i}>{r.i}</option>)}</select>

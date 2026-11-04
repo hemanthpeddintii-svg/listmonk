@@ -1,28 +1,48 @@
 import { q } from "../lib/db";
 import { ActionForm } from "../components/Forms";
+import IndiaMap from "../components/IndiaMap";
+import Finder from "../components/Finder";
+import Reveal from "../components/Reveal";
+import CountUp from "../components/CountUp";
 import { captureLead } from "./actions";
 export const dynamic = "force-dynamic";
+const CITIES = ["Bengaluru", "Hyderabad", "Pune", "Chennai", "Delhi NCR", "Mumbai"];
 export default async function Home() {
-  const [s] = await q(`SELECT (SELECT count(*) FROM companies)::int companies,
-    (SELECT count(*) FROM job_postings)::int jobs, (SELECT count(*) FROM signals)::int signals,
-    (SELECT max(last_refreshed_at) FROM companies) refreshed`).catch(() => [{}]);
+  const [s] = await q(`SELECT (SELECT count(*) FROM companies)::int companies,(SELECT count(*) FROM job_postings)::int jobs,
+    (SELECT count(*) FROM signals)::int signals`).catch(() => [{ companies: 0, jobs: 0, signals: 0 }]);
+  const dbCities = (await q("SELECT DISTINCT unnest(india_cities) c FROM companies ORDER BY 1").catch(() => [])).map(r => r.c);
+  const inds = (await q("SELECT industry i,count(*) n FROM companies WHERE industry IS NOT NULL GROUP BY 1 ORDER BY 2 DESC").catch(() => [])).map(r => r.i);
+  const names = (await q("SELECT name FROM companies ORDER BY last_refreshed_at DESC NULLS LAST LIMIT 20").catch(() => [])).map(r => r.name);
+  const ticker = names.length ? names : ["Microsoft", "Goldman Sachs", "Walmart", "JPMorgan", "Airbus", "Siemens", "Target", "Cisco"];
+  const cities = [...new Set([...CITIES, ...dbCities])];
   return (<main>
-    <section className="hero"><h1>The database of every Global Capability Center in India</h1>
-      <p>2,000+ GCCs with parent company, cities, headcount, tech stack and live hiring signals — refreshed every 3 days.</p>
-      <a className="btn" href="/signup">Get free access</a> <a className="btn ghost" href="/companies">Browse companies</a></section>
-    <section className="grid">
-      <div className="card stat"><b>{s.companies ?? 0}</b><span className="mut">companies tracked</span></div>
-      <div className="card stat"><b>{s.jobs ?? 0}</b><span className="mut">India job postings</span></div>
-      <div className="card stat"><b>{s.signals ?? 0}</b><span className="mut">news &amp; expansion signals</span></div>
-      <div className="card stat"><b>{s.refreshed ? new Date(s.refreshed).toISOString().slice(0, 10) : "—"}</b><span className="mut">last refresh</span></div>
-    </section>
-    <h2>Built for sales, recruiting and market research teams</h2>
-    <section className="grid">
-      <div className="card"><h3>Find the right GCCs</h3><p className="mut">Filter by city, industry, parent company and size.</p></div>
-      <div className="card"><h3>Hiring signals</h3><p className="mut">Newest India job postings per company, updated every 3 days.</p></div>
-      <div className="card"><h3>Alerts &amp; exports</h3><p className="mut">Save searches, get alerts, export CSV (Pro).</p></div>
-    </section>
-    <h2>Get the GCC market brief</h2>
-    <ActionForm action={captureLead} submit="Email me the brief" className="row"><input name="email" type="email" placeholder="work email" required /></ActionForm>
-  </main>);
+    <section className="hero"><IndiaMap />
+      <div className="wrap" style={{ width: "100%" }}><div className="hero-copy">
+        <div className="eyebrow"><i />Live · refreshed every 72 hours</div>
+        <h1><span className="line"><span>Every GCC</span></span><span className="line"><span>in India,</span></span><span className="line"><span><em>alive</em> on one map.</span></span></h1>
+        <p className="lead">2,000+ Global Capability Centers — who runs them, where they sit, what they&apos;re hiring for this week.</p>
+        <div className="cta"><a className="btn" href="#finder">Find your GCCs <span>↓</span></a><a className="btn ghost" href="/companies">Browse all</a></div>
+      </div></div><div className="scrollhint">SCROLL ↓</div></section>
+
+    <div className="ticker-clip"><div className="ticker"><div className="ticker-track">{[...ticker, ...ticker].map((n, i) => <span key={i}>{n} <b>✦</b> </span>)}</div></div></div>
+
+    <div className="wrap">
+      <section className="section"><Reveal><h2>The market moves weekly. <em>Your list should too.</em></h2></Reveal>
+        <div className="stats">
+          <Reveal className="block c1" delay={0}><b><CountUp to={Math.max(s.companies, 0)} /></b><span>companies tracked</span></Reveal>
+          <Reveal className="block c2" delay={100}><b><CountUp to={s.jobs} /></b><span>India job postings</span></Reveal>
+          <Reveal className="block c3" delay={200}><b><CountUp to={s.signals} /></b><span>news &amp; expansion signals</span></Reveal>
+          <Reveal className="block c4" delay={300}><b><CountUp to={3} suffix="d" /></b><span>refresh cycle</span></Reveal></div></section>
+
+      <Reveal><div className="finder-wrap"><h2 style={{ fontSize: "clamp(30px,4.5vw,56px)" }}>Three questions. <em>One shortlist.</em></h2>
+        <Finder cities={cities} industries={inds} /></div></Reveal>
+
+      <section className="section"><div className="refresh">
+        <Reveal><div className="dial"><i /><i /><i /><i className="sweep" /><b><span>72<small>HOURS</small></span></b></div></Reveal>
+        <Reveal delay={150}><h2 style={{ fontSize: "clamp(34px,4.6vw,60px)" }}>A database that <em>never sits still.</em></h2>
+          <ol className="steps"><li>Crawl careers pages &amp; job boards</li><li>Detect hiring surges and expansions</li><li>Read the news around each parent</li><li>Publish — newest first</li></ol></Reveal></div></section>
+
+      <Reveal><section className="section" style={{ paddingTop: 0 }}><h2 style={{ fontSize: "clamp(32px,4.6vw,60px)" }}>Get the GCC market brief — <em>free.</em></h2>
+        <ActionForm action={captureLead} submit="Email me →" className="row"><input name="email" type="email" placeholder="you@company.com" required style={{ minWidth: 280 }} /></ActionForm></section></Reveal>
+    </div></main>);
 }

@@ -11,7 +11,7 @@ export default async function Admin() {
     (SELECT count(*) FROM companies WHERE last_refreshed_at IS NULL OR last_refreshed_at < now()-interval '3 days')::int stale`);
   const users = await q("SELECT id,email,plan,role,created_at FROM users ORDER BY id DESC LIMIT 50");
   const runs = await q("SELECT * FROM ingestion_runs ORDER BY id DESC LIMIT 10");
-  return (<main><h1>Admin</h1>
+  return (<main className="wrap page"><h1>Admin</h1>
     <div className="grid">{Object.entries(s).map(([k, v]) => <div key={k} className="card stat"><b>{v}</b><span className="mut">{k}</span></div>)}</div>
     <h2>Import companies (CSV)</h2>
     <p className="mut">Columns: name, domain, parent_company, hq_country, cities (;-separated), industry, gcc_function, india_headcount_range, year_established, tech_stack, careers_url</p>

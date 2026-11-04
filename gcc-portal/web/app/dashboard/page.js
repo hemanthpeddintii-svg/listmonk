@@ -10,7 +10,7 @@ export default async function Dashboard({ searchParams }) {
     FROM saved_companies s JOIN companies c ON c.id=s.company_id WHERE s.user_id=$1 ORDER BY s.created_at DESC`, [u.id]);
   const alerts = await q("SELECT id,name,query FROM saved_searches WHERE user_id=$1 ORDER BY id DESC", [u.id]);
   const up = PLANS[searchParams.upgrade] && searchParams.upgrade !== "free" ? searchParams.upgrade : null;
-  return (<main><h1>Welcome{u.name ? `, ${u.name}` : ""}</h1>
+  return (<main className="wrap page"><h1>Welcome{u.name ? `, ${u.name}` : ""}</h1>
     <div className="card">Plan: <b>{p.label}</b>{u.plan_expires_at && <> · renews/expires {new Date(u.plan_expires_at).toISOString().slice(0, 10)}</>}
       {up && <p>To upgrade to <b>{PLANS[up].label}</b> ({PLANS[up].price}) online checkout is being connected — contact us and an admin can enable it.</p>}
       {u.plan === "free" && !up && <p><a href="/pricing">Upgrade</a> for the full database, exports and alerts.</p>}</div>

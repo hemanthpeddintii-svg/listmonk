@@ -18,7 +18,7 @@ export default async function Company({ params }) {
     q("SELECT * FROM signals WHERE company_id=$1 ORDER BY published_at DESC NULLS LAST, id DESC LIMIT $2", [id, p.signals]),
     u ? q("SELECT 1 FROM saved_companies WHERE user_id=$1 AND company_id=$2", [u.id, id]) : [null]]);
   const [{ nj, ns }] = await q("SELECT (SELECT count(*)::int FROM job_postings WHERE company_id=$1) nj,(SELECT count(*)::int FROM signals WHERE company_id=$1) ns", [id]);
-  return (<main>
+  return (<main className="wrap page">
     <p><a href="/companies">← All companies</a></p>
     <h1>{c.name}</h1>
     <p className="mut">{[c.parent_company, c.hq_country, (c.india_cities || []).join(", "), c.industry].filter(Boolean).join(" · ")}</p>
