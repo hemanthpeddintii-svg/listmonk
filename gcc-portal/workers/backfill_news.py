@@ -9,6 +9,7 @@ import requests, psycopg
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from news import CITIES as BASE_CITIES, OPEN, CLOSE, GULF  # noqa: E402
+from relevance import is_relevant  # noqa: E402
 
 CITIES = BASE_CITIES + ["Jaipur", "Indore", "Visakhapatnam"]
 CITY_ALIASES = {"Gurgaon": "Gurugram", "Bangalore": "Bengaluru", "Vizag": "Visakhapatnam", "Cochin": "Kochi",
@@ -118,7 +119,7 @@ def main():
                 if not it["title"] or not it["url"] or not it["at"] or it["url"] in seen:
                     continue
                 seen.add(it["url"]); n_seen += 1
-                if GULF.search(it["title"]) or not (lo <= it["at"] < hi):
+                if GULF.search(it["title"]) or not is_relevant(it["title"]) or not (lo <= it["at"] < hi):
                     continue
                 title = it["title"]
                 city = detect_city(title)

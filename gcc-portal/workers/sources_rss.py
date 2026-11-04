@@ -6,9 +6,9 @@ transiently for the relevance test and is never written to the database.
 Relevance filter (transparent, see GCC_PHRASE / GCC_BARE / GULF below):
   * accept: "global capability cent(er|re)", "capability cent(er|re)", "captive (cent(er|re)|unit)" in the headline
     (or, for feed items, the description snippet);
-  * accept: bare "GCC"/"GCCs" in the headline only when there is India context (an Indian city/state/Nasscom/crore/...)
-    and no Gulf context;
-  * reject: Gulf Cooperation Council items (Saudi/UAE/Qatar/... without a capability-centre phrase), and
+  * accept: bare "GCC"/"GCCs" (case-sensitive) in the headline when there is India context (Indian city/state/Nasscom/crore/...)
+    or capability-centre sense words (hiring, talent, leaders, AI, operating model, ...) and no Gulf context;
+  * reject: Gulf Cooperation Council items ("GCC countries", Saudi/UAE/Qatar/..., GCC + industrial/logistics/oil/bonds...), and
     "Greater Chennai Corporation" (also abbreviated GCC).
 Dedup: source_url (ON CONFLICT DO NOTHING) + normalised-title match (exact, or token-Jaccard >= 0.8 within 5 days)
 against everything already in `articles` and against items seen earlier in the same run -> first one kept.
@@ -26,6 +26,7 @@ import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+from relevance import is_relevant as _is_relevant
 OUTLETS_JSON = os.path.join(HERE, "data", "outlets.json")
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
       "Accept": "application/rss+xml,application/atom+xml,application/xml,text/xml,*/*"}
@@ -44,6 +45,12 @@ INDIA_CTX = re.compile(
 GULF = re.compile(r"gulf cooperation|\bgcc (countries|nations|states|region|markets?|summit|leaders|bloc|members?|"
                   r"central bank)\b|\b(saudi|riyadh|jeddah|uae|dubai|abu dhabi|qatar|doha|kuwait|oman|bahrain|emirates|"
                   r"gulf)\b", re.I)
+GULF_SECTOR = re.compile(r"\bGCC\b.{0,40}\b(industrial|logistics|property|real estate|bonds?|sukuk|sovereign|stocks?|equit(y|ies)|"
+                         r"economy|banks?|airlines?|telecom|tourism|visa|oil|gas|energy|data cent(er|re)s?|warehous\w*)\b|"
+                         r"\b(industrial|logistics|property|real estate|sukuk|sovereign|oil|tourism)\b.{0,40}\bGCC\b", re.I)
+GCC_SENSE = re.compile(r"\b(hiring|talent|jobs|leaders?|leadership|cxo|ai|agentic|operating model|ecosystem|workforce|roles?|"
+                       r"engineering|innovation|skills?|upskilling|offshore|set(s|ting)? up|expan\w+|head|heads|cio|cto|"
+                       r"enterprise|digital|transformation|mandate|maturity|value|scale|capabilit\w+)\b", re.I)
 CHENNAI_CORP = re.compile(r"greater chennai|chennai corporation|\bGCC\b.{0,30}\b(commissioner|mayor|school|park|ward|zone|"
                           r"councillor|councillors|corporation)\b", re.I)
 
@@ -54,10 +61,12 @@ def relevant(title, desc=""):
     if GCC_PHRASE.search(t):
         return True, "phrase-title"
     if GCC_BARE.search(t) and not CHENNAI_CORP.search(t):
-        if GULF.search(t):
+        if GULF.search(t) or GULF_SECTOR.search(t):
             return False, "gulf"
         if INDIA_CTX.search(t):
             return True, "gcc-india-title"
+        if GCC_SENSE.search(t):
+            return True, "gcc-capability-sense"
         return False, "gcc-no-india-ctx"
     if desc and GCC_PHRASE.search(desc) and not GULF.search(t + " " + desc[:300]):
         return True, "phrase-desc"
@@ -368,7 +377,28 @@ def fetch_feed(feed):
         return feed, "failed", 0, []
 
 
+_CACHE = {}
+_CACHE_PATH = os.environ.get("SOURCES_CACHE")      # optional: raw Google News results, so filter tweaks need no refetch
+if _CACHE_PATH and os.path.exists(_CACHE_PATH):
+    try:
+        _CACHE = json.load(open(_CACHE_PATH))
+    except Exception:
+        _CACHE = {}
+
+
 def gnews(domain, a, b, sleep=1.0):
+    key = f"{domain}|{a}|{b}"
+    if key in _CACHE:
+        return [dict(i, at=parse_date(i["at"])) for i in _CACHE[key]]
+    out = _gnews(domain, a, b, sleep)
+    if out is not None and _CACHE_PATH:
+        _CACHE[key] = [dict(i, at=i["at"].isoformat() if i["at"] else None) for i in out]
+        if len(_CACHE) % 20 == 0:
+            json.dump(_CACHE, open(_CACHE_PATH, "w"))
+    return out
+
+
+def _gnews(domain, a, b, sleep=1.0):
     q = f'site:{domain} ("global capability" OR "capability centre" OR "capability center" OR GCC OR "captive centre") after:{a:%Y-%m-%d} before:{b:%Y-%m-%d}'
     url = "https://news.google.com/rss/search?q=" + urllib.parse.quote(q) + "&hl=en-IN&gl=IN&ceid=IN:en"
     for attempt in range(3):
@@ -418,6 +448,7 @@ def main():
     ap.add_argument("--recent-days", type=int, default=10, help="Google News window for the daily run")
     ap.add_argument("--check", action="store_true", help="only re-verify feed URLs and rewrite outlets.json")
     ap.add_argument("--no-gnews", action="store_true")
+    ap.add_argument("--all-gnews", action="store_true", help="daily run: query every outlet via Google News, not just feed-less ones")
     ap.add_argument("--no-feeds", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--workers", type=int, default=4)
@@ -458,6 +489,10 @@ def main():
     gstats = {}
     if not (args.no_gnews or args.check):
         doms = sorted({d for _, d in OUTLETS})
+        if not args.backfill and not args.all_gnews:
+            # daily run: only outlets with no working direct feed need Google News (keeps the run to a few minutes)
+            live = {o for o, _, u, _ in FEEDS if stats_feed.get(u, {}).get("status") == "ok"}
+            doms = sorted({d for o, d in OUTLETS if o not in live})
         if args.backfill:
             wins = list(windows(dt.date.fromisoformat(args.start), end, 14))
         else:
@@ -522,6 +557,7 @@ def main():
         if url in urls or idx.dup(it["title"], at):
             skipped_dup += 1; continue
         title = html.unescape(it["title"]).strip()
+        if not _is_relevant(title): continue  # enrich agent: shared relevance gate (workers/relevance.py)
         city = detect_city(title) or city_hint
         cid = next((i for i, par in names if par.lower() in title.lower()), None) if names else None
         if conn:
@@ -572,6 +608,8 @@ def main():
           f"duplicates skipped: {skipped_dup}; INSERTED: {ins}")
     print("per outlet:", dict(per_outlet.most_common()))
     print("per month:", dict(sorted(per_month.items())))
+    if _CACHE_PATH:
+        json.dump(_CACHE, open(_CACHE_PATH, "w"))
     if os.environ.get("SOURCES_DUMP"):
         with open(os.environ["SOURCES_DUMP"], "w") as f:
             json.dump(inserted_rows, f, ensure_ascii=False)

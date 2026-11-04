@@ -1,0 +1,238 @@
+{
+  "_note": "State GCC policy tracker. Every row records only what the cited source (fetched and read on 2026-11-04) states; 'unknown' means the source did not say. status: notified | cabinet-approved | draft | scheme-within-broader-policy | proposed | none-found. source_type: official | law-firm | press. Rates for several states were not in the pages we could read; see 'unverified' in the report.",
+  "policies": [
+    {
+      "state": "Karnataka",
+      "name": "Karnataka Global Capability Centre Policy 2024-29",
+      "year": 2024,
+      "status": "notified",
+      "source_type": "law-firm",
+      "summary": "First state GCC policy; final version released 19 Nov 2024 at Bengaluru Tech Summit after a draft in Sept 2024. Targets 500 new GCCs (1,000 total) by 2029, about 3.5 lakh jobs and USD 50 bn output (India Briefing). Beyond-Bengaluru push covers Mysuru, Mangaluru, Hubballi-Dharwad-Belagavi, Tumakuru, Kalaburagi, Shivamogga.",
+      "incentives": [
+        "Beyond-Bengaluru funding raised from 40% to 75% of cost, with the cap lowered from INR 5 crore to INR 3 crore",
+        "Internet expense reimbursement capped at INR 12 lakh per year for the first 3 years of operations",
+        "Internship stipend reimbursement for up to 1 lakh students, GCC gets 50% back (India Briefing)",
+        "Five-year electricity duty exemption for Beyond-Bengaluru GCCs; fast-track approvals within 45 days (India Briefing)"
+      ],
+      "source_url": "https://khaitanco.com/thought-leadership/Karnatakas-Final-GCC-Policy-Launched",
+      "extra_sources": ["https://india-briefing.com/news/karnataka-global-capability-center-policy-2024-2029-key-features-35441.html"]
+    },
+    {
+      "state": "Telangana",
+      "name": "No dedicated GCC policy yet (new policy being drafted)",
+      "year": null,
+      "status": "draft",
+      "source_type": "press",
+      "summary": "Siasat (17 Sep 2026) reports Telangana is still drafting a new GCC policy, with no effective date or final text. The draft favours frontier technology (space, semiconductors, AI, quantum, advanced life sciences) over broad-based incentives, aims to steer centres to Tier-2 towns (Warangal, Adilabad, Karimnagar, Nizamabad) and benchmarks Karnataka and Maharashtra.",
+      "incentives": [
+        "No amounts specified; officials said incentives would be reserved for investments that build new ecosystems",
+        "Existing general support is the TS-iPASS single-window clearance system (per a Legal500/Mondaq comparison; not a GCC-specific scheme)"
+      ],
+      "source_url": "https://www.siasat.com/new-telangana-gcc-policy-to-focus-on-ai-space-semiconductors-3543873/",
+      "extra_sources": ["https://www.legal500.com/intelligence/india/government-public-sector/choosing-the-right-location-in-india-for-your-gcc"]
+    },
+    {
+      "state": "Tamil Nadu",
+      "name": "Special Scheme to Promote GCCs in Tamil Nadu, 2024",
+      "year": 2024,
+      "status": "scheme-within-broader-policy",
+      "source_type": "law-firm",
+      "summary": "Cyril Amarchand Mangaldas says Tamil Nadu has no standalone GCC policy; it has a dedicated scheme introduced 12 March 2024, operating 1 Apr 2024 to 31 Mar 2027, capped at 50 GCCs. Applications go to Guidance Tamil Nadu, are reviewed by an Inter-Departmental Committee and sanctioned by the Commissioner of Investment Promotion and Facilitation.",
+      "incentives": [
+        "Payroll subsidy of 30% in year one, 20% in year two, 10% in year three",
+        "Applies to roles with monthly payroll cost of INR 1,00,000 or more, for Tamil Nadu-domiciled employees only",
+        "Eligibility: GCC of a Forbes Global 2000 / Fortune 1000 company with at least 200 direct employees"
+      ],
+      "source_url": "https://corporate.cyrilamarchandblogs.com/2025/11/tamil-nadu-2030-the-gcc-revolution-powering-the-usd-1-trillion-economy-dream/"
+    },
+    {
+      "state": "Maharashtra",
+      "name": "Maharashtra Global Capability Centre (GCC) Policy 2025",
+      "year": 2025,
+      "status": "cabinet-approved",
+      "source_type": "law-firm",
+      "summary": "Cabinet approved 30 Sep 2025; valid five years through FY 2029-30 (Legal500/Mondaq). Targets about 400 new GCCs, about 4 lakh high-skilled jobs and about INR 50,600 crore investment. The sources we read list incentive categories but not rates or caps.",
+      "incentives": [
+        "Fiscal (tied to fixed capital investment): capital subsidy or rental assistance, payroll subsidy, interest subsidy, incremental-investment incentives; rates not stated in source",
+        "Power tariff subsidy, electricity duty exemption, stamp duty and property tax exemptions",
+        "Industry status for GCCs, additional FSI, reserved MIDC land with priority allotment",
+        "24x7 operations and flexible employment conditions"
+      ],
+      "source_url": "https://corporate.cyrilamarchandblogs.com/2025/10/maharashtra-pushes-toward-claiming-a-bigger-piece-of-the-gcc-pie-mh-gcc-policy-2025/",
+      "extra_sources": ["https://www.legal500.com/intelligence/india/tax/the-maharashtra-government-has-recently-issued-the-global-capability-center-gcc-policy-2025-which-will-remain-in-effect-for-five-years-ie-till-fy-2029-30"]
+    },
+    {
+      "state": "Uttar Pradesh",
+      "name": "Uttar Pradesh Global Capability Centres Policy 2024",
+      "year": 2024,
+      "status": "cabinet-approved",
+      "source_type": "official",
+      "summary": "Invest UP page lists the policy with an English PDF uploaded 5 Jun 2025 and a later version 20 Apr 2026 (the page's highlights section still says 'draft'). The Week reports cabinet approval on 6 May 2025 and aims at tier-2/3 cities beyond Noida/NCR. Two incentive tiers: Level-1 and Advanced.",
+      "incentives": [
+        "Capital subsidy 25% of eligible investment, up to INR 10 crore (Level-1) or INR 25 crore (Advanced), over seven years",
+        "Operational subsidy 20% of opex, up to INR 40 crore (Level-1) or INR 80 crore (Advanced) a year, for five years",
+        "Payroll subsidy for three years, up to INR 10 crore (Level-1) or INR 20 crore (Advanced) a year",
+        "INR 20,000 per UP-domicile fresher for five years (minimum 30 hires a year); land front-end subsidy of 30-50%"
+      ],
+      "source_url": "https://invest.up.gov.in/up-gcc-policy-2024/",
+      "extra_sources": ["https://www.theweek.in/news/biz-tech/2025/05/06/up-cabinet-approves-gcc-policy-to-benefit-developing-tier-2-and-3-cities-in-the-state.html"]
+    },
+    {
+      "state": "Gujarat",
+      "name": "Gujarat Global Capability Centre (GCC) Policy (2025-30)",
+      "year": 2025,
+      "status": "notified",
+      "source_type": "press",
+      "summary": "Launched 11 Feb 2025 at GIFT City by CM Bhupendra Patel; formulated by the Department of Science and Technology. Targets at least 250 new GCC units, over 50,000 jobs and over INR 10,000 crore investment (the state DST page confirms name, period and targets but gives no rates).",
+      "incentives": [
+        "CAPEX assistance up to INR 50 crore (GFCI below INR 250 crore) or up to INR 200 crore (above)",
+        "OPEX assistance up to INR 20 crore (GFCI below INR 250 crore) or up to INR 40 crore (above)",
+        "7% interest subsidy on term loans capped at INR 1 crore; full electricity duty reimbursement",
+        "EPF reimbursement 100% for female and 75% for male employees; hiring aid of 50% of one month's CTC (cap INR 50,000 male / INR 60,000 female)"
+      ],
+      "source_url": "https://deshgujarat.com/2025/02/11/gujarat-global-capability-centre-policy-2025-30-launched-at-gift-city-gandhinagar/",
+      "extra_sources": ["https://dst.gujarat.gov.in/Home/GujaratGlobalCapabilityCenter"]
+    },
+    {
+      "state": "Andhra Pradesh",
+      "name": "Andhra Pradesh IT & GCC Policy (4.0) 2024-29",
+      "year": 2024,
+      "status": "notified",
+      "source_type": "law-firm",
+      "summary": "Introduced by order dated 12 Dec 2024 as a combined IT and GCC policy. Khaitan notes the operating guidelines would be issued separately, and its summary gives incentive types but no percentages or caps.",
+      "incentives": [
+        "Recruitment incentives for certain employees",
+        "Rental subsidies and power incentives",
+        "Employee incentives",
+        "Early-bird incentives such as rent exemption in government buildings"
+      ],
+      "source_url": "https://khaitanco.com/thought-leadership/Impetus-to-GCCs-in-India-Andhra-Pradesh-Releases-its-IT-and-GCC-Policy"
+    },
+    {
+      "state": "Kerala",
+      "name": "Kerala GCC policy (draft; no notified policy verified)",
+      "year": null,
+      "status": "draft",
+      "source_type": "press",
+      "summary": "The Main Stream (17 Sep 2025) reports Infopark's CEO describing a draft comprehensive GCC policy to be launched that year; we found no confirmation that it was notified. A July 2026 report describes a 'Kerala GCC Outlook 2026' roadmap targeting 150 GCCs and about 2 lakh jobs by 2031 (up from 45), without saying it is formal policy.",
+      "incentives": [
+        "Incentives for GCCs promised, no amounts or eligibility stated",
+        "Single-window system for permits through to start of operations (planned)",
+        "Dedicated support teams at Technopark (Thiruvananthapuram) and Infopark (Kochi)"
+      ],
+      "source_url": "https://themainstream.co.in/?p=93060",
+      "extra_sources": ["https://www.gktoday.in/kerala-targets-150-global-capability-centres-by-2031/"]
+    },
+    {
+      "state": "Odisha",
+      "name": "Odisha Global Capability Centre Policy 2025",
+      "year": 2025,
+      "status": "cabinet-approved",
+      "source_type": "press",
+      "summary": "Odisha Bytes (21 Nov 2025) reports cabinet approval, with targets of over INR 1,000 crore investment, at least five GCC hubs and over 50,000 direct and indirect jobs. The article does not state validity or amounts.",
+      "incentives": [
+        "Subsidised land rates and lease rentals; power tariff concessions",
+        "SGST reimbursement and PF/ESI benefits; capital support",
+        "Relocation packages and co-working rental subsidies",
+        "Internship and hiring support; customised incentives for large GCCs"
+      ],
+      "source_url": "https://odishabytes.com/odisha-to-have-gcc-policy-2025-to-attract-rs-1000-cr-investments-create-50000-jobs/amp"
+    },
+    {
+      "state": "Rajasthan",
+      "name": "Rajasthan Global Capability Center Policy 2025",
+      "year": 2025,
+      "status": "notified",
+      "source_type": "press",
+      "summary": "Issued 2 Dec 2025 by the Government of Rajasthan; effective on notification and valid until 31 Mar 2029 or until a new or revised policy, whichever is earlier (TeamLease RegTech). Procedural guidelines followed; the update does not give amounts or percentages.",
+      "incentives": [
+        "Capital subsidy",
+        "Operational support",
+        "Workforce incentives"
+      ],
+      "source_url": "https://teamleaseregtech.com/updates/article/50160/rajasthan-govt-issued-the-global-capability-center-policy-2025/"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "name": "Madhya Pradesh GCC Policy 2025",
+      "year": 2025,
+      "status": "notified",
+      "source_type": "press",
+      "summary": "ETV Bharat (14 Feb 2025) reports MP unveiled its GCC policy ahead of the Global Investors' Summit in Bhopal (24-25 Feb 2025). Exact unveiling date and amounts are not given in the article.",
+      "incentives": [
+        "Capital expenditure incentive",
+        "Payroll incentive",
+        "Upskilling incentive",
+        "Research and development incentive"
+      ],
+      "source_url": "https://www.etvbharat.com/en/!state/mp-unveils-india-first-dedicated-gcc-policy-enn25021405499"
+    },
+    {
+      "state": "West Bengal",
+      "name": "West Bengal GCC policy (draft; no notified policy verified)",
+      "year": null,
+      "status": "draft",
+      "source_type": "press",
+      "summary": "On 7 Nov 2024 IT minister Babul Supriyo said GCC and semiconductor policies would be announced 'in the coming months'. A draft was posted by the IT & Electronics department for consultation (the file could not be fetched, HTTP 503). We found no report of final notification.",
+      "incentives": [
+        "General tech-company incentives cited by the minister: 100% electricity duty waiver, 100% stamp duty waiver, 50% property tax waiver (not GCC-specific)"
+      ],
+      "source_url": "https://theprint.in/economy/bengal-to-announce-policies-on-gcc-semiconductor-minister/2346450"
+    },
+    {
+      "state": "Punjab",
+      "name": "Industrial & Trade Development Policy 2026 (IT/ITeS and GCC incentives)",
+      "year": 2026,
+      "status": "scheme-within-broader-policy",
+      "source_type": "press",
+      "summary": "Indian Masterminds (16 Mar 2026) reports IT/ITeS and GCC incentives announced at the Progressive Punjab Investor Summit 2026 under the state's Industrial & Trade Development Policy 2026. A separate standalone GCC policy was not verified.",
+      "incentives": [
+        "Employment subsidy INR 5,000 per employee per month for five years for IT/ITeS; INR 7,500 for the first 10 GCC units",
+        "Capital subsidy up to 20% of fixed capital investment, capped at INR 10 crore",
+        "100% electricity duty waiver for 10-15 years"
+      ],
+      "source_url": "https://indianmasterminds.com/news/punjab-investor-summit-2026-mohali-tier-1-it-hub-incentives-191608/"
+    },
+    {
+      "state": "Haryana",
+      "name": "Haryana Global Capability Centres Policy 2026",
+      "year": 2026,
+      "status": "notified",
+      "source_type": "law-firm",
+      "summary": "JLL's summary (6 Jul 2026) of the 2026 GCC policy aimed at winning back GCC investment for Gurugram. The article gives no notification date or validity and is a summary, not the policy text; the Grant Thornton alert PDF could not be read.",
+      "incentives": [
+        "CAPEX reimbursement 50% (Gurugram non-TOD), 65% (Gurugram TOD), 75% (select other districts), paid in 10 equal annual instalments",
+        "OPEX reimbursement 50% / 65% / 65%, capped at INR 15 crore a year, for 5, 7 or 9 years depending on zone",
+        "Employment subsidy up to INR 1 lakh per employee, enhanced for women and special categories",
+        "R&D capital grant up to INR 50 crore per centre"
+      ],
+      "source_url": "https://jll.com/en-in/insights/haryana-is-driving-gcc-expansion-with-a-policy-framework"
+    },
+    {
+      "state": "Delhi",
+      "name": "Delhi IT Policy 2026-2031 (draft, GCC provisions)",
+      "year": 2026,
+      "status": "draft",
+      "source_type": "press",
+      "summary": "People Matters (27 Oct 2026): the IT Department has prepared a draft IT policy for 2026-31 that 'will come into force after necessary approvals'; target of over 200 GCCs. No standalone Delhi GCC policy found.",
+      "incentives": [
+        "10% electricity tariff rebate for eligible IT/ITeS companies and GCCs",
+        "INR 25,000 per employee per year for three years for GCCs creating more than 500 jobs",
+        "Internet expense reimbursement up to INR 5 lakh a year for three years",
+        "Annual allocation of INR 5 crore for GCC facilitation (subject to budget and Finance Department concurrence)"
+      ],
+      "source_url": "https://www.peoplematters.in/amp/news/economy-policy/delhis-draft-it-policy-targets-200-gccs-tech-districts-100-pc-online-govt-services-53004"
+    },
+    {
+      "state": "Union (National)",
+      "name": "National Guidance Framework for GCCs (proposed, not yet in force)",
+      "year": 2025,
+      "status": "proposed",
+      "source_type": "press",
+      "summary": "Announced by the Finance Minister in the Union Budget 2025-26 to guide states in attracting GCCs to tier-II cities. Inc42 (28 May 2025) reports MeitY formed a panel with Nasscom, Zinnov, ANSR, KPMG and Invest India. Outlook Business says it is still in draft with consultations ongoing and there is 'no central, enforceable national GCC policy yet'.",
+      "incentives": [],
+      "source_url": "https://www.outlookbusiness.com/budget/gccs-await-national-framework-as-states-lure-global-firms-to-tier-2-3-cities",
+      "extra_sources": ["https://inc42.com/?p=515926"]
+    }
+  ]
+}

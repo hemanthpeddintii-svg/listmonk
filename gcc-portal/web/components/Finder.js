@@ -1,16 +1,17 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 const WHO = ["Selling to GCCs", "Hiring from GCCs", "Researching the market", "Investing / advising"];
 const letter = (i) => String.fromCharCode(65 + i);
 
 export default function Finder({ cities, industries }) {
+  const busy = useRef(false);
   const [step, setStep] = useState(0), [ans, setAns] = useState({}), [count, setCount] = useState(null), [dir, setDir] = useState(1);
   const lists = [WHO, ["Anywhere", ...cities.slice(0, 7)], ["Any industry", ...industries.slice(0, 7)]];
   const keys = ["who", "city", "industry"];
   const titles = ["First things first. What brings you here?", "Which city matters most to you?", "And which industry?"];
 
   const pick = useCallback((i) => {
-    const list = lists[step]; if (i >= list.length) return;
+    const list = lists[step]; if (i >= list.length || busy.current) return; busy.current = true; setTimeout(() => { busy.current = false; }, 450);
     const val = (step > 0 && i === 0) ? "" : list[i];
     setAns(a => ({ ...a, [keys[step]]: val })); setDir(1); setTimeout(() => setStep(s => s + 1), 260);
   }, [step, cities, industries]); // eslint-disable-line
@@ -38,7 +39,7 @@ export default function Finder({ cities, industries }) {
           <button key={o} className={"opt" + (ans[keys[step]] === o ? " on" : "")} style={{ animationDelay: `${i * 55}ms` }} onClick={() => pick(i)}>
             <kbd>{letter(i)}</kbd><span>{o}</span></button>))}</div>
         <p className="hint">Press the letter key to choose</p></>) : (<>
-        <h3>{count === null ? "Searching…" : count === 0 ? "No match yet — but the list grows every 3 days." : <>We found <em className="big">{count}</em> {count === 1 ? "company" : "companies"} for you.</>}</h3>
+        <h3>{count === null ? "Searching…" : count === 0 ? "No match yet — but the list grows every week." : <>We found <em className="big">{count}</em> {count === 1 ? "company" : "companies"} for you.</>}</h3>
         <div className="opts row-opts"><a className="btn big-btn" href={href}>Show me <span>→</span></a>
           <button className="btn ghost-dark" onClick={() => { setStep(0); setAns({}); }}>Start over</button></div>
         <p className="hint">Press Enter ↵</p></>)}

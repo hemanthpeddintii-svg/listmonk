@@ -1,0 +1,29 @@
+# GitHub only runs workflows from <repo root>/.github/workflows. When gcc-portal becomes its own repo this file works as is.
+# While it sits inside another repo, the root-level copy (gcc-portal-weekly-refresh.yml) is the one that runs.
+name: weekly-refresh
+on:
+  schedule:
+    - cron: "0 21 * * 6"        # Sunday 02:30 IST (= Saturday 21:00 UTC)
+  workflow_dispatch:
+concurrency:
+  group: gcc-portal-weekly-refresh
+  cancel-in-progress: false
+jobs:
+  weekly-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: workers/requirements.txt
+      - run: pip install -r workers/requirements.txt
+      - name: Run
+        run: bash workers/run_weekly.sh refresh
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+          ATS_BUDGET: "1500"
+          ENRICH_LIMIT: "300"

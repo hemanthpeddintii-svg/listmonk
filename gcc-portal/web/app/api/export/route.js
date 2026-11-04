@@ -14,6 +14,7 @@ export async function GET(req) {
   args.push(p.maxRows);
   const rows = await q(`SELECT name,domain,parent_company,hq_country,india_cities,industry,gcc_function,india_headcount_range,year_established,careers_url,last_refreshed_at
     FROM companies ${where.length ? "WHERE " + where.join(" AND ") : ""} ORDER BY last_refreshed_at DESC NULLS LAST LIMIT $${args.length}`, args);
+  rows.forEach(r => { if (r.last_refreshed_at) r.last_refreshed_at = new Date(r.last_refreshed_at).toISOString(); });
   const csv = toCsv(rows, ["name", "domain", "parent_company", "hq_country", "india_cities", "industry", "gcc_function", "india_headcount_range", "year_established", "careers_url", "last_refreshed_at"]);
   return new Response(csv, { headers: { "content-type": "text/csv", "content-disposition": "attachment; filename=gcc-export.csv" } });
 }

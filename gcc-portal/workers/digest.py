@@ -21,6 +21,7 @@ run only logs "skipping send".
 """
 import argparse, html, json, os, re, smtplib, ssl, sys, time
 from datetime import date, datetime, timedelta, timezone
+from email import policy
 from email.message import EmailMessage
 from email.utils import formataddr, make_msgid
 from urllib.parse import unquote, urlparse
@@ -402,8 +403,8 @@ def render_html(data, topics=None, cities=None):
     parts.append(f'''<tr><td style="padding:34px 28px 8px 28px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{INK};border-radius:16px;"><tr><td style="padding:20px 22px;">
 <div style="font:500 22px/1.1 {SERIF};color:{PAPER};">Read it on the site, search every centre.</div>
 <div style="margin-top:14px;"><a href="{{{{SITE}}}}/weekly/{data["week_start"]}" style="display:inline-block;background:{HOT};color:#fff;font:700 14px {SANS};text-decoration:none;padding:10px 20px;border-radius:99px;border:2px solid {PAPER};">Open this issue &rarr;</a></div></td></tr></table></td></tr>
-<tr><td style="padding:18px 28px 30px 28px;font:12px/1.6 {MONO};color:{MUT};">You get this because you subscribed at gcc·intel. Built each Monday from our own database; every link goes to the original source.<br>
-<a href="{{{{PREFS_URL}}}}" style="color:{MUT};">Change topics or cities</a> &nbsp;|&nbsp; <a href="{{{{UNSUB_URL}}}}" style="color:{MUT};">Unsubscribe in one click</a></td></tr>''')
+<!--legal-start--><tr><td style="padding:18px 28px 30px 28px;font:12px/1.6 {MONO};color:{MUT};">You get this because you subscribed at gcc·intel. Built each Monday from our own database; every link goes to the original source.<br>
+<a href="{{{{PREFS_URL}}}}" style="color:{MUT};">Change topics or cities</a> &nbsp;|&nbsp; <a href="{{{{UNSUB_URL}}}}" style="color:{MUT};">Unsubscribe in one click</a></td></tr><!--legal-end-->''')
     body = "".join(parts)
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light">
 <title>The GCC Weekly No. {data["issue"]} ({esc(fmt_range(date.fromisoformat(data["week_start"])))})</title></head>
@@ -494,7 +495,7 @@ def smtp_open(c):
 
 
 def build_message(c, to, subject, html_doc, text, unsub_url, site):
-    m = EmailMessage()
+    m = EmailMessage(policy=policy.SMTP.clone(max_line_length=0))   # long unbreakable List-Unsubscribe URLs must not be RFC2047-encoded
     m["From"], m["To"], m["Subject"] = c["from"], to, subject
     m["Message-ID"] = make_msgid(domain=urlparse(site).hostname or "localhost")
     m["List-Unsubscribe"] = f"<{unsub_url}>"

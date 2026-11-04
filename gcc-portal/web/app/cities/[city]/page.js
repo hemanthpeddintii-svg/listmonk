@@ -1,10 +1,12 @@
 import { q } from "../../../lib/db";
+import { notFound } from "next/navigation";
 import NewsCard from "../../../components/NewsCard";
-import { clean } from "../../../lib/content";
+import { clean, CITY_LIST } from "../../../lib/content";
 export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }) { const c = decodeURIComponent(params.city); return { title: `GCCs in ${c} – companies, news, jobs`, description: `Global Capability Centers in ${c}: companies, latest news, expansions and hiring.` }; }
 export default async function City({ params }) {
   const c = decodeURIComponent(params.city);
+  if (!CITY_LIST.includes(c)) notFound();
   const [cos, news, exps, jobs] = await Promise.all([
     q("SELECT id,name,industry FROM companies WHERE $1=ANY(india_cities) ORDER BY last_refreshed_at DESC NULLS LAST LIMIT 30", [c]),
     q("SELECT * FROM articles WHERE city=$1 ORDER BY published_at DESC LIMIT 12", [c]),

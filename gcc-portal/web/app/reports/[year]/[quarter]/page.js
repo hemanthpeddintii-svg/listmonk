@@ -21,11 +21,12 @@ export default async function Report({ params }) {
   const prev = qn === 1 ? [y - 1, 4] : [y, qn - 1], next = qn === 4 ? [y + 1, 1] : [y, qn + 1];
   return (<main className="wrap page"><p><a href="/reports">← All reports</a></p><span className="eyebrow"><i />Quarterly report</span>
     <h1>GCC India · {y} <em>Q{qn}</em></h1>
-    <div className="stats">{[["c1", m.opened, "centres opened"], ["c2", m.expanded, "expansions"], ["c3", m.closed, "closures"], ["c4", m.news, "stories tracked"]].map(([c, v, l]) => <div key={l} className={"block " + c}><b>{v}</b><span>{l}</span></div>)}</div>
+    <div className="stats">{[["c1", m.opened, "centres opened (detected)"], ["c2", m.expanded, "expansions (detected)"], ["c3", m.closed, "closures (detected)"], ["c4", m.news, "stories tracked"]].map(([c, v, l]) => <div key={l} className={"block " + c}><b>{v}</b><span>{l}</span></div>)}</div>
+    <p className="mut">Centre events are detected from headlines and checked by our team over time; see <a href="/methodology">methodology</a>.{new Date() < e && " This quarter is still in progress."}</p>
     <h2>Most-covered cities</h2><ol>{cities.map(c => <li key={c.city}><b>{c.city}</b> — {c.n} {c.n === 1 ? "story" : "stories"}</li>)}</ol>{cities.length === 0 && <p className="mut">No city-tagged coverage this quarter.</p>}
     <h2>Top hiring companies</h2><ol>{cos.map(c => <li key={c.name}><b>{c.name}</b> — {c.n} new India roles</li>)}</ol>{cos.length === 0 && <p className="mut">No tracked job postings in this quarter.</p>}
     <h2>Expansions &amp; launches</h2><ul>{exps.map(x => <li key={x.id}><span className={"ev " + x.event}>{x.event}</span> <a href={x.source_url} target="_blank" rel="nofollow noopener">{clean(x.summary || x.company_name)}</a></li>)}</ul>
     <h2>Headlines</h2><ul>{news.map(a => <li key={a.id}><a href={a.source_url} target="_blank" rel="nofollow noopener">{clean(a.title)}</a> <small className="mut">{a.source_name}</small></li>)}</ul>
-    {!p.export && <p className="lock">🔒 Showing top {top}. <a href="/pricing">Upgrade to Pro</a> for full rankings.</p>}
+    {!p.export && <p className="lock">Showing top {top}. <a href="/pricing">Upgrade to Pro</a> for full rankings.</p>}
     <p className="pager"><a href={`/reports/${prev[0]}/q${prev[1]}`}>← Q{prev[1]} {prev[0]}</a>{(next[0] < new Date().getUTCFullYear() || (next[0] === new Date().getUTCFullYear() && next[1] <= Math.floor(new Date().getUTCMonth() / 3) + 1)) && <a href={`/reports/${next[0]}/q${next[1]}`}>Q{next[1]} {next[0]} →</a>}</p></main>);
 }

@@ -88,6 +88,170 @@ def _parse_dt(v):
         return None
 
 
+# ---------------------------------------------------------------- normalisation
+import unicodedata
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+
+CITY_ALIAS = {   # alias (lowercase, ascii) -> canonical display name
+    "bangalore": "Bengaluru", "bengaluru": "Bengaluru", "bengalooru": "Bengaluru",
+    "bangalore urban": "Bengaluru", "bengaluru urban": "Bengaluru", "blr": "Bengaluru",
+    "gurgaon": "Gurugram", "gurugram": "Gurugram",
+    "bombay": "Mumbai", "mumbai": "Mumbai", "navi mumbai": "Navi Mumbai", "thane": "Thane",
+    "madras": "Chennai", "chennai": "Chennai",
+    "calcutta": "Kolkata", "kolkata": "Kolkata",
+    "new delhi": "Delhi", "delhi": "Delhi", "delhi ncr": "Delhi", "ncr": "Delhi",
+    "hyderabad": "Hyderabad", "secunderabad": "Hyderabad",
+    "pune": "Pune", "noida": "Noida", "greater noida": "Noida", "ahmedabad": "Ahmedabad",
+    "coimbatore": "Coimbatore", "kochi": "Kochi", "cochin": "Kochi", "jaipur": "Jaipur",
+    "indore": "Indore", "visakhapatnam": "Visakhapatnam", "vizag": "Visakhapatnam",
+    "trivandrum": "Thiruvananthapuram", "thiruvananthapuram": "Thiruvananthapuram",
+    "mysore": "Mysuru", "mysuru": "Mysuru", "baroda": "Vadodara", "vadodara": "Vadodara",
+    "chandigarh": "Chandigarh", "mohali": "Mohali", "nagpur": "Nagpur", "lucknow": "Lucknow",
+    "bhubaneswar": "Bhubaneswar", "mangalore": "Mangaluru", "mangaluru": "Mangaluru",
+}
+MAJOR = {"Bengaluru", "Hyderabad", "Pune", "Chennai", "Mumbai", "Gurugram", "Noida", "Delhi",
+         "Kolkata", "Ahmedabad", "Coimbatore", "Kochi", "Jaipur", "Indore", "Visakhapatnam"}
+STATES = {
+    "ka": "Karnataka", "karnataka": "Karnataka", "mh": "Maharashtra", "maharashtra": "Maharashtra",
+    "tn": "Tamil Nadu", "tamil nadu": "Tamil Nadu", "tamilnadu": "Tamil Nadu",
+    "ts": "Telangana", "tg": "Telangana", "telangana": "Telangana", "telengana": "Telangana",
+    "ap": "Andhra Pradesh", "andhra pradesh": "Andhra Pradesh", "gj": "Gujarat", "gujarat": "Gujarat",
+    "dl": "Delhi", "hr": "Haryana", "haryana": "Haryana", "up": "Uttar Pradesh",
+    "uttar pradesh": "Uttar Pradesh", "rj": "Rajasthan", "rajasthan": "Rajasthan",
+    "mp": "Madhya Pradesh", "madhya pradesh": "Madhya Pradesh", "wb": "West Bengal",
+    "west bengal": "West Bengal", "pb": "Punjab", "punjab": "Punjab", "kl": "Kerala", "kerala": "Kerala",
+    "ga": "Goa", "goa": "Goa", "br": "Bihar", "bihar": "Bihar", "jh": "Jharkhand", "jharkhand": "Jharkhand",
+    "od": "Odisha", "or": "Odisha", "odisha": "Odisha", "ch": "Chandigarh", "hp": "Himachal Pradesh",
+    "uk": "Uttarakhand", "uttarakhand": "Uttarakhand", "cg": "Chhattisgarh", "chhattisgarh": "Chhattisgarh",
+}
+_COUNTRY_TOK = {"india", "ind", "in", "asia", "apac", "emea", "asean", "south asia", "republic of india"}
+_SITE_CODE = re.compile(r"^(mso|sez|it park|campus|office|hq|remote|hybrid|onsite)$", re.I)
+
+
+def _ascii(s):
+    return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+
+
+def _norm_loc_part(part):
+    """One location (no ';') -> 'City, India' | 'City, State' | 'State, India' | 'Remote, India' | None."""
+    raw = _ascii(part).strip()
+    remote = bool(re.search(r"\bremote\b", raw, re.I))
+    raw = re.sub(r"^\s*in\s*-\s*", "", raw, flags=re.I)          # 'IN-Pune' / 'IN-Bangalore-MSO'
+    toks = [t for t in re.split(r"[,/|]|\s+-\s+|(?<=\w)-(?=\w{3,})", raw) if t and t.strip()]
+    toks = [re.sub(r"\(.*?\)", "", t).strip() for t in toks]
+    toks = [t for t in toks if t and t.lower() not in _COUNTRY_TOK and not _SITE_CODE.match(t)]
+    city = state = None
+    for t in toks:                                   # prefer a known city anywhere in the part
+        tl = re.sub(r"\s+", " ", t.lower())
+        if tl in CITY_ALIAS and city is None:
+            city = CITY_ALIAS[tl]
+        elif tl in STATES and state is None:
+            state = STATES[tl]
+    if city is None:                                 # 'hosur road bangalore' -> word match
+        for t in toks:
+            for w in re.findall(r"[a-z]+(?: [a-z]+)?", t.lower()):
+                if w in CITY_ALIAS:
+                    city = CITY_ALIAS[w]; break
+            if city: break
+    if city is None:
+        for t in toks:
+            if t.lower() not in STATES:
+                city = t.strip().title(); break
+    if city is None:
+        if state:
+            return f"{state}, India"
+        return "Remote, India" if remote else None
+    if state is None and city in {"Delhi"}:
+        state = None
+    if city in MAJOR or city in CITY_ALIAS.values() or not state or state == city:
+        return f"{city}, India"
+    return f"{city}, {state}"
+
+
+def normalize_location(loc):
+    """'Bengaluru, INDIA, India; Pune, MAHARASHTRA, India' -> 'Bengaluru, India; Pune, India'."""
+    if not loc:
+        return None
+    parts = []
+    for p in re.split(r"\s*[;\n]\s*", loc):
+        n = _norm_loc_part(p)
+        if n and n not in parts:
+            parts.append(n)
+    return "; ".join(parts) or None
+
+
+def normalize_title(t):
+    return re.sub(r"\s+", " ", t or "").strip()
+
+
+_TRACK = re.compile(r"^(utm_|gh_src|source|src|ref|lever-source|lever-origin)", re.I)
+
+
+def normalize_url(u):
+    """Drop fragment/trailing slash/tracking params so near-identical apply URLs collapse."""
+    sp = urlsplit(u.strip())
+    q = [(k, v) for k, v in parse_qsl(sp.query, keep_blank_values=True) if not _TRACK.match(k)]
+    return urlunsplit((sp.scheme, sp.netloc.lower(), sp.path.rstrip("/") or "/", urlencode(q), ""))
+
+
+def job_key(j):
+    return (normalize_title(j["title"]).lower(), (j.get("location") or "").lower())
+
+
+def dedupe(jobs):
+    """Collapse same title+location (a company often lists one role as several requisitions);
+    keep the most recently posted."""
+    best = {}
+    for j in sorted(jobs, key=lambda x: x["first_seen"]):
+        best[job_key(j)] = j
+    return list(best.values())
+
+
+def upsert_job(conn, cid, j):
+    """Insert a posting unless the same URL or the same (company,title,location) exists;
+    in either case refresh last_seen. Returns True when a new row was inserted."""
+    cur = conn.execute("UPDATE job_postings SET last_seen=now() WHERE url=%s", (j["url"],))
+    if cur.rowcount:
+        return False
+    cur = conn.execute(
+        "INSERT INTO job_postings(company_id,title,location,url,department,first_seen,last_seen) "
+        "VALUES(%s,%s,%s,%s,%s,COALESCE(%s,now()),now()) ON CONFLICT DO NOTHING",
+        (cid, j["title"], j.get("location"), j["url"], j.get("department"), j.get("first_seen")))
+    if cur.rowcount:
+        return True
+    conn.execute("UPDATE job_postings SET last_seen=now() WHERE company_id=%s AND lower(title)=lower(%s) "
+                 "AND lower(coalesce(location,''))=lower(coalesce(%s,''))",
+                 (cid, j["title"], j.get("location")))
+    return False
+
+
+def cleanup_existing(conn):
+    """One-off/idempotent: normalise title/location/url of stored rows, delete duplicates
+    (keep newest first_seen, then highest id), then add the unique guard index."""
+    rows = conn.execute("SELECT id,company_id,title,location,url,first_seen FROM job_postings").fetchall()
+    groups, n_upd = {}, 0
+    for id_, cid, title, loc, url, fs in rows:
+        nt, nl = normalize_title(title), normalize_location(loc) if loc else loc
+        groups.setdefault((cid, nt.lower(), (nl or "").lower()), []).append((fs, id_, nt, nl, title, loc))
+    dele = []
+    for key, items in groups.items():
+        items.sort(key=lambda x: (x[0], x[1]))
+        for it in items[:-1]:
+            dele.append(it[1])
+    if dele:
+        conn.execute("DELETE FROM job_postings WHERE id = ANY(%s)", (dele,))
+    for items in groups.values():
+        fs, id_, nt, nl, title, loc = items[-1]
+        if nt != title or nl != loc:
+            conn.execute("UPDATE job_postings SET title=%s, location=%s WHERE id=%s", (nt, nl, id_))
+            n_upd += 1
+    conn.execute("DROP INDEX IF EXISTS uq_jobs_company_title_loc")
+    conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS uq_jobs_company_title_loc ON job_postings "
+                 "(company_id, lower(title), lower(coalesce(location,'')))")
+    conn.commit()
+    return len(rows), len(dele), n_upd
+
+
 # ---------------------------------------------------------------- slugs
 _SUFFIX = re.compile(
     r"\b(inc|incorporated|ltd|limited|llc|plc|corp|corporation|company|co|group|holdings|"
@@ -261,8 +425,11 @@ def _filter(jobs, cutoff):
             continue
         if not j.get("first_seen") or j["first_seen"] < cutoff:
             continue
+        j["title"] = normalize_title(j["title"])
+        j["location"] = normalize_location(j["location"]) or j["location"]
+        j["url"] = normalize_url(j["url"]) if "gh_jid" not in j["url"] else j["url"]
         keep.append(j)
-    return keep
+    return dedupe(keep)
 
 
 def fetch_company(name, domain, careers_url=None, parent=None, cache=None, recheck=False):
@@ -321,9 +488,13 @@ def main():
     ap.add_argument("--budget", type=int, default=900, help="seconds of runtime")
     ap.add_argument("--recheck", action="store_true", help="ignore cached negatives/slugs")
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--cleanup", action="store_true", help="normalise + dedupe stored rows, add unique index, exit")
     a = ap.parse_args()
 
     conn = psycopg.connect(os.environ["DATABASE_URL"])
+    if a.cleanup:
+        print("rows, deleted, updated:", cleanup_existing(conn))
+        return
     rows = conn.execute("SELECT id,name,domain,parent_company,careers_url FROM companies ORDER BY id").fetchall()
     if a.limit:
         rows = rows[:a.limit]
@@ -357,12 +528,8 @@ def main():
                 print(f"[{n}/{len(rows)}] {name} ({domain}): " +
                       ", ".join(f"{h['ats']}/{h['slug']} {h['india']}/{h['total']}" for h in hits), flush=True)
             for j in postings:
-                conn.execute(
-                    "INSERT INTO job_postings(company_id,title,location,url,department,first_seen,last_seen) "
-                    "VALUES(%s,%s,%s,%s,%s,%s,now()) "
-                    "ON CONFLICT(url) DO UPDATE SET last_seen=now()",
-                    (cid, j["title"][:500], j.get("location"), j["url"], j.get("department"), j["first_seen"]))
-                stats["inserted"] += 1
+                if upsert_job(conn, cid, j):
+                    stats["inserted"] += 1
             conn.execute("UPDATE companies SET last_refreshed_at=now() WHERE id=%s", (cid,)) if hits else None
             if hits and not (careers or "").strip():
                 conn.execute("UPDATE companies SET careers_url=%s WHERE id=%s AND coalesce(careers_url,'')=''",

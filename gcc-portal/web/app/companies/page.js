@@ -35,23 +35,23 @@ export default async function Companies({ searchParams: sp }) {
   const saved = u ? new Set((await q("SELECT company_id FROM saved_companies WHERE user_id=$1", [u.id])).map(r => r.company_id)) : new Set();
   const qs = (o) => "?" + new URLSearchParams(Object.entries({ ...sp, ...o }).filter(([, v]) => v)).toString();
   return (<main className="wrap page"><h1>GCC companies in India</h1>
-    <form className="row"><input name="q" placeholder="Search company or parent" defaultValue={sp.q} />
+    <form className="row"><input aria-label="Search company or parent" name="q" placeholder="Search company or parent" defaultValue={sp.q} />
       <select name="city" defaultValue={sp.city || ""}><option value="">All cities</option>{cities.map(r => <option key={r.c}>{r.c}</option>)}</select>
       <select name="industry" defaultValue={sp.industry || ""}><option value="">All industries</option>{inds.map(r => <option key={r.i}>{r.i}</option>)}</select>
       <button className="btn">Search</button>
       {plan.export && <a className="btn ghost" href={"/api/export" + qs({ page: "" })}>Export CSV</a>}</form>
     <p className="mut">{total} companies · newest-refreshed first{total > shown && <> · showing first {shown} on your plan. <a href="/pricing">Upgrade</a></>}</p>
-    {u && plan.alerts > 0 && <ActionForm action={saveSearch} submit="🔔 Alert me" className="row">
+    {u && plan.alerts > 0 && <ActionForm action={saveSearch} submit="Alert me" className="row">
       <input type="hidden" name="q" value={sp.q || ""} /><input type="hidden" name="city" value={sp.city || ""} /><input type="hidden" name="industry" value={sp.industry || ""} />
-      <input name="name" placeholder="Name this alert" /></ActionForm>}
+      <input aria-label="Name this alert" name="name" placeholder="Name this alert" /></ActionForm>}
     <div className="tablewrap"><table><thead><tr><th>Company</th><th>Parent</th><th>Cities</th><th>Industry</th><th>Open jobs</th><th>Updated</th><th /></tr></thead>
       <tbody>{rows.map(r => (<tr key={r.id}>
         <td><a href={`/companies/${r.id}`}>{r.name}</a></td><td>{r.parent_company}</td>
         <td>{(r.india_cities || []).join(", ")}</td><td>{r.industry && <span className="tag">{r.industry}</span>}</td>
-        <td>{u ? r.open_jobs : <a className="lock" href="/signup">🔒</a>}</td>
+        <td>{!u ? <a className="lock" href="/signup">Sign up</a> : plan.export ? r.open_jobs : <a className="protag" href="/pricing">Pro</a>}</td>
         <td>{r.last_refreshed_at?.toISOString().slice(0, 10) ?? "pending"}</td>
         <td>{u && <form action={toggleSave.bind(null, r.id)}><button className="btn ghost">{saved.has(r.id) ? "★" : "☆"}</button></form>}</td></tr>))}</tbody></table></div>
-    {rows.length === 0 && <p className="mut">No companies yet — an admin can import data at /admin.</p>}
+    {rows.length === 0 && (total === 0 ? <p className="mut">No companies match. Try fewer filters.</p> : <p className="mut">That page is past your plan limit ({plan.maxRows} companies). <a href="/pricing">See plans</a>.</p>)}
     <div className="pager">{page > 1 && <a href={qs({ page: page - 1 })}>← Newer</a>}
       {page * PAGE < shown && <a href={qs({ page: page + 1 })}>Older →</a>}</div></main>);
 }

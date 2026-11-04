@@ -173,3 +173,11 @@ ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS last_digest DATE;      -- week_
 ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS source TEXT;
 ALTER TABLE digests ADD COLUMN IF NOT EXISTS sent_count INT NOT NULL DEFAULT 0;
 CREATE INDEX IF NOT EXISTS idx_subscribers_active ON subscribers(confirmed) WHERE unsubscribed_at IS NULL;
+
+-- v5 (sources agent): policy tracker + events extras
+ALTER TABLE policies ADD COLUMN IF NOT EXISTS status TEXT;          -- notified | cabinet-approved | draft | scheme-within-broader-policy | proposed
+ALTER TABLE policies ADD COLUMN IF NOT EXISTS source_type TEXT;     -- official | law-firm | press
+ALTER TABLE policies ADD COLUMN IF NOT EXISTS extra_sources TEXT[] DEFAULT '{}';
+ALTER TABLE events ADD COLUMN IF NOT EXISTS ends_on DATE;
+ALTER TABLE events ADD COLUMN IF NOT EXISTS organiser TEXT;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS relevant BOOLEAN;  -- v4b: set by workers/classify.py via relevance.is_relevant

@@ -1,6 +1,8 @@
 """Topic news ingestion -> articles (+ auto-detected expansions). Run with refresh.py every 3 days.
 Stores headline, source, link and date ONLY (no full text) — readers click through to the publisher."""
-import os, re, urllib.parse, xml.etree.ElementTree as ET, email.utils, requests, psycopg
+import os, re, sys, urllib.parse, xml.etree.ElementTree as ET, email.utils, requests, psycopg
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from relevance import is_relevant   # headline must be about GCCs in India (drops Gulf / Greater Chennai Corp / unrelated items)
 
 CITIES = ["Bengaluru", "Hyderabad", "Pune", "Chennai", "Mumbai", "Delhi NCR", "Gurugram", "Noida", "Kolkata", "Ahmedabad", "Coimbatore", "Kochi"]
 TOPICS = ['"global capability center" India', '"GCC" India "capability centre"', "GCC India new centre opens",
@@ -24,7 +26,7 @@ def main():
             try: items = list(fetch(topic))
             except Exception: continue
             for a in items:
-                if GULF.search(a["title"] or ""): continue
+                if GULF.search(a["title"] or "") or not is_relevant(a["title"]): continue
                 city = next((c for c in CITIES if c.lower() in a["title"].lower()), None)
                 cid = next((i for i, nm, par in names if (par and par.lower() in a["title"].lower())), None)
                 new = conn.execute(

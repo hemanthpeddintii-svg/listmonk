@@ -63,7 +63,7 @@ def load_cache():
     try:
         with open(CACHE) as f: c = json.load(f)
     except Exception: c = {}
-    for k in ("search", "ent", "extract", "label"): c.setdefault(k, {})
+    for k in ("search", "ent", "extract", "label", "sparql"): c.setdefault(k, {})
     return c
 
 
@@ -143,6 +143,37 @@ def trim_entity(e):
     return out
 
 
+SPARQL = "https://query.wikidata.org/sparql"
+
+
+def sparql_candidates(c, names):
+    """Batch label/alias lookup via SPARQL (exact label or altLabel, en or mul) restricted to items with an English Wikipedia article.
+    ~10 queries for ~400 names instead of ~800 rate-limited API calls.  Results cached per name in c['sparql']."""
+    todo = [n for n in dict.fromkeys(names) if n and n not in c["sparql"]]
+    for i in range(0, len(todo), 30):
+        chunk = todo[i:i + 30]
+        vals = " ".join(f'"{n.replace(chr(92), "").replace(chr(34), "")}"@{lg}' for n in chunk for lg in ("en", "mul"))
+        q = ("SELECT ?item ?l WHERE { VALUES ?l { " + vals + " } ?item rdfs:label|skos:altLabel ?l . "
+             "?art schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> . "
+             "FILTER EXISTS { ?item wdt:P856|wdt:P1128|wdt:P414|wdt:P249|wdt:P452 ?x } }")
+        j = None
+        for t in range(4):
+            wait = GAP - (time.time() - _last[0])
+            if wait > 0: time.sleep(wait)
+            _last[0] = time.time()
+            try:
+                r = S.get(SPARQL, params=dict(query=q, format="json"), timeout=90)
+                if r.status_code == 200: j = r.json(); break
+                time.sleep(5 * (t + 1))
+            except Exception: time.sleep(5 * (t + 1))
+        if j is None: continue
+        got = {n: [] for n in chunk}
+        for b in j["results"]["bindings"]:
+            lab = b["l"]["value"]; qid = b["item"]["value"].rsplit("/", 1)[1]
+            if lab in got and qid not in got[lab]: got[lab].append(qid)
+        for n, ids in got.items(): c["sparql"][n] = ids[:12]
+
+
 def search(c, q):
     if q in c["search"]: return c["search"][q]
     j = get(API, dict(action="wbsearchentities", search=q, language="en", uselang="en", type="item", limit=6, format="json"))
@@ -178,21 +209,27 @@ def score(ent, name_variants, domain):
     return 0, None
 
 
-def resolve(c, parent, name, domain):
+def resolve(c, parent, name, domain, slow=True):
     variants = {v for v in (norm(parent), norm(clean_name(parent)), norm(name)) if v}
     # "Alphabet (Google)" -> also the bracketed part is NOT trusted as a name (could be the owner), only as search hint
-    queries = [parent, clean_name(parent)]
-    cand = []
-    for q in dict.fromkeys(x for x in queries if x):
-        ids = search(c, q)
-        if ids is None: return "retry", None
-        cand += ids
-    ents = fetch_entities(c, cand)
-    best_ = (0, None, None)
-    for qid, ent in zip(cand, ents):
-        sc, how = score(ent, variants, domain)
-        if sc > best_[0]: best_ = (sc, how, qid)
-    return best_[1], best_[2]
+    queries = [x for x in dict.fromkeys([parent, clean_name(parent)]) if x]
+    def run(cand):
+        ents = fetch_entities(c, cand)
+        b = (0, None, None)
+        for qid, ent in zip(cand, ents):
+            sc, how = score(ent, variants, domain)
+            if sc > b[0]: b = (sc, how, qid)
+        return b
+    cand = [q for x in queries for q in c["sparql"].get(x, [])]
+    b = run(cand) if cand else (0, None, None)
+    if b[1] is None and slow:                       # fallback: wbsearchentities (slower, rate limited)
+        cand2 = []
+        for q in queries:
+            ids = search(c, q)
+            if ids is None: return "retry", None
+            cand2 += ids
+        b = run(cand2)
+    return b[1], b[2]
 
 
 def short_exchange(c, exid):
@@ -262,8 +299,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int); ap.add_argument("--dry", action="store_true"); ap.add_argument("--refresh", action="store_true")
     a = ap.parse_args()
-    c = {"search": {}, "ent": {}, "extract": {}, "label": {}} if a.refresh else load_cache()
-    for k in ("search", "ent", "extract", "label"): c.setdefault(k, {})
+    c = {"search": {}, "ent": {}, "extract": {}, "label": {}, "sparql": {}} if a.refresh else load_cache()
+    for k in ("search", "ent", "extract", "label", "sparql"): c.setdefault(k, {})
     DSN = os.environ.get("DATABASE_URL", "postgresql://gcc:gcc@localhost/gcc")
     # read rows with autocommit and close BEFORE any network call (never hold a transaction across HTTP)
     with psycopg.connect(DSN, autocommit=True) as rc:
@@ -271,6 +308,12 @@ def main():
     if a.limit: rows = rows[:a.limit]
     if True:
         res = {}; t0 = time.time()
+        allq = [x for _, name, parent, _d in rows for x in (parent or name, clean_name(parent or name))]
+        sparql_candidates(c, allq); save_cache(c)
+        print(f"sparql candidates for {len(c['sparql'])} names ({time.time() - t0:.0f}s)", flush=True)
+        all_c = [q for x in allq for q in c["sparql"].get(x, [])]
+        fetch_entities(c, all_c); save_cache(c)
+        print(f"entities cached: {len(c['ent'])} ({time.time() - t0:.0f}s)", flush=True)
         for n, (cid, name, parent, domain) in enumerate(rows, 1):
             how, qid = resolve(c, parent or name, name, domain)
             res[cid] = (how, qid)

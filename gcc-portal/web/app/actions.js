@@ -5,6 +5,7 @@ import { q } from "../lib/db";
 import { hash, verify, startSession, endSession, getUser, requireUser, requireAdmin } from "../lib/auth";
 import { planOf } from "../lib/plans";
 import { parseCsv } from "../lib/csv";
+import { authGuard, authGuardReset, tooMany } from "../lib/ratelimit";
 
 const emailOk = (e) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
 
@@ -14,6 +15,7 @@ export async function signup(prev, fd) {
   const name = String(fd.get("name") || "").trim();
   if (!emailOk(email)) return { error: "Enter a valid email." };
   if (pw.length < 8) return { error: "Password must be at least 8 characters." };
+  const rl = await authGuard("signup", email); if (!rl.ok) return tooMany(rl);
   const admins = (process.env.ADMIN_EMAILS || "").toLowerCase().split(",").map(s => s.trim());
   try {
     const [u] = await q(
@@ -29,11 +31,14 @@ export async function signup(prev, fd) {
 
 export async function login(prev, fd) {
   const email = String(fd.get("email") || "").trim().toLowerCase();
+  const rl = await authGuard("login", email); if (!rl.ok) return tooMany(rl);
   const [u] = await q("SELECT id,password_hash FROM users WHERE email=$1", [email]);
   if (!u || !(await verify(String(fd.get("password") || ""), u.password_hash)))
     return { error: "Wrong email or password." };
+  await authGuardReset("login", email);
   await startSession(u.id);
-  redirect(String(fd.get("next") || "/dashboard").startsWith("/") ? String(fd.get("next") || "/dashboard") : "/dashboard");
+  const nx = String(fd.get("next") || "/dashboard");
+  redirect(/^\/(?!\/)/.test(nx) ? nx : "/dashboard");
 }
 
 export async function logout() { endSession(); redirect("/"); }
@@ -50,7 +55,7 @@ export async function toggleSave(companyId) {
   const del = await q("DELETE FROM saved_companies WHERE user_id=$1 AND company_id=$2 RETURNING 1", [u.id, companyId]);
   if (!del.length) {
     const [{ n }] = await q("SELECT count(*)::int n FROM saved_companies WHERE user_id=$1", [u.id]);
-    if (n >= planOf(u).saved) return;           // plan limit
+    if (n >= planOf(u).saved) redirect("/pricing?why=saved");           // plan limit
     await q("INSERT INTO saved_companies(user_id,company_id) VALUES($1,$2)", [u.id, companyId]);
   }
   revalidatePath("/companies"); revalidatePath(`/companies/${companyId}`); revalidatePath("/dashboard");

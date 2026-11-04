@@ -36,7 +36,7 @@ export default async function Home() {
         <p className="citylinks">{HUBS.slice(0, 6).map(x => <a key={x} href={`/cities/${encodeURIComponent(x)}`}>{x}</a>)}</p>
       </div></div></section>
 
-    <div className="ticker-clip"><div className="ticker"><div className="ticker-track">{[...headlines, ...headlines].map((n, i) => <span key={i}>{n} <b>✦</b> </span>)}</div></div></div>
+    <div className="ticker-clip"><div className="ticker"><div className="ticker-track">{[...headlines, ...headlines].map((n, i) => <span key={i}>{n} <b>/</b> </span>)}</div></div></div>
 
     <div className="wrap">
       <section className="section" id="doors"><Reveal><span className="eyebrow">Why this exists</span>
@@ -56,25 +56,26 @@ export default async function Home() {
             <div className="card"><h4>Deals <a href="/deals">all →</a></h4><ul className="mini">{deals.map(a => <li key={a.id}><a href={`/story/${a.id}`}>{clean(a.title)}</a></li>)}</ul></div>
           </aside></div></section>
 
-      <section className="section"><Reveal><span className="eyebrow">Six months, one chart</span><h2 style={{ fontSize: "clamp(32px,4.6vw,60px)" }}>Coverage is <em>accelerating.</em></h2></Reveal>
+      <section className="section"><Reveal><span className="eyebrow">Six months, one chart</span><h2 style={{ fontSize: "clamp(32px,4.6vw,60px)" }}>Stories tracked, month by month.</h2></Reveal>
         <Reveal><div className="bars">{d.months.map(m => (<div key={m.m} className="bar"><i style={{ "--h": `${Math.round((m.n / maxM) * 100)}%` }} /><b>{m.n}</b><span>{m.m}</span></div>))}</div>
           <p className="mut">Stories tracked per month, from public outlets. Method and sources on the <a href="/methodology">methodology page</a>.</p></Reveal></section>
 
-      <Reveal><div className="finder-wrap"><h2 style={{ fontSize: "clamp(30px,4.5vw,56px)" }}>Three questions. <em>One shortlist.</em></h2>
+      <Reveal><div className="finder-wrap"><h2 style={{ fontSize: "clamp(30px,4.5vw,56px)" }}>Three questions, one shortlist.</h2>
         <Finder cities={[...new Set([...CITIES, ...dbCities])]} industries={inds} /></div></Reveal>
 
-      <section className="section"><div className="refresh">
-        <Reveal><div className="week"><div className="dial"><i /><i /><i /><i className="sweep" /><b><span>7<small>DAY CYCLE</small></span></b></div></div></Reveal>
-        <Reveal delay={150}><span className="eyebrow">Paying should feel obvious</span><h2 style={{ fontSize: "clamp(34px,4.6vw,60px)" }}>You never wonder <em>if it&apos;s current.</em></h2>
-          <ol className="steps"><li>News is collected every day</li><li>Jobs and company profiles are refreshed every week</li><li>The Weekly lands in your inbox on Monday</li><li>Every record shows its source and date</li></ol></Reveal></div></section>
+      <section className="section"><Reveal><span className="eyebrow">Freshness</span><h2 style={{ fontSize: "clamp(34px,4.6vw,60px)" }}>How current is it?</h2>
+        <dl className="fresh"><div><dt>News</dt><dd>Collected daily. Latest story: {d.c.latest ? new Date(d.c.latest).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" }) + " IST" : "n/a"}.</dd></div>
+          <div><dt>Jobs and profiles</dt><dd>Refreshed weekly from public job boards. Banks and others on closed systems are thin; <a href="/methodology">we say where</a>.</dd></div>
+          <div><dt>The Weekly</dt><dd>Every Monday. <a href="/weekly">Past issues</a>.</dd></div>
+          <div><dt>Every record</dt><dd>Carries its source and date.</dd></div></dl></Reveal></section>
 
-      <section className="section" style={{ paddingTop: 0 }}><Reveal><span className="eyebrow">A look inside</span><h2 style={{ fontSize: "clamp(32px,4.6vw,60px)" }}>What the database <em>actually holds.</em></h2></Reveal>
+      <section className="section" style={{ paddingTop: 0 }}><Reveal><span className="eyebrow">A look inside</span><h2 style={{ fontSize: "clamp(32px,4.6vw,60px)" }}>What the database holds.</h2></Reveal>
         <Reveal><div className="peek tablewrap"><table><thead><tr><th>Company</th><th>Parent</th><th>Cities</th><th>Industry</th><th>Open jobs</th><th>Hiring contact</th></tr></thead>
           <tbody>{sample.map((r, i) => (<tr key={r.name}><td><b>{r.name}</b></td><td>{r.parent_company}</td><td>{(r.india_cities || []).join(", ")}</td><td>{r.industry}</td><td className="blur">{12 + i * 7}</td><td className="blur">name@company.com</td></tr>))}</tbody></table>
           <div className="peek-cta"><a className="btn" href="/signup">Create a free account <span>→</span></a><a className="btn ghost" href="/pricing">See what Pro adds</a></div></div></Reveal></section>
 
       <Reveal><section className="section" style={{ paddingTop: 0 }}><h2 style={{ fontSize: "clamp(32px,4.6vw,60px)" }}>The Weekly. <em>Every Monday.</em></h2>
         <p className="deck">One email: what opened, who moved, who raised, what changed in policy. <a href="/weekly">Read past issues</a>.</p>
-        <ActionForm action={captureLead} submit="Send me the Weekly →" className="row"><input name="email" type="email" placeholder="you@company.com" required style={{ minWidth: 280 }} /></ActionForm></section></Reveal>
+        <ActionForm action={captureLead} submit="Send me the Weekly →" className="row"><input aria-label="you@company.com" name="email" type="email" placeholder="you@company.com" required style={{ minWidth: 280 }} /></ActionForm></section></Reveal>
     </div></main>);
 }
