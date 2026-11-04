@@ -6,15 +6,16 @@ Stubs below keep the pipeline runnable end-to-end."""
 import requests, urllib.parse, xml.etree.ElementTree as ET
 
 def job_postings(name, domain, careers_url):
-    slug = (domain or "").split(".")[0]
-    try:  # Greenhouse public board API
-        r = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs", timeout=15)
-        if r.ok:
-            return [{"title": j["title"], "location": j["location"]["name"], "url": j["absolute_url"]}
-                    for j in r.json().get("jobs", []) if "india" in j["location"]["name"].lower()]
+    """India postings (last ~6 months) from public ATS APIs (Greenhouse, Lever, Ashby,
+    SmartRecruiters, Workable). Slugs are cached in workers/data/ats_slugs.json.
+    Each dict has title, location, url, department and first_seen (ATS posted/updated date)."""
+    from ats_jobs import fetch_company
+    try:
+        _, posts = fetch_company(name, domain, careers_url)
     except Exception:
-        pass
-    return []
+        return []
+    return [{"title": j["title"], "location": j.get("location"), "url": j["url"],
+             "department": j.get("department"), "first_seen": j.get("first_seen")} for j in posts]
 
 def news_signals(name):
     q = urllib.parse.quote(f'"{name}" India GCC OR "capability center"')

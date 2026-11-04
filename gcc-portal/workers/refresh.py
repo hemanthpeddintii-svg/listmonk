@@ -13,9 +13,9 @@ def main():
         for cid, name, domain, careers in rows:
             for j in job_postings(name, domain, careers):
                 conn.execute(
-                    "INSERT INTO job_postings(company_id,title,location,url,department) "
-                    "VALUES(%s,%s,%s,%s,%s) ON CONFLICT(url) DO UPDATE SET last_seen=now()",
-                    (cid, j["title"], j.get("location"), j["url"], j.get("department")))
+                    "INSERT INTO job_postings(company_id,title,location,url,department,first_seen) "
+                    "VALUES(%s,%s,%s,%s,%s,COALESCE(%s,now())) ON CONFLICT(url) DO UPDATE SET last_seen=now()",
+                    (cid, j["title"], j.get("location"), j["url"], j.get("department"), j.get("first_seen")))
             for s in news_signals(name):
                 conn.execute(
                     "INSERT INTO signals(company_id,kind,headline,url,published_at) "
