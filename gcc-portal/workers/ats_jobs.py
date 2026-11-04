@@ -17,6 +17,7 @@ from pathlib import Path
 import requests
 
 CACHE_PATH = Path(__file__).parent / "data" / "ats_slugs.json"
+DENY_PATH = Path(__file__).parent / "data" / "ats_slug_deny.json"   # {"domain": ["ats/slug", ...]} false positives
 WINDOW_DAYS = 183
 UA = {"User-Agent": "gcc-portal-jobs/1.0 (public ATS job-board reader)"}
 TIMEOUT = (4, 15)
@@ -110,6 +111,7 @@ def slug_candidates(name, domain, parent=None):
     label = (domain or "").lower().split(".")[0] if domain else ""
     if label and label not in ("www",):
         add(label)
+        add(label.replace("-", ""))
     for src in (parent, re.sub(r"\bindia\b", "", name or "", flags=re.I)):
         n = _norm(src)
         if not n:
@@ -119,7 +121,10 @@ def slug_candidates(name, domain, parent=None):
             if v:
                 add(v.replace(" ", ""))
                 add(v.replace(" ", "-"))
-    return out[:6]
+    if label:
+        for suf in ("inc", "india", "group", "global", "careers"):
+            add(label + suf)
+    return out[:10]
 
 
 # ---------------------------------------------------------------- ATS adapters
@@ -270,7 +275,14 @@ def fetch_company(name, domain, careers_url=None, parent=None, cache=None, reche
     entry = cache.get(key)
     hits, postings = [], []
 
+    try:
+        deny = set(json.loads(DENY_PATH.read_text()).get(key, []))
+    except (OSError, ValueError):
+        deny = set()
+
     def run(ats, slug):
+        if f"{ats}/{slug}" in deny:
+            return None
         found, jobs = ADAPTERS[ats](slug)
         if not found:
             return None

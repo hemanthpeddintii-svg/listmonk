@@ -1,16 +1,21 @@
 {
  "3ds.com": {
-  "checked": "2026-11-04T22:02:12+00:00",
+  "checked": "2026-11-04T22:08:07+00:00",
   "hits": [],
   "name": "Dassault Systemes India"
  },
+ "3m.com": {
+  "checked": "2026-11-04T22:15:44+00:00",
+  "hits": [],
+  "name": "3M India"
+ },
  "53.com": {
-  "checked": "2026-11-04T22:02:39+00:00",
+  "checked": "2026-11-04T22:09:52+00:00",
   "hits": [],
   "name": "Fifth Third India"
  },
  "ab-inbev.com": {
-  "checked": "2026-11-04T22:04:06+00:00",
+  "checked": "2026-11-04T22:14:50+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -20,18 +25,23 @@
   ],
   "name": "AB InBev India"
  },
+ "abb.com": {
+  "checked": "2026-11-04T22:15:46+00:00",
+  "hits": [],
+  "name": "ABB India"
+ },
  "abbott.com": {
-  "checked": "2026-11-04T22:03:36+00:00",
+  "checked": "2026-11-04T22:12:40+00:00",
   "hits": [],
   "name": "Abbott India"
  },
  "abercrombie.com": {
-  "checked": "2026-11-04T22:03:57+00:00",
+  "checked": "2026-11-04T22:14:02+00:00",
   "hits": [],
   "name": "Abercrombie & Fitch India"
  },
  "acumatica.com": {
-  "checked": "2026-11-04T22:02:22+00:00",
+  "checked": "2026-11-04T22:08:40+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -41,18 +51,28 @@
   ],
   "name": "Acumatica India"
  },
+ "adm.com": {
+  "checked": "2026-11-04T22:15:09+00:00",
+  "hits": [],
+  "name": "ADM India"
+ },
  "adobe.com": {
-  "checked": "2026-11-04T22:01:49+00:00",
+  "checked": "2026-11-04T22:06:22+00:00",
   "hits": [],
   "name": "Adobe India"
  },
+ "agcocorp.com": {
+  "checked": "2026-11-04T22:15:34+00:00",
+  "hits": [],
+  "name": "AGCO India"
+ },
  "agilent.com": {
-  "checked": "2026-11-04T22:03:42+00:00",
+  "checked": "2026-11-04T22:13:09+00:00",
   "hits": [],
   "name": "Agilent India"
  },
  "airbnb.com": {
-  "checked": "2026-11-04T22:02:17+00:00",
+  "checked": "2026-11-04T22:08:26+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -63,97 +83,123 @@
   "name": "Airbnb India"
  },
  "airbus.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Airbus India"
  },
  "ajg.com": {
-  "checked": "2026-11-04T22:03:28+00:00",
+  "checked": "2026-11-04T22:12:06+00:00",
   "hits": [],
   "name": "Gallagher India"
  },
  "akamai.com": {
-  "checked": "2026-11-04T22:01:56+00:00",
+  "checked": "2026-11-04T22:06:52+00:00",
   "hits": [],
   "name": "Akamai India"
  },
  "albertsons.com": {
-  "checked": "2026-11-04T22:03:56+00:00",
+  "checked": "2026-11-04T22:13:58+00:00",
   "hits": [],
   "name": "Albertsons India"
  },
  "alliancebernstein.com": {
-  "checked": "2026-11-04T22:03:07+00:00",
+  "checked": "2026-11-04T22:10:41+00:00",
   "hits": [],
   "name": "AllianceBernstein India"
  },
  "allianz.com": {
-  "checked": "2026-11-04T22:03:19+00:00",
+  "checked": "2026-11-04T22:11:30+00:00",
   "hits": [],
   "name": "Allianz Technology India"
  },
  "allstate.com": {
-  "checked": "2026-11-04T22:03:26+00:00",
+  "checked": "2026-11-04T22:11:47+00:00",
   "hits": [],
   "name": "Allstate India"
  },
  "alvarezandmarsal.com": {
-  "checked": "2026-11-04T22:03:18+00:00",
+  "checked": "2026-11-04T22:11:25+00:00",
   "hits": [],
   "name": "Alvarez & Marsal India"
  },
  "amadeus.com": {
-  "checked": "2026-11-04T22:02:10+00:00",
+  "checked": "2026-11-04T22:07:55+00:00",
   "hits": [],
   "name": "Amadeus India"
  },
  "amazon.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Amazon Development Centre India"
  },
+ "amd.com": {
+  "checked": "2026-11-04T22:16:57+00:00",
+  "hits": [],
+  "name": "AMD India"
+ },
  "americanexpress.com": {
-  "checked": "2026-11-04T22:02:32+00:00",
+  "checked": "2026-11-04T22:09:23+00:00",
   "hits": [],
   "name": "American Express India"
  },
  "ameriprise.com": {
-  "checked": "2026-11-04T22:03:07+00:00",
+  "checked": "2026-11-04T22:10:48+00:00",
   "hits": [],
   "name": "Ameriprise India"
  },
  "amgen.com": {
-  "checked": "2026-11-04T22:03:44+00:00",
+  "checked": "2026-11-04T22:13:12+00:00",
   "hits": [],
   "name": "Amgen India"
  },
+ "analog.com": {
+  "checked": "2026-11-04T22:04:52+00:00",
+  "hits": [
+   {
+    "ats": "ashby",
+    "board_url": "https://jobs.ashbyhq.com/analog",
+    "slug": "analog"
+   }
+  ],
+  "name": "Analog Devices India"
+ },
  "ansys.com": {
-  "checked": "2026-11-04T22:02:13+00:00",
+  "checked": "2026-11-04T22:08:12+00:00",
   "hits": [],
   "name": "Ansys India"
  },
  "anz.com": {
-  "checked": "2026-11-04T22:02:47+00:00",
+  "checked": "2026-11-04T22:09:56+00:00",
   "hits": [],
   "name": "ANZ India"
  },
  "aon.com": {
-  "checked": "2026-11-04T22:03:27+00:00",
+  "checked": "2026-11-04T22:11:53+00:00",
   "hits": [],
   "name": "Aon India"
  },
  "apple.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Apple India"
  },
+ "appliedmaterials.com": {
+  "checked": "2026-11-04T22:04:57+00:00",
+  "hits": [],
+  "name": "Applied Materials India"
+ },
+ "aptiv.com": {
+  "checked": "2026-11-04T22:15:27+00:00",
+  "hits": [],
+  "name": "Aptiv India"
+ },
  "arcticwolf.com": {
-  "checked": "2026-11-04T22:02:20+00:00",
+  "checked": "2026-11-04T22:08:35+00:00",
   "hits": [],
   "name": "Arctic Wolf India"
  },
  "arista.com": {
-  "checked": "2026-11-04T22:01:58+00:00",
+  "checked": "2026-11-04T22:07:12+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -163,78 +209,108 @@
   ],
   "name": "Arista Networks India"
  },
+ "arm.com": {
+  "checked": "2026-11-04T22:04:58+00:00",
+  "hits": [],
+  "name": "Arm India"
+ },
+ "ashleyfurniture.com": {
+  "checked": "2026-11-04T22:15:04+00:00",
+  "hits": [],
+  "name": "Ashley Furniture India"
+ },
  "astellas.com": {
-  "checked": "2026-11-04T22:03:46+00:00",
+  "checked": "2026-11-04T22:13:15+00:00",
   "hits": [],
   "name": "Astellas India"
  },
  "astrazeneca.com": {
-  "checked": "2026-11-04T22:03:32+00:00",
+  "checked": "2026-11-04T22:12:13+00:00",
   "hits": [],
   "name": "AstraZeneca India"
  },
  "atlassian.com": {
-  "checked": "2026-11-04T22:01:55+00:00",
+  "checked": "2026-11-04T22:06:49+00:00",
   "hits": [],
   "name": "Atlassian India"
  },
+ "att.com": {
+  "checked": "2026-11-04T22:05:02+00:00",
+  "hits": [],
+  "name": "AT&T India"
+ },
  "autodesk.com": {
-  "checked": "2026-11-04T22:01:56+00:00",
+  "checked": "2026-11-04T22:06:50+00:00",
   "hits": [],
   "name": "Autodesk India"
  },
  "availity.com": {
-  "checked": "2026-11-04T22:03:52+00:00",
+  "checked": "2026-11-04T22:13:41+00:00",
   "hits": [],
   "name": "Availity India"
  },
  "aviva.com": {
-  "checked": "2026-11-04T22:03:20+00:00",
+  "checked": "2026-11-04T22:11:34+00:00",
   "hits": [],
   "name": "Aviva India"
  },
  "axa.com": {
-  "checked": "2026-11-04T22:03:20+00:00",
+  "checked": "2026-11-04T22:11:31+00:00",
   "hits": [],
   "name": "AXA India"
  },
+ "bain.com": {
+  "checked": "2026-11-04T22:05:15+00:00",
+  "hits": [],
+  "name": "Bain Capability Network India"
+ },
+ "bakerhughes.com": {
+  "checked": "2026-11-04T22:05:10+00:00",
+  "hits": [],
+  "name": "Baker Hughes India"
+ },
  "bankofamerica.com": {
-  "checked": "2026-11-04T22:02:26+00:00",
+  "checked": "2026-11-04T22:08:50+00:00",
   "hits": [],
   "name": "Bank of America India"
  },
  "barclays.com": {
-  "checked": "2026-11-04T22:02:26+00:00",
+  "checked": "2026-11-04T22:08:51+00:00",
   "hits": [],
   "name": "Barclays India"
  },
  "baxter.com": {
-  "checked": "2026-11-04T22:03:38+00:00",
+  "checked": "2026-11-04T22:12:48+00:00",
   "hits": [],
   "name": "Baxter India"
  },
  "bayer.com": {
-  "checked": "2026-11-04T22:03:33+00:00",
+  "checked": "2026-11-04T22:12:15+00:00",
   "hits": [],
   "name": "Bayer India"
  },
+ "bcg.com": {
+  "checked": "2026-11-04T22:05:14+00:00",
+  "hits": [],
+  "name": "Boston Consulting Group India"
+ },
  "bd.com": {
-  "checked": "2026-11-04T22:03:39+00:00",
+  "checked": "2026-11-04T22:12:50+00:00",
   "hits": [],
   "name": "BD India"
  },
  "bentley.com": {
-  "checked": "2026-11-04T22:02:12+00:00",
+  "checked": "2026-11-04T22:08:10+00:00",
   "hits": [],
   "name": "Bentley Systems India"
  },
  "bestbuy.com": {
-  "checked": "2026-11-04T22:03:55+00:00",
+  "checked": "2026-11-04T22:13:47+00:00",
   "hits": [],
   "name": "Best Buy India"
  },
  "billtrust.com": {
-  "checked": "2026-11-04T22:02:22+00:00",
+  "checked": "2026-11-04T22:08:41+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -245,127 +321,188 @@
   "name": "Billtrust India"
  },
  "blackrock.com": {
-  "checked": "2026-11-04T22:02:31+00:00",
+  "checked": "2026-11-04T22:09:18+00:00",
   "hits": [],
   "name": "BlackRock India"
  },
  "blackstone.com": {
-  "checked": "2026-11-04T22:03:03+00:00",
+  "checked": "2026-11-04T22:10:14+00:00",
   "hits": [],
   "name": "Blackstone India"
  },
  "bloomberg.com": {
-  "checked": "2026-11-04T22:03:14+00:00",
+  "checked": "2026-11-04T22:11:10+00:00",
   "hits": [],
   "name": "Bloomberg India"
  },
  "bmc.com": {
-  "checked": "2026-11-04T22:02:08+00:00",
+  "checked": "2026-11-04T22:07:44+00:00",
   "hits": [],
   "name": "BMC Software India"
  },
  "bms.com": {
-  "checked": "2026-11-04T22:03:43+00:00",
+  "checked": "2026-11-04T22:13:11+00:00",
   "hits": [],
   "name": "Bristol Myers Squibb India"
  },
  "bmsgroup.com": {
-  "checked": "2026-11-04T22:03:29+00:00",
+  "checked": "2026-11-04T22:12:07+00:00",
   "hits": [],
   "name": "BMS Group India"
  },
+ "bmwgroup.com": {
+  "checked": "2026-11-04T22:15:16+00:00",
+  "hits": [],
+  "name": "BMW TechWorks India"
+ },
  "bnpparibas.com": {
-  "checked": "2026-11-04T22:02:28+00:00",
+  "checked": "2026-11-04T22:08:59+00:00",
   "hits": [],
   "name": "BNP Paribas India"
  },
  "bny.com": {
-  "checked": "2026-11-04T22:02:30+00:00",
+  "checked": "2026-11-04T22:09:06+00:00",
   "hits": [],
   "name": "BNY India"
  },
  "boehringer-ingelheim.com": {
-  "checked": "2026-11-04T22:03:35+00:00",
+  "checked": "2026-11-04T22:12:17+00:00",
   "hits": [],
   "name": "Boehringer Ingelheim India"
  },
+ "boeing.com": {
+  "checked": "2026-11-04T22:16:44+00:00",
+  "hits": [],
+  "name": "Boeing India"
+ },
  "booking.com": {
-  "checked": "2026-11-04T22:02:16+00:00",
+  "checked": "2026-11-04T22:08:23+00:00",
   "hits": [],
   "name": "Booking.com India"
  },
+ "bosch.com": {
+  "checked": "2026-11-04T22:15:18+00:00",
+  "hits": [
+   {
+    "ats": "smartrecruiters",
+    "board_url": "https://careers.smartrecruiters.com/boschgroup",
+    "slug": "boschgroup"
+   }
+  ],
+  "name": "Bosch Global Software Technologies"
+ },
  "bostonscientific.com": {
-  "checked": "2026-11-04T22:03:40+00:00",
+  "checked": "2026-11-04T22:12:51+00:00",
   "hits": [],
   "name": "Boston Scientific India"
  },
+ "bp.com": {
+  "checked": "2026-11-04T22:05:10+00:00",
+  "hits": [],
+  "name": "BP India"
+ },
+ "broadcom.com": {
+  "checked": "2026-11-04T22:17:03+00:00",
+  "hits": [],
+  "name": "Broadcom India"
+ },
  "broadridge.com": {
-  "checked": "2026-11-04T22:02:35+00:00",
+  "checked": "2026-11-04T22:09:31+00:00",
   "hits": [],
   "name": "Broadridge India"
  },
  "brookfield.com": {
-  "checked": "2026-11-04T22:03:04+00:00",
+  "checked": "2026-11-04T22:10:16+00:00",
   "hits": [],
   "name": "Brookfield India"
  },
+ "cadence.com": {
+  "checked": "2026-11-04T22:04:57+00:00",
+  "hits": [],
+  "name": "Cadence India"
+ },
  "capitalone.com": {
-  "checked": "2026-11-04T22:02:32+00:00",
+  "checked": "2026-11-04T22:09:19+00:00",
   "hits": [],
   "name": "Capital One India"
  },
  "cargill.com": {
-  "checked": "2026-11-04T22:04:11+00:00",
+  "checked": "2026-11-04T22:15:08+00:00",
   "hits": [],
   "name": "Cargill India"
  },
+ "carlsberggroup.com": {
+  "checked": "2026-11-04T22:14:48+00:00",
+  "hits": [],
+  "name": "Carlsberg India"
+ },
+ "carrier.com": {
+  "checked": "2026-11-04T22:15:53+00:00",
+  "hits": [],
+  "name": "Carrier India"
+ },
+ "caterpillar.com": {
+  "checked": "2026-11-04T22:15:30+00:00",
+  "hits": [],
+  "name": "Caterpillar India"
+ },
  "centene.com": {
-  "checked": "2026-11-04T22:03:49+00:00",
+  "checked": "2026-11-04T22:13:33+00:00",
   "hits": [],
   "name": "Centene India"
  },
+ "chevron.com": {
+  "checked": "2026-11-04T22:05:10+00:00",
+  "hits": [],
+  "name": "Chevron India"
+ },
  "chubb.com": {
-  "checked": "2026-11-04T22:03:23+00:00",
+  "checked": "2026-11-04T22:11:44+00:00",
   "hits": [],
   "name": "Chubb India"
  },
  "cisco.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Cisco India"
  },
  "citi.com": {
-  "checked": "2026-11-04T22:02:24+00:00",
+  "checked": "2026-11-04T22:08:48+00:00",
   "hits": [],
   "name": "Citi India"
  },
  "citizensbank.com": {
-  "checked": "2026-11-04T22:02:37+00:00",
+  "checked": "2026-11-04T22:09:44+00:00",
   "hits": [],
   "name": "Citizens Financial Group India"
  },
  "cloud.com": {
-  "checked": "2026-11-04T22:01:56+00:00",
+  "checked": "2026-11-04T22:06:50+00:00",
   "hits": [],
   "name": "Cloud Software Group India"
  },
  "cohesity.com": {
-  "checked": "2026-11-04T22:02:05+00:00",
+  "checked": "2026-11-04T22:07:38+00:00",
   "hits": [],
   "name": "Cohesity India"
  },
+ "comcast.com": {
+  "checked": "2026-11-04T22:05:02+00:00",
+  "hits": [],
+  "name": "Comcast India"
+ },
  "commbank.com.au": {
-  "checked": "2026-11-04T22:02:48+00:00",
+  "checked": "2026-11-04T22:09:57+00:00",
   "hits": [],
   "name": "Commonwealth Bank India"
  },
  "commerzbank.com": {
-  "checked": "2026-11-04T22:03:01+00:00",
+  "checked": "2026-11-04T22:10:13+00:00",
   "hits": [],
   "name": "Commerzbank India"
  },
  "commvault.com": {
-  "checked": "2026-11-04T22:02:07+00:00",
+  "checked": "2026-11-04T22:07:43+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -376,32 +513,58 @@
   "name": "Commvault India"
  },
  "computershare.com": {
-  "checked": "2026-11-04T22:03:18+00:00",
+  "checked": "2026-11-04T22:11:21+00:00",
   "hits": [],
   "name": "Computershare India"
  },
+ "continental.com": {
+  "checked": "2026-11-04T22:15:18+00:00",
+  "hits": [
+   {
+    "ats": "smartrecruiters",
+    "board_url": "https://careers.smartrecruiters.com/continental",
+    "slug": "continental"
+   }
+  ],
+  "name": "Continental India"
+ },
+ "corteva.com": {
+  "checked": "2026-11-04T22:16:03+00:00",
+  "hits": [],
+  "name": "Corteva India"
+ },
  "costco.com": {
-  "checked": "2026-11-04T22:03:55+00:00",
+  "checked": "2026-11-04T22:13:54+00:00",
   "hits": [],
   "name": "Costco India"
  },
  "crowdstrike.com": {
-  "checked": "2026-11-04T22:02:05+00:00",
+  "checked": "2026-11-04T22:07:37+00:00",
   "hits": [],
   "name": "CrowdStrike India"
  },
+ "cummins.com": {
+  "checked": "2026-11-04T22:15:30+00:00",
+  "hits": [],
+  "name": "Cummins India"
+ },
  "cvshealth.com": {
-  "checked": "2026-11-04T22:03:49+00:00",
+  "checked": "2026-11-04T22:13:26+00:00",
   "hits": [],
   "name": "CVS Health India"
  },
+ "damacproperties.com": {
+  "checked": "2026-11-04T22:16:43+00:00",
+  "hits": [],
+  "name": "DAMAC India"
+ },
  "danaher.com": {
-  "checked": "2026-11-04T22:03:41+00:00",
+  "checked": "2026-11-04T22:13:04+00:00",
   "hits": [],
   "name": "Danaher India"
  },
  "databricks.com": {
-  "checked": "2026-11-04T22:02:01+00:00",
+  "checked": "2026-11-04T22:07:29+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -412,97 +575,148 @@
   "name": "Databricks India"
  },
  "db.com": {
-  "checked": "2026-11-04T22:02:26+00:00",
+  "checked": "2026-11-04T22:08:55+00:00",
   "hits": [],
   "name": "Deutsche Bank India"
  },
  "dbs.com": {
-  "checked": "2026-11-04T22:02:56+00:00",
+  "checked": "2026-11-04T22:10:07+00:00",
   "hits": [],
   "name": "DBS Tech India"
  },
  "deepwatch.com": {
-  "checked": "2026-11-04T22:02:21+00:00",
-  "hits": [],
+  "checked": "2026-11-04T22:08:36+00:00",
+  "hits": [
+   {
+    "ats": "greenhouse",
+    "board_url": "https://boards.greenhouse.io/deepwatchinc",
+    "slug": "deepwatchinc"
+   }
+  ],
   "name": "Deepwatch India"
  },
+ "deere.com": {
+  "checked": "2026-11-04T22:15:33+00:00",
+  "hits": [],
+  "name": "John Deere India"
+ },
  "dell.com": {
-  "checked": "2026-11-04T22:01:51+00:00",
+  "checked": "2026-11-04T22:06:40+00:00",
   "hits": [],
   "name": "Dell Technologies India"
  },
+ "deloitte.com": {
+  "checked": "2026-11-04T22:05:12+00:00",
+  "hits": [],
+  "name": "Deloitte USI India"
+ },
+ "delta.com": {
+  "checked": "2026-11-04T22:16:33+00:00",
+  "hits": [],
+  "name": "Delta Air Lines India"
+ },
  "deshaw.com": {
-  "checked": "2026-11-04T22:03:08+00:00",
+  "checked": "2026-11-04T22:10:56+00:00",
   "hits": [],
   "name": "D. E. Shaw India"
  },
  "diageo.com": {
-  "checked": "2026-11-04T22:04:06+00:00",
+  "checked": "2026-11-04T22:14:48+00:00",
   "hits": [],
   "name": "Diageo India"
  },
  "dickssportinggoods.com": {
-  "checked": "2026-11-04T22:03:57+00:00",
+  "checked": "2026-11-04T22:14:02+00:00",
   "hits": [],
   "name": "Dick's Sporting Goods India"
  },
+ "digikey.com": {
+  "checked": "2026-11-04T22:16:08+00:00",
+  "hits": [],
+  "name": "DigiKey India"
+ },
  "discover.com": {
-  "checked": "2026-11-04T22:02:32+00:00",
+  "checked": "2026-11-04T22:09:21+00:00",
   "hits": [],
   "name": "Discover Financial India"
  },
  "dtcc.com": {
-  "checked": "2026-11-04T22:02:36+00:00",
+  "checked": "2026-11-04T22:09:34+00:00",
   "hits": [],
   "name": "DTCC India"
  },
+ "dupont.com": {
+  "checked": "2026-11-04T22:16:03+00:00",
+  "hits": [],
+  "name": "DuPont India"
+ },
  "ea.com": {
-  "checked": "2026-11-04T22:02:19+00:00",
+  "checked": "2026-11-04T22:08:29+00:00",
   "hits": [],
   "name": "Electronic Arts India"
  },
+ "eaton.com": {
+  "checked": "2026-11-04T22:15:50+00:00",
+  "hits": [],
+  "name": "Eaton India"
+ },
  "ebay.com": {
-  "checked": "2026-11-04T22:02:18+00:00",
+  "checked": "2026-11-04T22:08:29+00:00",
   "hits": [],
   "name": "eBay India"
  },
  "eisai.com": {
-  "checked": "2026-11-04T22:03:45+00:00",
+  "checked": "2026-11-04T22:13:13+00:00",
   "hits": [],
   "name": "Eisai India"
  },
  "elanco.com": {
-  "checked": "2026-11-04T22:03:47+00:00",
+  "checked": "2026-11-04T22:13:18+00:00",
   "hits": [],
   "name": "Elanco India"
  },
  "elevancehealth.com": {
-  "checked": "2026-11-04T22:03:47+00:00",
+  "checked": "2026-11-04T22:13:23+00:00",
   "hits": [],
   "name": "Carelon Global Solutions India"
  },
+ "emerson.com": {
+  "checked": "2026-11-04T22:15:45+00:00",
+  "hits": [],
+  "name": "Emerson India"
+ },
  "epicor.com": {
-  "checked": "2026-11-04T22:02:08+00:00",
+  "checked": "2026-11-04T22:07:49+00:00",
   "hits": [],
   "name": "Epicor India"
  },
  "equifax.com": {
-  "checked": "2026-11-04T22:03:09+00:00",
+  "checked": "2026-11-04T22:10:57+00:00",
   "hits": [],
   "name": "Equifax India"
  },
  "equiniti.com": {
-  "checked": "2026-11-04T22:03:18+00:00",
+  "checked": "2026-11-04T22:11:20+00:00",
   "hits": [],
   "name": "Equiniti India"
  },
+ "equinor.com": {
+  "checked": "2026-11-04T22:05:12+00:00",
+  "hits": [],
+  "name": "Equinor India"
+ },
+ "ericsson.com": {
+  "checked": "2026-11-04T22:04:59+00:00",
+  "hits": [],
+  "name": "Ericsson India"
+ },
  "expediagroup.com": {
-  "checked": "2026-11-04T22:02:16+00:00",
+  "checked": "2026-11-04T22:08:23+00:00",
   "hits": [],
   "name": "Expedia Group India"
  },
  "experian.com": {
-  "checked": "2026-11-04T22:03:11+00:00",
+  "checked": "2026-11-04T22:11:00+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -512,173 +726,275 @@
   ],
   "name": "Experian India"
  },
+ "exxonmobil.com": {
+  "checked": "2026-11-04T22:05:10+00:00",
+  "hits": [],
+  "name": "ExxonMobil India"
+ },
+ "ey.com": {
+  "checked": "2026-11-04T22:05:13+00:00",
+  "hits": [],
+  "name": "EY GDS India"
+ },
  "factset.com": {
-  "checked": "2026-11-04T22:03:14+00:00",
+  "checked": "2026-11-04T22:11:08+00:00",
   "hits": [],
   "name": "FactSet India"
  },
+ "fedex.com": {
+  "checked": "2026-11-04T22:16:29+00:00",
+  "hits": [],
+  "name": "FedEx India"
+ },
+ "ferguson.com": {
+  "checked": "2026-11-04T22:16:06+00:00",
+  "hits": [],
+  "name": "Ferguson India"
+ },
+ "festo.com": {
+  "checked": "2026-11-04T22:15:58+00:00",
+  "hits": [],
+  "name": "Festo India"
+ },
  "fico.com": {
-  "checked": "2026-11-04T22:03:12+00:00",
+  "checked": "2026-11-04T22:11:03+00:00",
   "hits": [],
   "name": "FICO India"
  },
  "fidelity.com": {
-  "checked": "2026-11-04T22:02:30+00:00",
+  "checked": "2026-11-04T22:09:08+00:00",
   "hits": [],
   "name": "Fidelity Investments India"
  },
  "fidelityinternational.com": {
-  "checked": "2026-11-04T22:02:31+00:00",
+  "checked": "2026-11-04T22:09:12+00:00",
   "hits": [],
   "name": "Fidelity International India"
  },
  "finastra.com": {
-  "checked": "2026-11-04T22:03:17+00:00",
+  "checked": "2026-11-04T22:11:20+00:00",
   "hits": [],
   "name": "Finastra India"
  },
  "firstcitizens.com": {
-  "checked": "2026-11-04T22:02:37+00:00",
+  "checked": "2026-11-04T22:09:46+00:00",
   "hits": [],
   "name": "First Citizens India"
  },
  "fiserv.com": {
-  "checked": "2026-11-04T22:02:34+00:00",
+  "checked": "2026-11-04T22:09:30+00:00",
   "hits": [],
   "name": "Fiserv India"
  },
  "fisglobal.com": {
-  "checked": "2026-11-04T22:02:34+00:00",
+  "checked": "2026-11-04T22:09:29+00:00",
   "hits": [],
   "name": "FIS India"
  },
+ "flutter.com": {
+  "checked": "2026-11-04T22:05:06+00:00",
+  "hits": [],
+  "name": "Flutter Entertainment India"
+ },
+ "ford.com": {
+  "checked": "2026-11-04T22:15:14+00:00",
+  "hits": [],
+  "name": "Ford India"
+ },
  "franklintempleton.com": {
-  "checked": "2026-11-04T22:03:07+00:00",
+  "checked": "2026-11-04T22:10:38+00:00",
   "hits": [],
   "name": "Franklin Templeton India"
  },
+ "fuelcycle.com": {
+  "checked": "2026-11-04T22:15:06+00:00",
+  "hits": [
+   {
+    "ats": "ashby",
+    "board_url": "https://jobs.ashbyhq.com/fuel-cycle",
+    "slug": "fuel-cycle"
+   }
+  ],
+  "name": "Fuel Cycle India"
+ },
  "gap.com": {
-  "checked": "2026-11-04T22:03:56+00:00",
+  "checked": "2026-11-04T22:14:01+00:00",
   "hits": [],
   "name": "Gap Inc India"
  },
+ "gartner.com": {
+  "checked": "2026-11-04T22:05:06+00:00",
+  "hits": [],
+  "name": "Gartner India"
+ },
+ "geaerospace.com": {
+  "checked": "2026-11-04T22:16:52+00:00",
+  "hits": [],
+  "name": "GE Aerospace India"
+ },
  "gehealthcare.com": {
-  "checked": "2026-11-04T22:03:38+00:00",
+  "checked": "2026-11-04T22:12:44+00:00",
   "hits": [],
   "name": "GE HealthCare India"
  },
  "generalmills.com": {
-  "checked": "2026-11-04T22:04:06+00:00",
+  "checked": "2026-11-04T22:14:42+00:00",
   "hits": [],
   "name": "General Mills India"
  },
  "genesys.com": {
-  "checked": "2026-11-04T22:02:06+00:00",
+  "checked": "2026-11-04T22:07:41+00:00",
   "hits": [],
   "name": "Genesys India"
  },
+ "gevernova.com": {
+  "checked": "2026-11-04T22:15:40+00:00",
+  "hits": [],
+  "name": "GE Vernova India"
+ },
+ "gm.com": {
+  "checked": "2026-11-04T22:15:15+00:00",
+  "hits": [],
+  "name": "General Motors India"
+ },
  "goldmansachs.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Goldman Sachs India"
  },
  "google.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Google India"
  },
  "gsk.com": {
-  "checked": "2026-11-04T22:03:32+00:00",
+  "checked": "2026-11-04T22:12:13+00:00",
   "hits": [],
   "name": "GSK India"
  },
+ "halliburton.com": {
+  "checked": "2026-11-04T22:05:11+00:00",
+  "hits": [],
+  "name": "Halliburton India"
+ },
+ "hapag-lloyd.com": {
+  "checked": "2026-11-04T22:16:16+00:00",
+  "hits": [],
+  "name": "Hapag-Lloyd India"
+ },
  "harman.com": {
-  "checked": "2026-11-04T22:02:13+00:00",
+  "checked": "2026-11-04T22:08:12+00:00",
   "hits": [],
   "name": "Harman India"
  },
  "hcahealthcare.com": {
-  "checked": "2026-11-04T22:03:50+00:00",
+  "checked": "2026-11-04T22:13:34+00:00",
   "hits": [],
   "name": "HCA Healthcare India"
  },
  "hexagon.com": {
-  "checked": "2026-11-04T22:02:12+00:00",
+  "checked": "2026-11-04T22:08:05+00:00",
   "hits": [],
   "name": "Hexagon India"
  },
- "hm.com": {
-  "checked": "2026-11-04T22:04:01+00:00",
+ "hitachienergy.com": {
+  "checked": "2026-11-04T22:05:12+00:00",
   "hits": [],
+  "name": "Hitachi Energy India"
+ },
+ "hm.com": {
+  "checked": "2026-11-04T22:14:20+00:00",
+  "hits": [
+   {
+    "ats": "smartrecruiters",
+    "board_url": "https://careers.smartrecruiters.com/hmgroup",
+    "slug": "hmgroup"
+   }
+  ],
   "name": "H&M India"
  },
  "homedepot.com": {
-  "checked": "2026-11-04T22:03:55+00:00",
+  "checked": "2026-11-04T22:13:56+00:00",
   "hits": [],
   "name": "Home Depot India"
  },
+ "honeywell.com": {
+  "checked": "2026-11-04T22:15:39+00:00",
+  "hits": [],
+  "name": "Honeywell India"
+ },
  "hp.com": {
-  "checked": "2026-11-04T22:01:51+00:00",
+  "checked": "2026-11-04T22:06:44+00:00",
   "hits": [],
   "name": "HP Inc India"
  },
  "hpe.com": {
-  "checked": "2026-11-04T22:01:52+00:00",
+  "checked": "2026-11-04T22:06:46+00:00",
   "hits": [],
   "name": "Hewlett Packard Enterprise India"
  },
  "hsbc.com": {
-  "checked": "2026-11-04T22:02:26+00:00",
+  "checked": "2026-11-04T22:08:55+00:00",
   "hits": [],
   "name": "HSBC India"
  },
  "humana.com": {
-  "checked": "2026-11-04T22:03:49+00:00",
+  "checked": "2026-11-04T22:13:32+00:00",
   "hits": [],
   "name": "Humana India"
  },
  "ibm.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "IBM India"
  },
  "ice.com": {
-  "checked": "2026-11-04T22:02:37+00:00",
+  "checked": "2026-11-04T22:09:38+00:00",
   "hits": [],
   "name": "Intercontinental Exchange India"
  },
  "illumina.com": {
-  "checked": "2026-11-04T22:03:42+00:00",
+  "checked": "2026-11-04T22:13:09+00:00",
   "hits": [],
   "name": "Illumina India"
  },
  "imaginelearning.com": {
-  "checked": "2026-11-04T22:02:23+00:00",
+  "checked": "2026-11-04T22:08:43+00:00",
   "hits": [],
   "name": "Imagine Learning India"
  },
+ "infineon.com": {
+  "checked": "2026-11-04T22:17:11+00:00",
+  "hits": [],
+  "name": "Infineon Technologies India"
+ },
  "infor.com": {
-  "checked": "2026-11-04T22:02:08+00:00",
+  "checked": "2026-11-04T22:07:48+00:00",
   "hits": [],
   "name": "Infor India"
  },
  "informatica.com": {
-  "checked": "2026-11-04T22:02:09+00:00",
+  "checked": "2026-11-04T22:07:50+00:00",
   "hits": [],
   "name": "Informatica India"
  },
  "ing.com": {
-  "checked": "2026-11-04T22:02:59+00:00",
+  "checked": "2026-11-04T22:10:11+00:00",
   "hits": [],
   "name": "ING India"
  },
+ "intel.com": {
+  "checked": "2026-11-04T22:16:54+00:00",
+  "hits": [],
+  "name": "Intel India"
+ },
  "intuit.com": {
-  "checked": "2026-11-04T22:01:55+00:00",
+  "checked": "2026-11-04T22:06:48+00:00",
   "hits": [],
   "name": "Intuit India"
  },
  "intuitive.com": {
-  "checked": "2026-11-04T22:03:41+00:00",
+  "checked": "2026-11-04T22:13:00+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -689,22 +1005,22 @@
   "name": "Intuitive India"
  },
  "invesco.com": {
-  "checked": "2026-11-04T22:03:07+00:00",
+  "checked": "2026-11-04T22:10:31+00:00",
   "hits": [],
   "name": "Invesco India"
  },
  "iqvia.com": {
-  "checked": "2026-11-04T22:03:51+00:00",
+  "checked": "2026-11-04T22:13:36+00:00",
   "hits": [],
   "name": "IQVIA India"
  },
  "isolvedhcm.com": {
-  "checked": "2026-11-04T22:02:23+00:00",
+  "checked": "2026-11-04T22:08:43+00:00",
   "hits": [],
   "name": "Isolved India"
  },
  "isquaredcapital.com": {
-  "checked": "2026-11-04T22:03:06+00:00",
+  "checked": "2026-11-04T22:10:30+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -715,132 +1031,229 @@
   "name": "I Squared Capital India"
  },
  "jaggaer.com": {
-  "checked": "2026-11-04T22:02:21+00:00",
+  "checked": "2026-11-04T22:08:39+00:00",
   "hits": [],
   "name": "Jaggaer India"
  },
+ "jaguarlandrover.com": {
+  "checked": "2026-11-04T22:15:29+00:00",
+  "hits": [],
+  "name": "Jaguar Land Rover India"
+ },
  "jnj.com": {
-  "checked": "2026-11-04T22:03:36+00:00",
+  "checked": "2026-11-04T22:12:25+00:00",
   "hits": [],
   "name": "Johnson & Johnson India"
  },
+ "johnsoncontrols.com": {
+  "checked": "2026-11-04T22:15:51+00:00",
+  "hits": [],
+  "name": "Johnson Controls India"
+ },
  "jpmorganchase.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "JPMorgan Chase India"
  },
  "juliusbaer.com": {
-  "checked": "2026-11-04T22:03:02+00:00",
+  "checked": "2026-11-04T22:10:13+00:00",
   "hits": [],
   "name": "Julius Baer India"
  },
  "juniper.net": {
-  "checked": "2026-11-04T22:01:58+00:00",
+  "checked": "2026-11-04T22:07:11+00:00",
   "hits": [],
   "name": "Juniper Networks India"
  },
  "keysight.com": {
-  "checked": "2026-11-04T22:02:12+00:00",
+  "checked": "2026-11-04T22:08:04+00:00",
   "hits": [],
   "name": "Keysight Technologies India"
  },
  "kkr.com": {
-  "checked": "2026-11-04T22:03:06+00:00",
+  "checked": "2026-11-04T22:10:24+00:00",
   "hits": [],
   "name": "KKR India"
  },
+ "kla.com": {
+  "checked": "2026-11-04T22:04:58+00:00",
+  "hits": [],
+  "name": "KLA India"
+ },
  "kohls.com": {
-  "checked": "2026-11-04T22:03:56+00:00",
+  "checked": "2026-11-04T22:14:01+00:00",
   "hits": [],
   "name": "Kohl's India"
  },
+ "kpmg.com": {
+  "checked": "2026-11-04T22:05:13+00:00",
+  "hits": [
+   {
+    "ats": "lever",
+    "board_url": "https://jobs.lever.co/kpmg",
+    "slug": "kpmg"
+   }
+  ],
+  "name": "KPMG Global Services India"
+ },
+ "kraftheinzcompany.com": {
+  "checked": "2026-11-04T22:14:40+00:00",
+  "hits": [],
+  "name": "Kraft Heinz India"
+ },
+ "kuehne-nagel.com": {
+  "checked": "2026-11-04T22:16:08+00:00",
+  "hits": [],
+  "name": "Kuehne+Nagel India"
+ },
  "labcorp.com": {
-  "checked": "2026-11-04T22:03:51+00:00",
+  "checked": "2026-11-04T22:13:40+00:00",
   "hits": [],
   "name": "Labcorp India"
  },
+ "lamresearch.com": {
+  "checked": "2026-11-04T22:04:57+00:00",
+  "hits": [],
+  "name": "Lam Research India"
+ },
  "lenovo.com": {
-  "checked": "2026-11-04T22:02:15+00:00",
+  "checked": "2026-11-04T22:08:17+00:00",
   "hits": [],
   "name": "Lenovo India"
  },
+ "levistrauss.com": {
+  "checked": "2026-11-04T22:14:07+00:00",
+  "hits": [],
+  "name": "Levi Strauss India"
+ },
  "lexitas.com": {
-  "checked": "2026-11-04T22:03:54+00:00",
+  "checked": "2026-11-04T22:13:44+00:00",
   "hits": [],
   "name": "Lexitas India"
  },
  "lilly.com": {
-  "checked": "2026-11-04T22:03:31+00:00",
+  "checked": "2026-11-04T22:12:09+00:00",
   "hits": [],
   "name": "Eli Lilly India"
  },
+ "linde.com": {
+  "checked": "2026-11-04T22:16:03+00:00",
+  "hits": [],
+  "name": "Linde India"
+ },
  "lloydsbankinggroup.com": {
-  "checked": "2026-11-04T22:02:56+00:00",
+  "checked": "2026-11-04T22:10:07+00:00",
   "hits": [],
   "name": "Lloyds Banking Group India"
  },
+ "lockheedmartin.com": {
+  "checked": "2026-11-04T22:16:49+00:00",
+  "hits": [],
+  "name": "Lockheed Martin India"
+ },
  "lowes.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Lowe's India"
  },
  "lseg.com": {
-  "checked": "2026-11-04T22:03:15+00:00",
+  "checked": "2026-11-04T22:11:11+00:00",
   "hits": [],
   "name": "LSEG India"
  },
+ "lumen.com": {
+  "checked": "2026-11-04T22:05:03+00:00",
+  "hits": [
+   {
+    "ats": "ashby",
+    "board_url": "https://jobs.ashbyhq.com/lumen",
+    "slug": "lumen"
+   }
+  ],
+  "name": "Lumen India"
+ },
  "macys.com": {
-  "checked": "2026-11-04T22:03:56+00:00",
+  "checked": "2026-11-04T22:13:59+00:00",
   "hits": [],
   "name": "Macy's India"
  },
+ "maersk.com": {
+  "checked": "2026-11-04T22:16:25+00:00",
+  "hits": [],
+  "name": "Maersk India"
+ },
  "marksandspencer.com": {
-  "checked": "2026-11-04T22:04:07+00:00",
+  "checked": "2026-11-04T22:14:52+00:00",
   "hits": [],
   "name": "Marks & Spencer India"
  },
+ "marriott.com": {
+  "checked": "2026-11-04T22:14:58+00:00",
+  "hits": [],
+  "name": "Marriott India"
+ },
  "marshmclennan.com": {
-  "checked": "2026-11-04T22:03:26+00:00",
+  "checked": "2026-11-04T22:11:49+00:00",
   "hits": [],
   "name": "Marsh McLennan India"
  },
+ "marvell.com": {
+  "checked": "2026-11-04T22:17:06+00:00",
+  "hits": [],
+  "name": "Marvell India"
+ },
  "mastercard.com": {
-  "checked": "2026-11-04T22:02:32+00:00",
+  "checked": "2026-11-04T22:09:26+00:00",
   "hits": [],
   "name": "Mastercard India"
  },
  "mcdonalds.com": {
-  "checked": "2026-11-04T22:04:02+00:00",
+  "checked": "2026-11-04T22:14:26+00:00",
   "hits": [],
   "name": "McDonald's India"
  },
  "mckesson.com": {
-  "checked": "2026-11-04T22:03:51+00:00",
+  "checked": "2026-11-04T22:13:35+00:00",
   "hits": [],
   "name": "McKesson India"
  },
+ "mckinsey.com": {
+  "checked": "2026-11-04T22:05:14+00:00",
+  "hits": [],
+  "name": "McKinsey India"
+ },
+ "mediatek.com": {
+  "checked": "2026-11-04T22:17:18+00:00",
+  "hits": [],
+  "name": "MediaTek India"
+ },
  "medtronic.com": {
-  "checked": "2026-11-04T22:03:37+00:00",
+  "checked": "2026-11-04T22:12:41+00:00",
   "hits": [],
   "name": "Medtronic India"
  },
+ "mercedes-benz.com": {
+  "checked": "2026-11-04T22:15:15+00:00",
+  "hits": [],
+  "name": "Mercedes-Benz R&D India"
+ },
  "merck.com": {
-  "checked": "2026-11-04T22:03:35+00:00",
+  "checked": "2026-11-04T22:12:18+00:00",
   "hits": [],
   "name": "MSD India (Merck & Co.)"
  },
  "merckgroup.com": {
-  "checked": "2026-11-04T22:03:35+00:00",
+  "checked": "2026-11-04T22:12:22+00:00",
   "hits": [],
   "name": "Merck KGaA India"
  },
  "meta.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Meta India"
  },
  "metlife.com": {
-  "checked": "2026-11-04T22:03:21+00:00",
+  "checked": "2026-11-04T22:11:40+00:00",
   "hits": [
    {
     "ats": "lever",
@@ -850,18 +1263,43 @@
   ],
   "name": "MetLife India"
  },
+ "mheducation.com": {
+  "checked": "2026-11-04T22:05:09+00:00",
+  "hits": [],
+  "name": "McGraw Hill India"
+ },
+ "microchip.com": {
+  "checked": "2026-11-04T22:04:52+00:00",
+  "hits": [],
+  "name": "Microchip India"
+ },
+ "micron.com": {
+  "checked": "2026-11-04T22:17:01+00:00",
+  "hits": [],
+  "name": "Micron India"
+ },
  "microsoft.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Microsoft India Development Center"
  },
  "mizuhogroup.com": {
-  "checked": "2026-11-04T22:02:44+00:00",
+  "checked": "2026-11-04T22:09:55+00:00",
   "hits": [],
   "name": "Mizuho Global Services India"
  },
+ "modec.com": {
+  "checked": "2026-11-04T22:16:08+00:00",
+  "hits": [],
+  "name": "MODEC India"
+ },
+ "mondelezinternational.com": {
+  "checked": "2026-11-04T22:14:37+00:00",
+  "hits": [],
+  "name": "Mondelez India"
+ },
  "mongodb.com": {
-  "checked": "2026-11-04T22:02:03+00:00",
+  "checked": "2026-11-04T22:07:35+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -872,47 +1310,47 @@
   "name": "MongoDB India"
  },
  "moodys.com": {
-  "checked": "2026-11-04T22:03:13+00:00",
+  "checked": "2026-11-04T22:11:04+00:00",
   "hits": [],
   "name": "Moody's India"
  },
  "morganstanley.com": {
-  "checked": "2026-11-04T22:02:25+00:00",
+  "checked": "2026-11-04T22:08:48+00:00",
   "hits": [],
   "name": "Morgan Stanley India"
  },
  "morningstar.com": {
-  "checked": "2026-11-04T22:03:14+00:00",
+  "checked": "2026-11-04T22:11:06+00:00",
   "hits": [],
   "name": "Morningstar India"
  },
  "mrcooper.com": {
-  "checked": "2026-11-04T22:03:17+00:00",
+  "checked": "2026-11-04T22:11:20+00:00",
   "hits": [],
   "name": "Mr. Cooper India"
  },
  "msci.com": {
-  "checked": "2026-11-04T22:03:14+00:00",
+  "checked": "2026-11-04T22:11:04+00:00",
   "hits": [],
   "name": "MSCI India"
  },
  "mufg.jp": {
-  "checked": "2026-11-04T22:02:47+00:00",
+  "checked": "2026-11-04T22:09:55+00:00",
   "hits": [],
   "name": "MUFG India"
  },
  "munichre.com": {
-  "checked": "2026-11-04T22:03:19+00:00",
+  "checked": "2026-11-04T22:11:29+00:00",
   "hits": [],
   "name": "Munich Re India"
  },
  "nab.com.au": {
-  "checked": "2026-11-04T22:02:48+00:00",
+  "checked": "2026-11-04T22:10:00+00:00",
   "hits": [],
   "name": "NAB India"
  },
  "nasdaq.com": {
-  "checked": "2026-11-04T22:02:37+00:00",
+  "checked": "2026-11-04T22:09:35+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -923,67 +1361,93 @@
   "name": "Nasdaq India"
  },
  "natwestgroup.com": {
-  "checked": "2026-11-04T22:02:57+00:00",
+  "checked": "2026-11-04T22:10:11+00:00",
   "hits": [],
   "name": "NatWest Group India"
  },
  "ncrvoyix.com": {
-  "checked": "2026-11-04T22:02:11+00:00",
+  "checked": "2026-11-04T22:08:00+00:00",
   "hits": [],
   "name": "NCR Voyix India"
  },
  "nestle.com": {
-  "checked": "2026-11-04T22:04:02+00:00",
+  "checked": "2026-11-04T22:14:32+00:00",
   "hits": [],
   "name": "Nestle Business Solutions India"
  },
  "netapp.com": {
-  "checked": "2026-11-04T22:01:58+00:00",
+  "checked": "2026-11-04T22:06:56+00:00",
   "hits": [],
   "name": "NetApp India"
  },
+ "nielseniq.com": {
+  "checked": "2026-11-04T22:05:04+00:00",
+  "hits": [
+   {
+    "ats": "smartrecruiters",
+    "board_url": "https://careers.smartrecruiters.com/nielseniq",
+    "slug": "nielseniq"
+   }
+  ],
+  "name": "NielsenIQ India"
+ },
  "nike.com": {
-  "checked": "2026-11-04T22:03:59+00:00",
+  "checked": "2026-11-04T22:14:08+00:00",
   "hits": [],
   "name": "Nike India"
  },
+ "nokia.com": {
+  "checked": "2026-11-04T22:05:00+00:00",
+  "hits": [],
+  "name": "Nokia India"
+ },
  "nomura.com": {
-  "checked": "2026-11-04T22:02:41+00:00",
+  "checked": "2026-11-04T22:09:52+00:00",
   "hits": [],
   "name": "Nomura India"
  },
  "nordstrom.com": {
-  "checked": "2026-11-04T22:03:56+00:00",
+  "checked": "2026-11-04T22:14:01+00:00",
   "hits": [],
   "name": "Nordstrom India"
  },
  "northerntrust.com": {
-  "checked": "2026-11-04T22:02:31+00:00",
+  "checked": "2026-11-04T22:09:13+00:00",
   "hits": [],
   "name": "Northern Trust India"
  },
  "novartis.com": {
-  "checked": "2026-11-04T22:03:31+00:00",
+  "checked": "2026-11-04T22:12:11+00:00",
   "hits": [],
   "name": "Novartis India"
  },
  "novonordisk.com": {
-  "checked": "2026-11-04T22:03:33+00:00",
+  "checked": "2026-11-04T22:12:14+00:00",
   "hits": [],
   "name": "Novo Nordisk India"
  },
  "nttdata.com": {
-  "checked": "2026-11-04T22:02:24+00:00",
+  "checked": "2026-11-04T22:08:47+00:00",
   "hits": [],
   "name": "NTT DATA India"
  },
  "nutanix.com": {
-  "checked": "2026-11-04T22:01:57+00:00",
+  "checked": "2026-11-04T22:06:52+00:00",
   "hits": [],
   "name": "Nutanix India"
  },
+ "nvidia.com": {
+  "checked": "2026-11-04T22:16:56+00:00",
+  "hits": [],
+  "name": "NVIDIA India"
+ },
+ "nxp.com": {
+  "checked": "2026-11-04T22:17:08+00:00",
+  "hits": [],
+  "name": "NXP India"
+ },
  "okta.com": {
-  "checked": "2026-11-04T22:02:01+00:00",
+  "checked": "2026-11-04T22:07:33+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -994,92 +1458,107 @@
   "name": "Okta India"
  },
  "onemagnify.com": {
-  "checked": "2026-11-04T22:04:11+00:00",
+  "checked": "2026-11-04T22:15:07+00:00",
   "hits": [],
   "name": "OneMagnify India"
  },
+ "onsemi.com": {
+  "checked": "2026-11-04T22:04:59+00:00",
+  "hits": [],
+  "name": "onsemi India"
+ },
  "opentext.com": {
-  "checked": "2026-11-04T22:02:08+00:00",
+  "checked": "2026-11-04T22:07:47+00:00",
   "hits": [],
   "name": "OpenText India"
  },
  "oracle.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Oracle India"
  },
+ "otis.com": {
+  "checked": "2026-11-04T22:15:52+00:00",
+  "hits": [],
+  "name": "Otis India"
+ },
  "paloaltonetworks.com": {
-  "checked": "2026-11-04T22:01:59+00:00",
+  "checked": "2026-11-04T22:07:18+00:00",
   "hits": [],
   "name": "Palo Alto Networks India"
  },
  "panasonic.com": {
-  "checked": "2026-11-04T22:02:14+00:00",
+  "checked": "2026-11-04T22:08:15+00:00",
   "hits": [],
   "name": "Panasonic India"
  },
  "paypal.com": {
-  "checked": "2026-11-04T22:02:34+00:00",
+  "checked": "2026-11-04T22:09:29+00:00",
   "hits": [],
   "name": "PayPal India"
  },
+ "pearson.com": {
+  "checked": "2026-11-04T22:05:08+00:00",
+  "hits": [],
+  "name": "Pearson India"
+ },
  "pega.com": {
-  "checked": "2026-11-04T22:02:08+00:00",
+  "checked": "2026-11-04T22:07:49+00:00",
   "hits": [],
   "name": "Pegasystems India"
  },
  "pepsico.com": {
-  "checked": "2026-11-04T22:04:02+00:00",
+  "checked": "2026-11-04T22:14:28+00:00",
   "hits": [],
   "name": "PepsiCo India"
  },
  "pfizer.com": {
-  "checked": "2026-11-04T22:03:29+00:00",
+  "checked": "2026-11-04T22:12:07+00:00",
   "hits": [],
   "name": "Pfizer India"
  },
  "pg.com": {
-  "checked": "2026-11-04T22:04:05+00:00",
+  "checked": "2026-11-04T22:14:35+00:00",
   "hits": [],
   "name": "Procter & Gamble India"
  },
  "philips.com": {
-  "checked": "2026-11-04T22:03:37+00:00",
+  "checked": "2026-11-04T22:12:42+00:00",
   "hits": [],
   "name": "Philips India"
  },
  "pnc.com": {
-  "checked": "2026-11-04T22:02:38+00:00",
+  "checked": "2026-11-04T22:09:49+00:00",
   "hits": [],
   "name": "PNC India"
  },
  "principal.com": {
-  "checked": "2026-11-04T22:03:21+00:00",
+  "checked": "2026-11-04T22:11:40+00:00",
   "hits": [],
   "name": "Principal Financial India"
  },
  "prudential.com": {
-  "checked": "2026-11-04T22:03:20+00:00",
+  "checked": "2026-11-04T22:11:34+00:00",
   "hits": [],
   "name": "Prudential Financial India"
  },
  "prudentialplc.com": {
-  "checked": "2026-11-04T22:03:20+00:00",
+  "checked": "2026-11-04T22:11:37+00:00",
   "hits": [],
   "name": "Prudential plc India"
  },
  "ptc.com": {
-  "checked": "2026-11-04T22:02:13+00:00",
+  "checked": "2026-11-04T22:08:10+00:00",
   "hits": [],
   "name": "PTC India"
  },
  "puma.com": {
-  "checked": "2026-11-04T22:04:01+00:00",
+  "checked": "2026-11-04T22:14:18+00:00",
   "hits": [],
   "name": "PUMA India"
  },
  "purestorage.com": {
-  "checked": "2026-11-04T22:01:58+00:00",
+  "checked": "2026-11-04T22:07:06+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -1095,42 +1574,83 @@
   "name": "Pure Storage India"
  },
  "pvh.com": {
-  "checked": "2026-11-04T22:03:57+00:00",
+  "checked": "2026-11-04T22:14:06+00:00",
   "hits": [],
   "name": "PVH India"
  },
+ "pwc.com": {
+  "checked": "2026-11-04T22:05:13+00:00",
+  "hits": [],
+  "name": "PwC Acceleration Centers India"
+ },
+ "qualcomm.com": {
+  "checked": "2026-11-04T22:16:54+00:00",
+  "hits": [],
+  "name": "Qualcomm India"
+ },
  "r1rcm.com": {
-  "checked": "2026-11-04T22:03:52+00:00",
+  "checked": "2026-11-04T22:13:42+00:00",
   "hits": [],
   "name": "R1 RCM India"
  },
  "rakuten.com": {
-  "checked": "2026-11-04T22:02:14+00:00",
+  "checked": "2026-11-04T22:08:16+00:00",
   "hits": [],
   "name": "Rakuten India"
  },
  "reckitt.com": {
-  "checked": "2026-11-04T22:04:07+00:00",
+  "checked": "2026-11-04T22:14:50+00:00",
   "hits": [],
   "name": "Reckitt India"
  },
  "redhat.com": {
-  "checked": "2026-11-04T22:02:00+00:00",
+  "checked": "2026-11-04T22:07:20+00:00",
   "hits": [],
   "name": "Red Hat India"
  },
+ "relx.com": {
+  "checked": "2026-11-04T22:05:07+00:00",
+  "hits": [],
+  "name": "RELX India"
+ },
+ "renaultgroup.com": {
+  "checked": "2026-11-04T22:15:29+00:00",
+  "hits": [],
+  "name": "Renault Nissan Technology and Business Centre India"
+ },
+ "renesas.com": {
+  "checked": "2026-11-04T22:04:53+00:00",
+  "hits": [
+   {
+    "ats": "smartrecruiters",
+    "board_url": "https://careers.smartrecruiters.com/renesaselectronics",
+    "slug": "renesaselectronics"
+   }
+  ],
+  "name": "Renesas India"
+ },
  "reveleer.com": {
-  "checked": "2026-11-04T22:03:53+00:00",
+  "checked": "2026-11-04T22:13:43+00:00",
   "hits": [],
   "name": "Reveleer India"
  },
  "roche.com": {
-  "checked": "2026-11-04T22:03:33+00:00",
+  "checked": "2026-11-04T22:12:14+00:00",
   "hits": [],
   "name": "Roche India"
  },
+ "rolls-royce.com": {
+  "checked": "2026-11-04T22:16:54+00:00",
+  "hits": [],
+  "name": "Rolls-Royce India"
+ },
+ "rtx.com": {
+  "checked": "2026-11-04T22:16:51+00:00",
+  "hits": [],
+  "name": "RTX India (Pratt & Whitney and Collins)"
+ },
  "rubrik.com": {
-  "checked": "2026-11-04T22:02:05+00:00",
+  "checked": "2026-11-04T22:07:37+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -1141,47 +1661,62 @@
   "name": "Rubrik India"
  },
  "sabre.com": {
-  "checked": "2026-11-04T22:02:10+00:00",
+  "checked": "2026-11-04T22:07:54+00:00",
   "hits": [],
   "name": "Sabre India"
  },
+ "safran-group.com": {
+  "checked": "2026-11-04T22:16:52+00:00",
+  "hits": [],
+  "name": "Safran India"
+ },
  "salesforce.com": {
-  "checked": "2026-11-04T22:01:50+00:00",
+  "checked": "2026-11-04T22:06:38+00:00",
   "hits": [],
   "name": "Salesforce India"
  },
  "samsung.com": {
-  "checked": "2026-11-04T22:02:14+00:00",
+  "checked": "2026-11-04T22:08:13+00:00",
   "hits": [],
   "name": "Samsung R&D Institute India"
  },
  "sanofi.com": {
-  "checked": "2026-11-04T22:03:32+00:00",
+  "checked": "2026-11-04T22:12:13+00:00",
   "hits": [],
   "name": "Sanofi India"
  },
  "sap.com": {
-  "checked": "2026-11-04T22:01:50+00:00",
+  "checked": "2026-11-04T22:06:40+00:00",
   "hits": [],
   "name": "SAP Labs India"
  },
  "sc.com": {
-  "checked": "2026-11-04T22:02:55+00:00",
+  "checked": "2026-11-04T22:10:06+00:00",
   "hits": [],
   "name": "Standard Chartered India"
  },
+ "schaeffler.com": {
+  "checked": "2026-11-04T22:15:29+00:00",
+  "hits": [],
+  "name": "Schaeffler India"
+ },
  "schwab.com": {
-  "checked": "2026-11-04T22:02:31+00:00",
+  "checked": "2026-11-04T22:09:18+00:00",
   "hits": [],
   "name": "Charles Schwab India"
  },
+ "se.com": {
+  "checked": "2026-11-04T22:15:47+00:00",
+  "hits": [],
+  "name": "Schneider Electric India"
+ },
  "seagate.com": {
-  "checked": "2026-11-04T22:02:16+00:00",
+  "checked": "2026-11-04T22:08:19+00:00",
   "hits": [],
   "name": "Seagate India"
  },
  "servicenow.com": {
-  "checked": "2026-11-04T22:01:54+00:00",
+  "checked": "2026-11-04T22:06:47+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -1191,18 +1726,33 @@
   ],
   "name": "ServiceNow India"
  },
+ "shell.com": {
+  "checked": "2026-11-04T22:05:09+00:00",
+  "hits": [],
+  "name": "Shell India"
+ },
  "siemens-healthineers.com": {
-  "checked": "2026-11-04T22:03:38+00:00",
+  "checked": "2026-11-04T22:12:45+00:00",
   "hits": [],
   "name": "Siemens Healthineers India"
  },
  "siemens.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Siemens Technology India"
  },
+ "silabs.com": {
+  "checked": "2026-11-04T22:04:58+00:00",
+  "hits": [],
+  "name": "Silicon Labs India"
+ },
+ "slb.com": {
+  "checked": "2026-11-04T22:05:10+00:00",
+  "hits": [],
+  "name": "SLB India"
+ },
  "snowflake.com": {
-  "checked": "2026-11-04T22:02:01+00:00",
+  "checked": "2026-11-04T22:07:28+00:00",
   "hits": [
    {
     "ats": "ashby",
@@ -1213,42 +1763,47 @@
   "name": "Snowflake India"
  },
  "societegenerale.com": {
-  "checked": "2026-11-04T22:02:29+00:00",
+  "checked": "2026-11-04T22:09:02+00:00",
   "hits": [],
   "name": "Societe Generale India"
  },
  "sony.com": {
-  "checked": "2026-11-04T22:02:14+00:00",
+  "checked": "2026-11-04T22:08:14+00:00",
   "hits": [],
   "name": "Sony India Software Centre"
  },
  "spglobal.com": {
-  "checked": "2026-11-04T22:03:13+00:00",
+  "checked": "2026-11-04T22:11:03+00:00",
   "hits": [],
   "name": "S&P Global India"
  },
  "ssctech.com": {
-  "checked": "2026-11-04T22:02:36+00:00",
+  "checked": "2026-11-04T22:09:33+00:00",
   "hits": [],
   "name": "SS&C Technologies India"
  },
+ "st.com": {
+  "checked": "2026-11-04T22:17:18+00:00",
+  "hits": [],
+  "name": "STMicroelectronics India"
+ },
  "standard.com": {
-  "checked": "2026-11-04T22:03:29+00:00",
+  "checked": "2026-11-04T22:12:07+00:00",
   "hits": [],
   "name": "The Standard India"
  },
  "starbucks.com": {
-  "checked": "2026-11-04T22:04:02+00:00",
+  "checked": "2026-11-04T22:14:20+00:00",
   "hits": [],
   "name": "Starbucks India"
  },
  "statestreet.com": {
-  "checked": "2026-11-04T22:02:30+00:00",
+  "checked": "2026-11-04T22:09:07+00:00",
   "hits": [],
   "name": "State Street India"
  },
  "stripe.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -1259,87 +1814,149 @@
   "name": "Stripe India"
  },
  "stryker.com": {
-  "checked": "2026-11-04T22:03:40+00:00",
+  "checked": "2026-11-04T22:12:57+00:00",
   "hits": [],
   "name": "Stryker India"
  },
  "sunlife.com": {
-  "checked": "2026-11-04T22:03:22+00:00",
+  "checked": "2026-11-04T22:11:43+00:00",
   "hits": [],
   "name": "Sun Life India"
  },
  "swissre.com": {
-  "checked": "2026-11-04T22:03:19+00:00",
+  "checked": "2026-11-04T22:11:29+00:00",
   "hits": [],
   "name": "Swiss Re India"
  },
  "synchrony.com": {
-  "checked": "2026-11-04T22:02:39+00:00",
+  "checked": "2026-11-04T22:09:50+00:00",
   "hits": [],
   "name": "Synchrony India"
  },
  "syneoshealth.com": {
-  "checked": "2026-11-04T22:03:51+00:00",
+  "checked": "2026-11-04T22:13:37+00:00",
   "hits": [],
   "name": "Syneos Health India"
  },
+ "syngenta.com": {
+  "checked": "2026-11-04T22:16:04+00:00",
+  "hits": [
+   {
+    "ats": "smartrecruiters",
+    "board_url": "https://careers.smartrecruiters.com/syngentagroup",
+    "slug": "syngentagroup"
+   }
+  ],
+  "name": "Syngenta India"
+ },
+ "synopsys.com": {
+  "checked": "2026-11-04T22:04:56+00:00",
+  "hits": [],
+  "name": "Synopsys India"
+ },
+ "t-mobile.com": {
+  "checked": "2026-11-04T22:05:02+00:00",
+  "hits": [],
+  "name": "T-Mobile India"
+ },
  "takeda.com": {
-  "checked": "2026-11-04T22:03:45+00:00",
+  "checked": "2026-11-04T22:13:13+00:00",
   "hits": [],
   "name": "Takeda India"
  },
  "target.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Target in India"
  },
+ "te.com": {
+  "checked": "2026-11-04T22:16:05+00:00",
+  "hits": [],
+  "name": "TE Connectivity India"
+ },
+ "telstra.com": {
+  "checked": "2026-11-04T22:05:03+00:00",
+  "hits": [],
+  "name": "Telstra India"
+ },
  "temenos.com": {
-  "checked": "2026-11-04T22:03:17+00:00",
+  "checked": "2026-11-04T22:11:17+00:00",
   "hits": [],
   "name": "Temenos India"
  },
  "teradata.com": {
-  "checked": "2026-11-04T22:02:09+00:00",
+  "checked": "2026-11-04T22:07:51+00:00",
   "hits": [],
   "name": "Teradata India"
  },
  "tesco.com": {
-  "checked": "2026-11-04T22:04:07+00:00",
+  "checked": "2026-11-04T22:14:54+00:00",
   "hits": [],
   "name": "Tesco India"
  },
+ "thalesgroup.com": {
+  "checked": "2026-11-04T22:16:53+00:00",
+  "hits": [],
+  "name": "Thales India"
+ },
  "thermofisher.com": {
-  "checked": "2026-11-04T22:03:42+00:00",
+  "checked": "2026-11-04T22:13:07+00:00",
   "hits": [],
   "name": "Thermo Fisher Scientific India"
  },
+ "thomsonreuters.com": {
+  "checked": "2026-11-04T22:05:04+00:00",
+  "hits": [],
+  "name": "Thomson Reuters India"
+ },
+ "ti.com": {
+  "checked": "2026-11-04T22:16:58+00:00",
+  "hits": [
+   {
+    "ats": "smartrecruiters",
+    "board_url": "https://careers.smartrecruiters.com/tiindia",
+    "slug": "tiindia"
+   }
+  ],
+  "name": "Texas Instruments India"
+ },
  "tjx.com": {
-  "checked": "2026-11-04T22:03:56+00:00",
+  "checked": "2026-11-04T22:14:02+00:00",
   "hits": [],
   "name": "TJX India"
  },
+ "toyo-eng.com": {
+  "checked": "2026-11-04T22:16:08+00:00",
+  "hits": [],
+  "name": "TOYO Engineering India"
+ },
+ "tranetechnologies.com": {
+  "checked": "2026-11-04T22:15:54+00:00",
+  "hits": [],
+  "name": "Trane Technologies India"
+ },
  "transunion.com": {
-  "checked": "2026-11-04T22:03:09+00:00",
+  "checked": "2026-11-04T22:10:58+00:00",
   "hits": [],
   "name": "TransUnion India"
  },
  "trimble.com": {
-  "checked": "2026-11-04T22:02:10+00:00",
+  "checked": "2026-11-04T22:07:56+00:00",
   "hits": [],
   "name": "Trimble India"
  },
  "trubridge.com": {
-  "checked": "2026-11-04T22:03:53+00:00",
+  "checked": "2026-11-04T22:13:43+00:00",
   "hits": [],
   "name": "TruBridge India"
  },
  "truist.com": {
-  "checked": "2026-11-04T22:02:37+00:00",
+  "checked": "2026-11-04T22:09:40+00:00",
   "hits": [],
   "name": "Truist India"
  },
  "twilio.com": {
-  "checked": "2026-11-04T22:02:00+00:00",
+  "checked": "2026-11-04T22:07:25+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -1350,22 +1967,22 @@
   "name": "Twilio India"
  },
  "uber.com": {
-  "checked": "2026-11-04T22:01:55+00:00",
+  "checked": "2026-11-04T22:06:49+00:00",
   "hits": [],
   "name": "Uber India"
  },
  "ubisoft.com": {
-  "checked": "2026-11-04T22:02:20+00:00",
+  "checked": "2026-11-04T22:08:35+00:00",
   "hits": [],
   "name": "Ubisoft India"
  },
  "ubs.com": {
-  "checked": "2026-11-04T22:02:27+00:00",
+  "checked": "2026-11-04T22:08:55+00:00",
   "hits": [],
   "name": "UBS India"
  },
  "unilever.com": {
-  "checked": "2026-11-04T22:04:03+00:00",
+  "checked": "2026-11-04T22:14:33+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -1376,72 +1993,112 @@
   "name": "Unilever India"
  },
  "unisys.com": {
-  "checked": "2026-11-04T22:02:11+00:00",
+  "checked": "2026-11-04T22:08:00+00:00",
   "hits": [],
   "name": "Unisys India"
  },
+ "united.com": {
+  "checked": "2026-11-04T22:16:35+00:00",
+  "hits": [],
+  "name": "United Airlines India"
+ },
  "unitedhealthgroup.com": {
-  "checked": "2026-11-04T22:03:48+00:00",
+  "checked": "2026-11-04T22:13:24+00:00",
   "hits": [],
   "name": "Optum India"
  },
+ "ups.com": {
+  "checked": "2026-11-04T22:16:28+00:00",
+  "hits": [],
+  "name": "UPS India"
+ },
  "usbank.com": {
-  "checked": "2026-11-04T22:02:37+00:00",
+  "checked": "2026-11-04T22:09:46+00:00",
   "hits": [],
   "name": "U.S. Bancorp India"
  },
+ "valeo.com": {
+  "checked": "2026-11-04T22:15:27+00:00",
+  "hits": [],
+  "name": "Valeo India"
+ },
  "vanguard.com": {
-  "checked": "2026-11-04T22:02:31+00:00",
+  "checked": "2026-11-04T22:09:16+00:00",
   "hits": [],
   "name": "Vanguard India"
  },
  "verisk.com": {
-  "checked": "2026-11-04T22:03:16+00:00",
+  "checked": "2026-11-04T22:11:14+00:00",
   "hits": [],
   "name": "Verisk India"
  },
+ "verizon.com": {
+  "checked": "2026-11-04T22:05:01+00:00",
+  "hits": [],
+  "name": "Verizon India"
+ },
+ "vestas.com": {
+  "checked": "2026-11-04T22:05:12+00:00",
+  "hits": [],
+  "name": "Vestas India"
+ },
  "viatris.com": {
-  "checked": "2026-11-04T22:03:46+00:00",
+  "checked": "2026-11-04T22:13:16+00:00",
   "hits": [],
   "name": "Viatris India"
  },
  "visa.com": {
-  "checked": "2026-11-04T22:02:33+00:00",
+  "checked": "2026-11-04T22:09:27+00:00",
   "hits": [],
   "name": "Visa India"
  },
+ "visteon.com": {
+  "checked": "2026-11-04T22:15:21+00:00",
+  "hits": [],
+  "name": "Visteon India"
+ },
  "vmware.com": {
-  "checked": "2026-11-04T22:01:52+00:00",
+  "checked": "2026-11-04T22:06:47+00:00",
   "hits": [],
   "name": "VMware India (Broadcom)"
  },
+ "vodafone.com": {
+  "checked": "2026-11-04T22:05:01+00:00",
+  "hits": [],
+  "name": "Vodafone India"
+ },
+ "vontier.com": {
+  "checked": "2026-11-04T22:16:05+00:00",
+  "hits": [],
+  "name": "Vontier India"
+ },
  "walgreens.com": {
-  "checked": "2026-11-04T22:03:50+00:00",
+  "checked": "2026-11-04T22:13:35+00:00",
   "hits": [],
   "name": "Walgreens India"
  },
  "walmart.com": {
-  "checked": "2026-11-04T22:01:43+00:00",
+  "checked": "2026-11-04T22:06:07+00:00",
   "hits": [],
   "name": "Walmart Global Tech India"
  },
  "waters.com": {
-  "checked": "2026-11-04T22:03:42+00:00",
+  "checked": "2026-11-04T22:13:07+00:00",
   "hits": [],
   "name": "Waters India"
  },
  "wayfair.com": {
-  "checked": "2026-11-04T22:03:57+00:00",
+  "checked": "2026-11-04T22:14:03+00:00",
   "hits": [],
   "name": "Wayfair India"
  },
  "wellsfargo.com": {
-  "checked": "2026-11-04T22:02:25+00:00",
+  "checked": "2026-11-04T22:08:49+00:00",
   "hits": [],
   "name": "Wells Fargo India"
  },
  "westerndigital.com": {
-  "checked": "2026-11-04T22:02:15+00:00",
+  "checked": "2026-11-04T22:08:18+00:00",
   "hits": [
    {
     "ats": "smartrecruiters",
@@ -1452,7 +2109,7 @@
   "name": "Western Digital India"
  },
  "westernunion.com": {
-  "checked": "2026-11-04T22:03:08+00:00",
+  "checked": "2026-11-04T22:10:55+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -1463,52 +2120,67 @@
   "name": "Western Union India"
  },
  "westpac.com.au": {
-  "checked": "2026-11-04T22:02:50+00:00",
+  "checked": "2026-11-04T22:10:01+00:00",
   "hits": [],
   "name": "Westpac India"
  },
+ "whirlpoolcorp.com": {
+  "checked": "2026-11-04T22:14:54+00:00",
+  "hits": [],
+  "name": "Whirlpool India"
+ },
  "williams-sonomainc.com": {
-  "checked": "2026-11-04T22:03:57+00:00",
+  "checked": "2026-11-04T22:14:04+00:00",
   "hits": [],
   "name": "Williams-Sonoma India"
  },
+ "wolterskluwer.com": {
+  "checked": "2026-11-04T22:05:07+00:00",
+  "hits": [],
+  "name": "Wolters Kluwer India"
+ },
  "workday.com": {
-  "checked": "2026-11-04T22:01:54+00:00",
+  "checked": "2026-11-04T22:06:47+00:00",
   "hits": [],
   "name": "Workday India"
  },
  "worldpay.com": {
-  "checked": "2026-11-04T22:03:16+00:00",
+  "checked": "2026-11-04T22:11:14+00:00",
   "hits": [],
   "name": "Worldpay India"
  },
  "wtwco.com": {
-  "checked": "2026-11-04T22:03:27+00:00",
+  "checked": "2026-11-04T22:12:06+00:00",
   "hits": [],
   "name": "WTW India"
  },
  "zebra.com": {
-  "checked": "2026-11-04T22:02:10+00:00",
+  "checked": "2026-11-04T22:07:59+00:00",
   "hits": [],
   "name": "Zebra Technologies India"
  },
+ "zf.com": {
+  "checked": "2026-11-04T22:15:20+00:00",
+  "hits": [],
+  "name": "ZF India"
+ },
  "zimmerbiomet.com": {
-  "checked": "2026-11-04T22:03:40+00:00",
+  "checked": "2026-11-04T22:12:59+00:00",
   "hits": [],
   "name": "Zimmer Biomet India"
  },
  "zoetis.com": {
-  "checked": "2026-11-04T22:03:46+00:00",
+  "checked": "2026-11-04T22:13:17+00:00",
   "hits": [],
   "name": "Zoetis India"
  },
  "zoom.com": {
-  "checked": "2026-11-04T22:02:01+00:00",
+  "checked": "2026-11-04T22:07:28+00:00",
   "hits": [],
   "name": "Zoom India"
  },
  "zscaler.com": {
-  "checked": "2026-11-04T22:02:05+00:00",
+  "checked": "2026-11-04T22:07:37+00:00",
   "hits": [
    {
     "ats": "greenhouse",
@@ -1519,7 +2191,7 @@
   "name": "Zscaler India"
  },
  "zurich.com": {
-  "checked": "2026-11-04T22:03:18+00:00",
+  "checked": "2026-11-04T22:11:25+00:00",
   "hits": [],
   "name": "Zurich Insurance India"
  }

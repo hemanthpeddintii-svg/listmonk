@@ -1,7 +1,16 @@
-import { ago, clean, href, external } from "../lib/content";
+import { ago, clean, external } from "../lib/content";
+import "../app/community.css";
+const host = (a) => a.source_name?.replace(/^https?:\/\//, "").replace(/\/$/, "") || "GCC Intel";
 export default function NewsCard({ a, big }) {
-  return (<a className={"ncard" + (big ? " big" : "")} href={href(a)} {...(external(a) ? { target: "_blank", rel: "nofollow noopener" } : {})}>
+  const sc = Number(a.score) || 0, cc = Number(a.comment_count) || 0;
+  return (<article className={"ncard" + (big ? " big" : "")}>
     <div className="ncard-top">{a.city && <span className="tag">{a.city}</span>}<span className="kind">{a.kind}</span></div>
-    <h3>{clean(a.title)}</h3>
-    <div className="ncard-foot"><span>{a.source_name?.replace(/^https?:\/\//, "").replace(/\/$/, "") || "GCC Intel"}</span><span>{ago(a.published_at)} {external(a) && "↗"}</span></div></a>);
+    <h3><a href={`/story/${a.id}`}>{clean(a.title)}</a></h3>
+    <div className="ncard-foot">
+      <span>{host(a)} · {ago(a.published_at)}</span>
+      <span className="ncard-stats">
+        {sc > 0 && <span className="sc">▲ {sc}</span>}
+        <span>{cc > 0 ? `${cc} comment${cc === 1 ? "" : "s"}` : "Discuss"}</span>
+        {external(a) && a.source_url && <a className="ncard-src" href={a.source_url} target="_blank" rel="nofollow noopener" aria-label={`Read at ${host(a)} (opens in a new tab)`}>↗ source</a>}
+      </span></div></article>);
 }

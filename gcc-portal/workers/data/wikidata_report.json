@@ -1,0 +1,142 @@
+[
+ {
+  "id": 1,
+  "name": "Microsoft India Development Center",
+  "parent": "Microsoft",
+  "method": "domain",
+  "qid": "Q2283",
+  "label": "Microsoft",
+  "global_employees": 228000,
+  "founded_year": 1975,
+  "website": "https://www.microsoft.com/",
+  "ticker": "NASDAQ: MSFT"
+ },
+ {
+  "id": 2,
+  "name": "Goldman Sachs India",
+  "parent": "Goldman Sachs",
+  "method": "domain",
+  "qid": "Q193326",
+  "label": "Goldman Sachs",
+  "global_employees": 34400,
+  "founded_year": 1869,
+  "website": "https://www.goldmansachs.com/",
+  "ticker": "NYSE: GS"
+ },
+ {
+  "id": 3,
+  "name": "Walmart Global Tech India",
+  "parent": "Walmart",
+  "method": null,
+  "qid": null,
+  "label": null
+ },
+ {
+  "id": 4,
+  "name": "JPMorgan Chase India",
+  "parent": "JPMorgan Chase",
+  "method": "domain",
+  "qid": "Q192314",
+  "label": "JPMorgan Chase",
+  "global_employees": 271025,
+  "founded_year": 1968,
+  "website": "https://www.jpmorganchase.com/",
+  "ticker": "NYSE: JPM"
+ },
+ {
+  "id": 5,
+  "name": "Target in India",
+  "parent": "Target",
+  "method": "domain",
+  "qid": "Q1046951",
+  "label": "Target Corporation",
+  "global_employees": 400000,
+  "founded_year": 1902,
+  "website": "https://www.target.com",
+  "ticker": "NYSE: TGT"
+ },
+ {
+  "id": 6,
+  "name": "Airbus India",
+  "parent": "Airbus",
+  "method": "domain",
+  "qid": "Q2311",
+  "label": "Airbus",
+  "global_employees": 156921,
+  "founded_year": 1998,
+  "website": "https://airbus.com",
+  "ticker": "EPA: AIR"
+ },
+ {
+  "id": 7,
+  "name": "Siemens Technology India",
+  "parent": "Siemens",
+  "method": "domain",
+  "qid": "Q81230",
+  "label": "Siemens",
+  "global_employees": 320000,
+  "founded_year": 1847,
+  "website": "https://www.siemens.com/",
+  "ticker": "FRA: SIE"
+ },
+ {
+  "id": 8,
+  "name": "Lowe's India",
+  "parent": "Lowe's",
+  "method": "domain",
+  "qid": "Q1373493",
+  "label": "Lowe's",
+  "global_employees": null,
+  "founded_year": 1921,
+  "website": "http://lowes.com",
+  "ticker": "NYSE: LOW"
+ },
+ {
+  "id": 9,
+  "name": "Stripe India",
+  "parent": "Stripe",
+  "method": "domain",
+  "qid": "Q7624104",
+  "label": "Stripe",
+  "global_employees": 8000,
+  "founded_year": 2010,
+  "website": "https://stripe.com/",
+  "ticker": null
+ },
+ {
+  "id": 10,
+  "name": "Cisco India",
+  "parent": "Cisco",
+  "method": "domain",
+  "qid": "Q173395",
+  "label": "Cisco",
+  "global_employees": 86200,
+  "founded_year": 1984,
+  "website": "https://www.cisco.com/",
+  "ticker": "NASDAQ: CSCO"
+ },
+ {
+  "id": 97,
+  "name": "Google India",
+  "parent": "Alphabet (Google)",
+  "method": "label",
+  "qid": "Q20800404",
+  "label": "Alphabet Inc.",
+  "global_employees": 190234,
+  "founded_year": 2015,
+  "website": "https://abc.xyz/",
+  "ticker": "NASDAQ: GOOG"
+ },
+ {
+  "id": 98,
+  "name": "Amazon Development Centre India",
+  "parent": "Amazon",
+  "method": "domain",
+  "qid": "Q3884",
+  "label": "Amazon",
+  "global_employees": 1500000,
+  "founded_year": 1994,
+  "website": "https://www.amazon.com/",
+  "ticker": "NASDAQ: AMZN"
+ }
+]
