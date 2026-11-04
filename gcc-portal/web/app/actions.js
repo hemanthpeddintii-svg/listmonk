@@ -131,3 +131,14 @@ export async function verifyExpansion(fd) {
   await q("UPDATE expansions SET verified=NOT verified WHERE id=$1", [Number(fd.get("id"))]);
   revalidatePath("/admin"); revalidatePath("/expansions");
 }
+
+// TEST MODE ONLY (BILLING_MODE=test): lets you try Pro/Team without a payment gateway.
+export async function testSetPlan(fd) {
+  if (process.env.BILLING_MODE !== "test") return;
+  const u = await requireUser();
+  const plan = String(fd.get("plan"));
+  if (!["free", "pro", "team"].includes(plan)) return;
+  await q("UPDATE users SET plan=$2, plan_expires_at = CASE WHEN $2='free' THEN NULL ELSE now()+interval '30 days' END WHERE id=$1", [u.id, plan]);
+  revalidatePath("/", "layout");
+  redirect("/dashboard?plan=" + plan);
+}

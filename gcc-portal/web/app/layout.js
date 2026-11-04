@@ -9,6 +9,7 @@ export const metadata = {
 export default async function Root({ children }) {
   const u = await getUser();
   return (<html lang="en"><body><Cursor />
+    {process.env.BILLING_MODE === "test" && <div className="testbar">TEST BUILD · payments disabled · plans switchable from Dashboard</div>}
     <header className="nav"><nav className="nav-in">
       <a className="logo" href="/"><i />gcc·intel</a>
       <a href="/news">News</a><a href="/expansions">Expansions</a><a href="/reports">Reports</a><a href="/companies">Companies</a><a href="/jobs">Jobs</a><a href="/learn">Learn</a>

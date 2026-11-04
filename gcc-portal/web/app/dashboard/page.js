@@ -1,5 +1,6 @@
 import { q } from "../../lib/db";
 import { requireUser, planOf } from "../../lib/auth";
+import TestPlanSwitch from "../../components/TestPlanSwitch";
 import { PLANS } from "../../lib/plans";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Dashboard" };
@@ -14,6 +15,7 @@ export default async function Dashboard({ searchParams }) {
     <div className="card">Plan: <b>{p.label}</b>{u.plan_expires_at && <> · renews/expires {new Date(u.plan_expires_at).toISOString().slice(0, 10)}</>}
       {up && <p>To upgrade to <b>{PLANS[up].label}</b> ({PLANS[up].price}) online checkout is being connected — contact us and an admin can enable it.</p>}
       {u.plan === "free" && !up && <p><a href="/pricing">Upgrade</a> for the full database, exports and alerts.</p>}</div>
+    <TestPlanSwitch current={u.plan} />
     <h2>Saved companies ({saved.length}/{p.saved})</h2>
     <ul>{saved.map(c => <li key={c.id}><a href={`/companies/${c.id}`}>{c.name}</a> <span className="mut">{c.industry} · {c.jobs} jobs</span></li>)}</ul>
     {saved.length === 0 && <p className="mut">Star companies in the <a href="/companies">explorer</a> to track them here.</p>}

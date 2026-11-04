@@ -1,3 +1,4 @@
+import TestPlanSwitch from "../../components/TestPlanSwitch";
 import { PLANS } from "../../lib/plans";
 import { getUser } from "../../lib/auth";
 export const metadata = { title: "Pricing" };
@@ -10,6 +11,6 @@ export default async function Pricing() {
       <div key={k} className={"card" + (k === "pro" ? " hl" : "")}><h3>{p.label}</h3><h2>{p.price}</h2>
         <ul>{feat(p).map(f => <li key={f}>{f}</li>)}</ul>
         {k === "free" ? <a className="btn ghost" href={u ? "/dashboard" : "/signup"}>Start free</a>
-          : <a className="btn" href={`/dashboard?upgrade=${k}`}>Choose {p.label}</a>}</div>))}</div>
-    <p className="mut">Payments: Razorpay (India) / Stripe (international) — webhook at <code>/api/billing/webhook</code>.</p></main>);
+          : <a className="btn" href={process.env.BILLING_MODE === "test" ? (u ? "/dashboard" : "/signup") : `/dashboard?upgrade=${k}`}>{process.env.BILLING_MODE === "test" ? `Try ${p.label} (test)` : `Choose ${p.label}`}</a>}</div>))}</div>
+    {u && <TestPlanSwitch current={u.plan} />}<p className="mut">Payments: Razorpay (India) / Stripe (international) — webhook at <code>/api/billing/webhook</code>.</p></main>);
 }
