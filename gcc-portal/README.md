@@ -2,6 +2,9 @@
 
 Inc42-style news + intelligence portal for Global Capability Centers in India. Next.js 14 + Postgres + Python workers.
 
+## Free hosting
+See `HOSTING-FREE.md` (Render blueprint at the repo root: `render.yaml`).
+
 ## Test it (no payment gateway)
 ```
 ./run-test.sh            # needs Postgres; sets BILLING_MODE=test, seeds demo users, serves :3111

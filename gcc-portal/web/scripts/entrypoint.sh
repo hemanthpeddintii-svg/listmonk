@@ -5,4 +5,5 @@ if [ "${NODE_ENV:-}" = "production" ] && { [ -z "${JWT_SECRET:-}" ] || [ "${JWT_
   echo "FATAL: JWT_SECRET is not set (or is the default). Generate one: openssl rand -hex 32" >&2; exit 1
 fi
 if [ "${SKIP_MIGRATE:-0}" != "1" ]; then node scripts/migrate.mjs; fi
+if [ "${SEED_DATA:-0}" = "1" ]; then node scripts/load-seed.mjs; fi
 exec "$@"
