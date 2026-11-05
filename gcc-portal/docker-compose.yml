@@ -44,6 +44,7 @@ services:
       ADMIN_EMAILS: ${ADMIN_EMAILS:-}
       BILLING_MODE: ${BILLING_MODE:-test}
       BILLING_WEBHOOK_SECRET: ${BILLING_WEBHOOK_SECRET:-}
+      SEED_DATA: ${SEED_DATA:-0}              # 1 = load the starter dataset once, when the database is empty
     ports:
       - "${WEB_BIND:-127.0.0.1}:${WEB_PORT:-3000}:3000"    # loopback by default; Caddy (or your proxy) is the public door
     healthcheck:
