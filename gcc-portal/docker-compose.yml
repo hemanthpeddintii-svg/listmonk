@@ -1,0 +1,90 @@
+# GCC Intel: postgres + web + worker (+ optional Caddy for HTTPS).
+#   cp .env.example .env   # fill in JWT_SECRET, POSTGRES_PASSWORD, SITE_URL ...
+#   docker compose up -d --build
+#   docker compose --profile caddy up -d      # adds HTTPS via Caddy (set DOMAIN in .env)
+name: gcc-intel
+
+x-app-env: &app-env
+  DATABASE_URL: postgresql://${POSTGRES_USER:-gcc}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/${POSTGRES_DB:-gcc}
+  SITE_URL: ${SITE_URL:-http://localhost:3000}
+  SMTP_URL: ${SMTP_URL:-}
+  SMTP_HOST: ${SMTP_HOST:-}
+  SMTP_PORT: ${SMTP_PORT:-587}
+  SMTP_USER: ${SMTP_USER:-}
+  SMTP_PASS: ${SMTP_PASS:-}
+  SMTP_FROM: ${SMTP_FROM:-}
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-gcc}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-gcc}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    # Not published to the host. Use `docker compose exec db psql -U gcc gcc` or an SSH tunnel.
+
+  web:
+    build: { context: ., target: web }
+    image: gcc-intel-web
+    restart: unless-stopped
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      <<: *app-env
+      NODE_ENV: production
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env (openssl rand -hex 32)}
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-}
+      BILLING_MODE: ${BILLING_MODE:-test}
+      BILLING_WEBHOOK_SECRET: ${BILLING_WEBHOOK_SECRET:-}
+      SEED_DATA: ${SEED_DATA:-0}              # 1 = load the starter dataset once, when the database is empty
+    ports:
+      - "${WEB_BIND:-127.0.0.1}:${WEB_PORT:-3000}:3000"    # loopback by default; Caddy (or your proxy) is the public door
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/api/health >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 40s
+      retries: 3
+
+  worker:
+    build: { context: ., target: worker }
+    image: gcc-intel-worker
+    restart: unless-stopped
+    depends_on:
+      web: { condition: service_healthy }      # web applies the schema at boot, so the tables exist before jobs run
+    environment:
+      <<: *app-env
+      # Schedule (IST) lives in workers/crontab: news daily 06:00, deep refresh Sunday 02:30, digest Monday 07:00.
+      ATS_BUDGET: ${ATS_BUDGET:-1500}
+      ENRICH_LIMIT: ${ENRICH_LIMIT:-300}
+    # Run a job by hand:  docker compose exec worker ./run_weekly.sh news
+
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["caddy"]
+    restart: unless-stopped
+    depends_on:
+      web: { condition: service_healthy }
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env to use the caddy profile}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./docs/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:

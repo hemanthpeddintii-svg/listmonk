@@ -1,0 +1,99 @@
+# Root-level copy of gcc-portal/.github/workflows/ci.yml. GitHub only reads workflows from the repository root,
+# so this copy is the one that actually runs while gcc-portal lives inside the listmonk repo.
+# Every step runs in ./gcc-portal. Names are prefixed 'gcc-portal' so they never clash with listmonk's own workflows.
+name: gcc-portal ci
+on:
+  push:
+    branches: [main, master]
+    paths: ["gcc-portal/web/**", "gcc-portal/db/**", "gcc-portal/workers/**", "gcc-portal/Dockerfile", "gcc-portal/.github/workflows/gcc-portal-ci.yml"]
+  pull_request:
+    paths: ["gcc-portal/web/**", "gcc-portal/db/**", "gcc-portal/workers/**", "gcc-portal/Dockerfile", "gcc-portal/.github/workflows/gcc-portal-ci.yml"]
+  workflow_dispatch:
+concurrency:
+  group: gcc-portal-ci-${{ github.ref }}
+  cancel-in-progress: true
+defaults:
+  run:
+    working-directory: gcc-portal
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env: { POSTGRES_USER: gcc, POSTGRES_PASSWORD: gcc, POSTGRES_DB: gcc }
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U gcc" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://gcc:gcc@localhost:5432/gcc
+      JWT_SECRET: ci-only-secret-0123456789abcdef
+      SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: gcc-portal/web/package-lock.json
+      - run: npm ci
+        working-directory: gcc-portal/web
+      - name: Migrate twice (must be idempotent)
+        working-directory: gcc-portal/web
+        run: |
+          node scripts/migrate.mjs
+          node scripts/migrate.mjs
+      - name: Build
+        working-directory: gcc-portal/web
+        run: npx next build
+        env:
+          NEXT_STANDALONE: "1"
+      - name: Boot check
+        working-directory: gcc-portal/web
+        run: |
+          NODE_ENV=production npx next start -p 3000 &
+          for i in $(seq 1 30); do curl -fsS localhost:3000/api/health && break; sleep 1; done
+          curl -fsS localhost:3000/api/health
+          curl -fsS -o /dev/null localhost:3000/weekly
+          curl -fsS -o /dev/null localhost:3000/rss.xml
+          curl -fsSI localhost:3000/ | grep -i content-security-policy
+  workers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: gcc-portal/workers/requirements.txt
+      - run: pip install -r workers/requirements.txt
+      - name: Compile workers
+        run: python -m compileall -q workers
+      - name: Shell syntax
+        run: bash -n workers/run_weekly.sh
+      - name: Scheduler parses the crontab
+        run: python workers/scheduler.py --list
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build web image
+        uses: docker/build-push-action@v6
+        with:
+          context: gcc-portal
+          target: web
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Build worker image
+        uses: docker/build-push-action@v6
+        with:
+          context: gcc-portal
+          target: worker
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
