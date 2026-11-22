@@ -2,6 +2,9 @@
 
 Inc42-style news + intelligence portal for Global Capability Centers in India. Next.js 14 + Postgres + Python workers.
 
+## Docs
+`docs/OBJECTIVE.md` (why), `docs/CONTEXT.md` (state of the project), `docs/NEXT_STEPS.md` (what is next), `docs/WORKFLOW.md` (work from git only, then delete the cloud/local copies).
+
 ## Free hosting
 See `HOSTING-FREE.md` (Render blueprint at the repo root: `render.yaml`).
 
