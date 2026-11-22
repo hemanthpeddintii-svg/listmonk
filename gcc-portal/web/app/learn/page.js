@@ -1,0 +1,20 @@
+export const metadata = { title: "What is a GCC? Global Capability Centers explained (and the other GCC)", description: "GCC means Global Capability Center in business and Gulf Cooperation Council in geopolitics. Definitions, how GCCs work in India, and a glossary." };
+const GLOSS = [["Captive centre", "An offshore unit fully owned by the parent company, as opposed to an outsourced vendor."], ["BOT (build-operate-transfer)", "A partner sets up and runs the centre, then hands it to the parent."], ["GBS", "Global Business Services: a GCC focused on finance, HR, procurement and other shared services."], ["ER&D", "Engineering, research and development work done in the centre."], ["CoE", "Centre of Excellence: a GCC team that owns a specialised capability such as AI or cybersecurity."], ["Tier-2 city", "Cities beyond the big six hubs (for example Coimbatore, Kochi, Ahmedabad) that GCCs are increasingly choosing."], ["MNC", "Multinational company: the parent organisation that owns the GCC."]];
+const FAQ = [["What does GCC stand for?", "In business and technology, GCC usually means Global Capability Center. In politics and economics it usually means the Gulf Cooperation Council."], ["What is a Global Capability Center?", "A unit set up by a multinational company in another country, commonly India, to do engineering, analytics, operations or other work for the parent."], ["What is the Gulf Cooperation Council?", "A political and economic alliance of six Gulf states: Bahrain, Kuwait, Oman, Qatar, Saudi Arabia and the United Arab Emirates."]];
+export default function Learn() {
+  return (<main className="wrap page prose">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }) }} />
+    <span className="eyebrow"><i />GCC 101</span><h1>What is a <em>GCC?</em></h1>
+    <p>The same three letters mean two very different things. Searching for &ldquo;GCC&rdquo; will show you both, so here is the short version.</p>
+    <div className="grid" style={{ margin: "26px 0" }}>
+      <div className="card" style={{ background: "var(--lime)" }}><small className="mut">THIS SITE</small><h2 style={{ margin: "6px 0" }}>Global Capability Center</h2><p>A company-owned centre in India (or elsewhere) that does real work for a multinational parent: engineering, analytics, finance, AI, product.</p></div>
+      <div className="card"><small className="mut">NOT THIS SITE</small><h2 style={{ margin: "6px 0" }}>Gulf Cooperation Council</h2><p>The alliance of Bahrain, Kuwait, Oman, Qatar, Saudi Arabia and the UAE. We filter these stories out of our news feed.</p></div></div>
+    <h2>How a GCC differs from outsourcing</h2>
+    <p>An outsourcing vendor serves many clients. A GCC serves one: its own parent. The parent keeps control of the team, the work and the intellectual property. That is why GCCs hire for roles like product management, data science and platform engineering, not just support.</p>
+    <h2>Why India</h2>
+    <p>India offers a deep pool of engineering and analytics talent, a mature set of tech cities, and decades of experience running offshore teams. Bengaluru, Hyderabad, Pune, Chennai, Delhi NCR and Mumbai host most centres, while Tier-2 cities are growing.</p>
+    <h2>What you can do on GCC Intel</h2>
+    <ul><li><a href="/news">News</a> on new centres, expansions and leadership moves</li><li><a href="/expansions">Expansion tracker</a> grouped by quarter</li><li><a href="/reports">Quarterly reports</a> for Q1 to Q4</li><li><a href="/companies">Company database</a> and <a href="/jobs">live jobs</a></li><li><a href="/cities">City hubs</a></li></ul>
+    <h2>Glossary</h2><dl>{GLOSS.map(([t, d]) => <div key={t} className="gl"><dt>{t}</dt><dd>{d}</dd></div>)}</dl>
+    <h2>FAQ</h2>{FAQ.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</main>);
+}

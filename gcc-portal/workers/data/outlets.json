@@ -1,0 +1,2200 @@
+{
+ "generated": "2026-11-04T22:47:52+00:00",
+ "note": "status=ok means HTTP 200 with >=1 parseable item when last checked. 'google-news-only' outlets have no working public feed and are reached via site-scoped Google News RSS queries.",
+ "outlets": [
+  {
+   "name": "Economic Times",
+   "domain": "economictimes.indiatimes.com",
+   "feeds_ok": 9,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 412,
+   "google_news_relevant": 138
+  },
+  {
+   "name": "ET CIO",
+   "domain": "cio.economictimes.indiatimes.com",
+   "feeds_ok": 2,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 63,
+   "google_news_relevant": 10
+  },
+  {
+   "name": "ETHRWorld",
+   "domain": "hr.economictimes.indiatimes.com",
+   "feeds_ok": 2,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 145,
+   "google_news_relevant": 26
+  },
+  {
+   "name": "Business Standard",
+   "domain": "business-standard.com",
+   "feeds_ok": 6,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 408,
+   "google_news_relevant": 62
+  },
+  {
+   "name": "The Hindu BusinessLine",
+   "domain": "thehindubusinessline.com",
+   "feeds_ok": 5,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 341,
+   "google_news_relevant": 38
+  },
+  {
+   "name": "The Hindu",
+   "domain": "thehindu.com",
+   "feeds_ok": 10,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 386,
+   "google_news_relevant": 40
+  },
+  {
+   "name": "Mint",
+   "domain": "livemint.com",
+   "feeds_ok": 5,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 330,
+   "google_news_relevant": 23
+  },
+  {
+   "name": "Moneycontrol",
+   "domain": "moneycontrol.com",
+   "feeds_ok": 0,
+   "feeds_failed": 2,
+   "coverage": "google-news-only",
+   "google_news_items": 325,
+   "google_news_relevant": 75
+  },
+  {
+   "name": "Inc42",
+   "domain": "inc42.com",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 38,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "YourStory",
+   "domain": "yourstory.com",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 123,
+   "google_news_relevant": 22
+  },
+  {
+   "name": "Entrackr",
+   "domain": "entrackr.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 11,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "Financial Express",
+   "domain": "financialexpress.com",
+   "feeds_ok": 0,
+   "feeds_failed": 2,
+   "coverage": "google-news-only",
+   "google_news_items": 372,
+   "google_news_relevant": 19
+  },
+  {
+   "name": "Hindustan Times",
+   "domain": "hindustantimes.com",
+   "feeds_ok": 4,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 327,
+   "google_news_relevant": 16
+  },
+  {
+   "name": "NDTV Profit",
+   "domain": "ndtvprofit.com",
+   "feeds_ok": 1,
+   "feeds_failed": 1,
+   "coverage": "rss",
+   "google_news_items": 89,
+   "google_news_relevant": 8
+  },
+  {
+   "name": "Times of India",
+   "domain": "timesofindia.indiatimes.com",
+   "feeds_ok": 11,
+   "feeds_failed": 1,
+   "coverage": "rss",
+   "google_news_items": 501,
+   "google_news_relevant": 89
+  },
+  {
+   "name": "Nasscom",
+   "domain": "nasscom.in",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 115,
+   "google_news_relevant": 9
+  },
+  {
+   "name": "Nasscom Community",
+   "domain": "community.nasscom.in",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 53,
+   "google_news_relevant": 9
+  },
+  {
+   "name": "HRKatha",
+   "domain": "hrkatha.com",
+   "feeds_ok": 4,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 56,
+   "google_news_relevant": 11
+  },
+  {
+   "name": "People Matters",
+   "domain": "peoplematters.in",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 291,
+   "google_news_relevant": 44
+  },
+  {
+   "name": "Analytics India Magazine",
+   "domain": "analyticsindiamag.com",
+   "feeds_ok": 2,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 420,
+   "google_news_relevant": 58
+  },
+  {
+   "name": "Express Computer",
+   "domain": "expresscomputer.in",
+   "feeds_ok": 2,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 367,
+   "google_news_relevant": 19
+  },
+  {
+   "name": "BW Businessworld",
+   "domain": "businessworld.in",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 138,
+   "google_news_relevant": 13
+  },
+  {
+   "name": "Indian Express",
+   "domain": "indianexpress.com",
+   "feeds_ok": 8,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 113,
+   "google_news_relevant": 4
+  },
+  {
+   "name": "Telangana Today",
+   "domain": "telanganatoday.com",
+   "feeds_ok": 2,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 56,
+   "google_news_relevant": 10
+  },
+  {
+   "name": "CNBC-TV18",
+   "domain": "cnbctv18.com",
+   "feeds_ok": 2,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 174,
+   "google_news_relevant": 9
+  },
+  {
+   "name": "Business Today",
+   "domain": "businesstoday.in",
+   "feeds_ok": 2,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 177,
+   "google_news_relevant": 17
+  },
+  {
+   "name": "CXOToday",
+   "domain": "cxotoday.com",
+   "feeds_ok": 1,
+   "feeds_failed": 1,
+   "coverage": "rss",
+   "google_news_items": 98,
+   "google_news_relevant": 11
+  },
+  {
+   "name": "Tech Circle",
+   "domain": "techcircle.in",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 26,
+   "google_news_relevant": 6
+  },
+  {
+   "name": "Deccan Herald",
+   "domain": "deccanherald.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 173,
+   "google_news_relevant": 18
+  },
+  {
+   "name": "New Indian Express",
+   "domain": "newindianexpress.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 347,
+   "google_news_relevant": 25
+  },
+  {
+   "name": "ThePrint",
+   "domain": "theprint.in",
+   "feeds_ok": 1,
+   "feeds_failed": 1,
+   "coverage": "rss",
+   "google_news_items": 176,
+   "google_news_relevant": 18
+  },
+  {
+   "name": "Medianama",
+   "domain": "medianama.com",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 10,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "Scroll",
+   "domain": "scroll.in",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 3,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "Tech in Asia",
+   "domain": "techinasia.com",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 3,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "IT Voice",
+   "domain": "itvoice.in",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 40,
+   "google_news_relevant": 3
+  },
+  {
+   "name": "Firstpost",
+   "domain": "firstpost.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 99,
+   "google_news_relevant": 2
+  },
+  {
+   "name": "News18",
+   "domain": "news18.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 113,
+   "google_news_relevant": 6
+  },
+  {
+   "name": "Zee Business",
+   "domain": "zeebiz.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 48,
+   "google_news_relevant": 4
+  },
+  {
+   "name": "BQ Prime",
+   "domain": "bqprime.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 0,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "Outlook Business",
+   "domain": "outlookbusiness.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 103,
+   "google_news_relevant": 11
+  },
+  {
+   "name": "India Today",
+   "domain": "indiatoday.in",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 211,
+   "google_news_relevant": 8
+  },
+  {
+   "name": "IndianWeb2",
+   "domain": "indianweb2.com",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 148,
+   "google_news_relevant": 1
+  },
+  {
+   "name": "Tech Observer",
+   "domain": "techobserver.in",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 6,
+   "google_news_relevant": 1
+  },
+  {
+   "name": "DQ India",
+   "domain": "dqindia.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 173,
+   "google_news_relevant": 12
+  },
+  {
+   "name": "Siliconindia",
+   "domain": "siliconindia.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 19,
+   "google_news_relevant": 3
+  },
+  {
+   "name": "The Hans India",
+   "domain": "thehansindia.com",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 74,
+   "google_news_relevant": 3
+  },
+  {
+   "name": "PIB",
+   "domain": "pib.gov.in",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 80,
+   "google_news_relevant": 4
+  },
+  {
+   "name": "CIOL",
+   "domain": "ciol.com",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 23,
+   "google_news_relevant": 6
+  },
+  {
+   "name": "Fortune India",
+   "domain": "fortuneindia.com",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 104,
+   "google_news_relevant": 18
+  },
+  {
+   "name": "The Week",
+   "domain": "theweek.in",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 116,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "The Tribune",
+   "domain": "tribuneindia.com",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 130,
+   "google_news_relevant": 13
+  },
+  {
+   "name": "Mathrubhumi",
+   "domain": "mathrubhumi.com",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 21,
+   "google_news_relevant": 1
+  },
+  {
+   "name": "Odisha TV",
+   "domain": "odishatv.in",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 5,
+   "google_news_relevant": 1
+  },
+  {
+   "name": "Free Press Journal",
+   "domain": "freepressjournal.com",
+   "feeds_ok": 0,
+   "feeds_failed": 1,
+   "coverage": "google-news-only",
+   "google_news_items": 0,
+   "google_news_relevant": 0
+  },
+  {
+   "name": "Dataquest",
+   "domain": "dqindia.com",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 173,
+   "google_news_relevant": 12
+  },
+  {
+   "name": "Ahmedabad Mirror",
+   "domain": "ahmedabadmirror.com",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 26,
+   "google_news_relevant": 1
+  },
+  {
+   "name": "Economic Times Realty",
+   "domain": "realty.economictimes.indiatimes.com",
+   "feeds_ok": 1,
+   "feeds_failed": 0,
+   "coverage": "rss",
+   "google_news_items": 410,
+   "google_news_relevant": 9
+  },
+  {
+   "name": "Business Line Tamil Nadu",
+   "domain": "thehindubusinessline.com",
+   "feeds_ok": 0,
+   "feeds_failed": 0,
+   "coverage": "google-news-only",
+   "google_news_items": 341,
+   "google_news_relevant": 38
+  }
+ ],
+ "feeds": [
+  {
+   "outlet": "Economic Times",
+   "name": "ET Tech",
+   "url": "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Information Tech",
+   "url": "https://economictimes.indiatimes.com/tech/information-tech/rssfeeds/13357555.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Industry",
+   "url": "https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Jobs",
+   "url": "https://economictimes.indiatimes.com/jobs/rssfeeds/107115.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 2,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Top Stories",
+   "url": "https://economictimes.indiatimes.com/rssfeedstopstories.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 52,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Company",
+   "url": "https://economictimes.indiatimes.com/news/company/rssfeeds/2143429.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 49,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Startups",
+   "url": "https://economictimes.indiatimes.com/small-biz/startups/rssfeeds/11993050.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Banking & Finance",
+   "url": "https://economictimes.indiatimes.com/industry/banking/finance/rssfeeds/13358259.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times",
+   "name": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "ET CIO",
+   "name": "ETCIO Top Stories",
+   "url": "https://cio.economictimes.indiatimes.com/rss/topstories",
+   "status": "ok",
+   "http": 200,
+   "items": 10,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "ET CIO",
+   "name": "ETCIO Recent Stories",
+   "url": "https://cio.economictimes.indiatimes.com/rss/recentstories",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 1,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "ETHRWorld",
+   "name": "ETHRWorld Top Stories",
+   "url": "https://hr.economictimes.indiatimes.com/rss/topstories",
+   "status": "ok",
+   "http": 200,
+   "items": 10,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "ETHRWorld",
+   "name": "ETHRWorld Recent Stories",
+   "url": "https://hr.economictimes.indiatimes.com/rss/recentstories",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 1,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Economic Times Realty",
+   "name": "ET Realty Top Stories",
+   "url": "https://realty.economictimes.indiatimes.com/rss/topstories",
+   "status": "ok",
+   "http": 200,
+   "items": 10,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Standard",
+   "name": "BS Companies",
+   "url": "https://www.business-standard.com/rss/companies-101.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Standard",
+   "name": "BS Technology",
+   "url": "https://www.business-standard.com/rss/technology-108.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Standard",
+   "name": "BS Economy",
+   "url": "https://www.business-standard.com/rss/economy-102.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Standard",
+   "name": "BS Industry",
+   "url": "https://www.business-standard.com/rss/industry-217.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Standard",
+   "name": "BS Top Stories",
+   "url": "https://www.business-standard.com/rss/home_page_top_stories.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 9,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Standard",
+   "name": "BS Finance",
+   "url": "https://www.business-standard.com/rss/finance-103.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu BusinessLine",
+   "name": "BL Companies",
+   "url": "https://www.thehindubusinessline.com/companies/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu BusinessLine",
+   "name": "BL Info-tech",
+   "url": "https://www.thehindubusinessline.com/info-tech/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu BusinessLine",
+   "name": "BL Economy",
+   "url": "https://www.thehindubusinessline.com/economy/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu BusinessLine",
+   "name": "BL News",
+   "url": "https://www.thehindubusinessline.com/news/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu BusinessLine",
+   "name": "BL Markets",
+   "url": "https://www.thehindubusinessline.com/markets/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Business",
+   "url": "https://www.thehindu.com/business/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Technology",
+   "url": "https://www.thehindu.com/sci-tech/technology/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Bengaluru",
+   "url": "https://www.thehindu.com/news/cities/bangalore/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Bengaluru"
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Hyderabad",
+   "url": "https://www.thehindu.com/news/cities/Hyderabad/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Hyderabad"
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Chennai",
+   "url": "https://www.thehindu.com/news/cities/chennai/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Chennai"
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Coimbatore",
+   "url": "https://www.thehindu.com/news/cities/Coimbatore/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Coimbatore"
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Kochi",
+   "url": "https://www.thehindu.com/news/cities/Kochi/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Kochi"
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Visakhapatnam",
+   "url": "https://www.thehindu.com/news/cities/Visakhapatnam/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Visakhapatnam"
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Mumbai",
+   "url": "https://www.thehindu.com/news/cities/Mumbai/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Mumbai"
+  },
+  {
+   "outlet": "The Hindu",
+   "name": "Hindu Delhi",
+   "url": "https://www.thehindu.com/news/cities/Delhi/feeder/default.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 60,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Delhi NCR"
+  },
+  {
+   "outlet": "Mint",
+   "name": "Mint Companies",
+   "url": "https://www.livemint.com/rss/companies",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Mint",
+   "name": "Mint Technology",
+   "url": "https://www.livemint.com/rss/technology",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Mint",
+   "name": "Mint Industry",
+   "url": "https://www.livemint.com/rss/industry",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Mint",
+   "name": "Mint News",
+   "url": "https://www.livemint.com/rss/news",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Mint",
+   "name": "Mint Money",
+   "url": "https://www.livemint.com/rss/money",
+   "status": "ok",
+   "http": 200,
+   "items": 35,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Inc42",
+   "name": "Inc42 main",
+   "url": "https://inc42.com/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 24,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "YourStory",
+   "name": "YourStory main",
+   "url": "https://yourstory.com/feed",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Hindustan Times",
+   "name": "HT Business",
+   "url": "https://www.hindustantimes.com/feeds/rss/business/rssfeed.xml",
+   "status": "ok",
+   "http": 200,
+   "items": 15,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Hindustan Times",
+   "name": "HT India",
+   "url": "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml",
+   "status": "ok",
+   "http": 200,
+   "items": 100,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Hindustan Times",
+   "name": "HT Technology",
+   "url": "https://www.hindustantimes.com/feeds/rss/technology/rssfeed.xml",
+   "status": "ok",
+   "http": 200,
+   "items": 11,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Hindustan Times",
+   "name": "HT Bengaluru",
+   "url": "https://www.hindustantimes.com/feeds/rss/cities/bengaluru-news/rssfeed.xml",
+   "status": "ok",
+   "http": 200,
+   "items": 5,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Bengaluru"
+  },
+  {
+   "outlet": "NDTV Profit",
+   "name": "NDTV Profit latest (feedburner)",
+   "url": "https://feeds.feedburner.com/ndtvprofit-latest",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Business",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/1898055.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Bengaluru",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/-2128833038.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Bengaluru"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Hyderabad",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/-2128816011.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Hyderabad"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Chennai",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/2950623.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Chennai"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Pune",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/-2128821153.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Pune"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Mumbai",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/-2128838597.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Mumbai"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Delhi",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/-2128839596.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Delhi NCR"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Kolkata",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/-2128830821.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Kolkata"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Gurgaon",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/6547154.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Gurugram"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Jaipur",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/3012544.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Jaipur"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Indore",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/3012535.cms",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Indore"
+  },
+  {
+   "outlet": "Times of India",
+   "name": "TOI Kochi",
+   "url": "https://timesofindia.indiatimes.com/rssfeeds/878156991.cms",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Kochi"
+  },
+  {
+   "outlet": "HRKatha",
+   "name": "HRKatha main",
+   "url": "https://www.hrkatha.com/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "HRKatha",
+   "name": "HRKatha tag GCC",
+   "url": "https://www.hrkatha.com/tag/gcc/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 29,
+   "relevant": 19,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "HRKatha",
+   "name": "HRKatha search GCC",
+   "url": "https://hrkatha.com/?s=GCC&feed=rss2",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 14,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "HRKatha",
+   "name": "HRKatha search capability centre",
+   "url": "https://hrkatha.com/?s=capability+centre&feed=rss2",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 3,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Analytics India Magazine",
+   "name": "AIM main",
+   "url": "https://analyticsindiamag.com/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Analytics India Magazine",
+   "name": "AIM tag GCC",
+   "url": "https://analyticsindiamag.com/tag/gcc/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 50,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Express Computer",
+   "name": "Express Computer main",
+   "url": "https://www.expresscomputer.in/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 10,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Express Computer",
+   "name": "Express Computer search GCC",
+   "url": "https://www.expresscomputer.in/?s=GCC&feed=rss2",
+   "status": "ok",
+   "http": 200,
+   "items": 10,
+   "relevant": 4,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Business",
+   "url": "https://indianexpress.com/section/business/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Technology",
+   "url": "https://indianexpress.com/section/technology/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Economy",
+   "url": "https://indianexpress.com/section/business/economy/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 1,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Jobs",
+   "url": "https://indianexpress.com/section/jobs/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Bangalore",
+   "url": "https://indianexpress.com/section/cities/bangalore/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Bengaluru"
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Hyderabad",
+   "url": "https://indianexpress.com/section/cities/hyderabad/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Hyderabad"
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Pune",
+   "url": "https://indianexpress.com/section/cities/pune/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Pune"
+  },
+  {
+   "outlet": "Indian Express",
+   "name": "IE Chennai",
+   "url": "https://indianexpress.com/section/cities/chennai/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Chennai"
+  },
+  {
+   "outlet": "Telangana Today",
+   "name": "Telangana Today main",
+   "url": "https://telanganatoday.com/feed",
+   "status": "ok",
+   "http": 200,
+   "items": 500,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": "Hyderabad"
+  },
+  {
+   "outlet": "Telangana Today",
+   "name": "Telangana Today business",
+   "url": "https://telanganatoday.com/category/business/feed",
+   "status": "ok",
+   "http": 200,
+   "items": 500,
+   "relevant": 2,
+   "checked": "2026-11-04",
+   "default_city": "Hyderabad"
+  },
+  {
+   "outlet": "CNBC-TV18",
+   "name": "CNBC-TV18 latest",
+   "url": "https://www.cnbctv18.com/commonfeeds/v1/cne/rss/latest.xml",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "CNBC-TV18",
+   "name": "CNBC-TV18 business",
+   "url": "https://www.cnbctv18.com/commonfeeds/v1/cne/rss/business.xml",
+   "status": "ok",
+   "http": 200,
+   "items": 200,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Today",
+   "name": "Business Today latest",
+   "url": "https://www.businesstoday.in/rss/latest",
+   "status": "ok",
+   "http": 200,
+   "items": 119,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Business Today",
+   "name": "Business Today industry",
+   "url": "https://www.businesstoday.in/rssfeeds/?id=225346",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "CXOToday",
+   "name": "CXOToday search GCC",
+   "url": "https://www.cxotoday.com/?s=GCC&feed=rss2",
+   "status": "ok",
+   "http": 200,
+   "items": 10,
+   "relevant": 3,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Medianama",
+   "name": "Medianama main",
+   "url": "https://www.medianama.com/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 10,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "ThePrint",
+   "name": "ThePrint economy",
+   "url": "https://theprint.in/category/economy/feed/",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Scroll",
+   "name": "Scroll (feedburner)",
+   "url": "https://feeds.feedburner.com/ScrollinArticles.rss",
+   "status": "ok",
+   "http": 200,
+   "items": 100,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Tech in Asia",
+   "name": "Tech in Asia main",
+   "url": "https://www.techinasia.com/feed",
+   "status": "ok",
+   "http": 200,
+   "items": 36,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "IT Voice",
+   "name": "IT Voice main",
+   "url": "https://itvoice.in/feed",
+   "status": "ok",
+   "http": 200,
+   "items": 12,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "India Today",
+   "name": "India Today business",
+   "url": "https://www.indiatoday.in/rss/1206513",
+   "status": "ok",
+   "http": 200,
+   "items": 5,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "IndianWeb2",
+   "name": "IndianWeb2 main",
+   "url": "https://www.indianweb2.com/feeds/posts/default",
+   "status": "ok",
+   "http": 200,
+   "items": 25,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Tech Observer",
+   "name": "Tech Observer main",
+   "url": "https://techobserver.in/feed/",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "The Hans India",
+   "name": "Hans India business",
+   "url": "https://www.thehansindia.com/rss/business",
+   "status": "ok",
+   "http": 200,
+   "items": 8,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "PIB",
+   "name": "PIB (Ministry feed)",
+   "url": "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3",
+   "status": "ok",
+   "http": 200,
+   "items": 20,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Moneycontrol",
+   "name": "Moneycontrol business",
+   "url": "https://www.moneycontrol.com/rss/business.xml",
+   "status": "failed",
+   "http": 403,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Moneycontrol",
+   "name": "Moneycontrol latest",
+   "url": "https://www.moneycontrol.com/rss/latestnews.xml",
+   "status": "failed",
+   "http": 403,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Entrackr",
+   "name": "Entrackr main",
+   "url": "https://entrackr.com/feed",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Financial Express",
+   "name": "FE industry",
+   "url": "https://www.financialexpress.com/industry/feed/",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Financial Express",
+   "name": "FE jobs",
+   "url": "https://www.financialexpress.com/jobs-career/feed/",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "NDTV Profit",
+   "name": "NDTV Profit rss",
+   "url": "https://www.ndtvprofit.com/rss/feeds",
+   "status": "failed",
+   "http": 403,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Nasscom",
+   "name": "Nasscom feed",
+   "url": "https://nasscom.in/feed",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Nasscom Community",
+   "name": "Nasscom Community rss",
+   "url": "https://community.nasscom.in/rss.xml",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "People Matters",
+   "name": "People Matters rss",
+   "url": "https://www.peoplematters.in/rss",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "BW Businessworld",
+   "name": "BW rss",
+   "url": "https://www.businessworld.in/rss/all",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "New Indian Express",
+   "name": "NIE business",
+   "url": "https://www.newindianexpress.com/Business/rssfeed/?id=170&getXmlFeed=true",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Deccan Herald",
+   "name": "DH business",
+   "url": "https://www.deccanherald.com/rss/business.rss",
+   "status": "failed",
+   "http": 500,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "CXOToday",
+   "name": "CXOToday main",
+   "url": "https://www.cxotoday.com/feed/",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Tech Circle",
+   "name": "Tech Circle rss",
+   "url": "https://www.techcircle.in/rss",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "ThePrint",
+   "name": "ThePrint main",
+   "url": "https://theprint.in/feed/",
+   "status": "failed",
+   "http": 200,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Firstpost",
+   "name": "Firstpost business",
+   "url": "https://www.firstpost.com/commonfeeds/v1/mfp/rss/business.xml",
+   "status": "failed",
+   "http": 403,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "News18",
+   "name": "News18 business",
+   "url": "https://www.news18.com/commonfeeds/v1/eng/rss/business.xml",
+   "status": "failed",
+   "http": 403,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Zee Business",
+   "name": "Zee Business companies",
+   "url": "https://www.zeebiz.com/companies.xml",
+   "status": "failed",
+   "http": 403,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "BQ Prime",
+   "name": "BQ Prime rss",
+   "url": "https://www.bqprime.com/rss",
+   "status": "failed",
+   "http": 403,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Outlook Business",
+   "name": "Outlook Business feed",
+   "url": "https://www.outlookbusiness.com/feed",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "DQ India",
+   "name": "DQ India feed",
+   "url": "https://www.dqindia.com/feed/",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Siliconindia",
+   "name": "Siliconindia news",
+   "url": "https://www.siliconindia.com/rss/news",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Free Press Journal",
+   "name": "FPJ business",
+   "url": "https://www.freepressjournal.com/rss/business",
+   "status": "failed",
+   "http": 404,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  },
+  {
+   "outlet": "Karnataka IT/BT dept",
+   "name": "Karnataka ITBT rss",
+   "url": "https://itbt.karnataka.gov.in/rss",
+   "status": "failed",
+   "http": 0,
+   "items": 0,
+   "relevant": 0,
+   "checked": "2026-11-04",
+   "default_city": null
+  }
+ ],
+ "google_news": {
+  "ahmedabadmirror.com": {
+   "domain": "ahmedabadmirror.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 26,
+   "relevant": 1
+  },
+  "analyticsindiamag.com": {
+   "domain": "analyticsindiamag.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 420,
+   "relevant": 58
+  },
+  "bqprime.com": {
+   "domain": "bqprime.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 0,
+   "relevant": 0
+  },
+  "business-standard.com": {
+   "domain": "business-standard.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 408,
+   "relevant": 62
+  },
+  "businesstoday.in": {
+   "domain": "businesstoday.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 177,
+   "relevant": 17
+  },
+  "businessworld.in": {
+   "domain": "businessworld.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 138,
+   "relevant": 13
+  },
+  "cio.economictimes.indiatimes.com": {
+   "domain": "cio.economictimes.indiatimes.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 63,
+   "relevant": 10
+  },
+  "ciol.com": {
+   "domain": "ciol.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 23,
+   "relevant": 6
+  },
+  "cnbctv18.com": {
+   "domain": "cnbctv18.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 174,
+   "relevant": 9
+  },
+  "community.nasscom.in": {
+   "domain": "community.nasscom.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 53,
+   "relevant": 9
+  },
+  "cxotoday.com": {
+   "domain": "cxotoday.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 98,
+   "relevant": 11
+  },
+  "deccanherald.com": {
+   "domain": "deccanherald.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 173,
+   "relevant": 18
+  },
+  "dqindia.com": {
+   "domain": "dqindia.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 173,
+   "relevant": 12
+  },
+  "economictimes.indiatimes.com": {
+   "domain": "economictimes.indiatimes.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 412,
+   "relevant": 138
+  },
+  "entrackr.com": {
+   "domain": "entrackr.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 11,
+   "relevant": 0
+  },
+  "expresscomputer.in": {
+   "domain": "expresscomputer.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 367,
+   "relevant": 19
+  },
+  "financialexpress.com": {
+   "domain": "financialexpress.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 372,
+   "relevant": 19
+  },
+  "firstpost.com": {
+   "domain": "firstpost.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 99,
+   "relevant": 2
+  },
+  "fortuneindia.com": {
+   "domain": "fortuneindia.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 104,
+   "relevant": 18
+  },
+  "freepressjournal.com": {
+   "domain": "freepressjournal.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 0,
+   "relevant": 0
+  },
+  "hindustantimes.com": {
+   "domain": "hindustantimes.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 327,
+   "relevant": 16
+  },
+  "hr.economictimes.indiatimes.com": {
+   "domain": "hr.economictimes.indiatimes.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 145,
+   "relevant": 26
+  },
+  "hrkatha.com": {
+   "domain": "hrkatha.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 56,
+   "relevant": 11
+  },
+  "inc42.com": {
+   "domain": "inc42.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 38,
+   "relevant": 0
+  },
+  "indianexpress.com": {
+   "domain": "indianexpress.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 113,
+   "relevant": 4
+  },
+  "indianweb2.com": {
+   "domain": "indianweb2.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 148,
+   "relevant": 1
+  },
+  "indiatoday.in": {
+   "domain": "indiatoday.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 211,
+   "relevant": 8
+  },
+  "itvoice.in": {
+   "domain": "itvoice.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 40,
+   "relevant": 3
+  },
+  "livemint.com": {
+   "domain": "livemint.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 330,
+   "relevant": 23
+  },
+  "mathrubhumi.com": {
+   "domain": "mathrubhumi.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 21,
+   "relevant": 1
+  },
+  "medianama.com": {
+   "domain": "medianama.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 10,
+   "relevant": 0
+  },
+  "moneycontrol.com": {
+   "domain": "moneycontrol.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 325,
+   "relevant": 75
+  },
+  "nasscom.in": {
+   "domain": "nasscom.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 115,
+   "relevant": 9
+  },
+  "ndtvprofit.com": {
+   "domain": "ndtvprofit.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 89,
+   "relevant": 8
+  },
+  "newindianexpress.com": {
+   "domain": "newindianexpress.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 347,
+   "relevant": 25
+  },
+  "news18.com": {
+   "domain": "news18.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 113,
+   "relevant": 6
+  },
+  "odishatv.in": {
+   "domain": "odishatv.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 5,
+   "relevant": 1
+  },
+  "outlookbusiness.com": {
+   "domain": "outlookbusiness.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 103,
+   "relevant": 11
+  },
+  "peoplematters.in": {
+   "domain": "peoplematters.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 291,
+   "relevant": 44
+  },
+  "pib.gov.in": {
+   "domain": "pib.gov.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 80,
+   "relevant": 4
+  },
+  "realty.economictimes.indiatimes.com": {
+   "domain": "realty.economictimes.indiatimes.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 410,
+   "relevant": 9
+  },
+  "scroll.in": {
+   "domain": "scroll.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 3,
+   "relevant": 0
+  },
+  "siliconindia.com": {
+   "domain": "siliconindia.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 19,
+   "relevant": 3
+  },
+  "techcircle.in": {
+   "domain": "techcircle.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 26,
+   "relevant": 6
+  },
+  "techinasia.com": {
+   "domain": "techinasia.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 3,
+   "relevant": 0
+  },
+  "techobserver.in": {
+   "domain": "techobserver.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 6,
+   "relevant": 1
+  },
+  "telanganatoday.com": {
+   "domain": "telanganatoday.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 56,
+   "relevant": 10
+  },
+  "thehansindia.com": {
+   "domain": "thehansindia.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 74,
+   "relevant": 3
+  },
+  "thehindu.com": {
+   "domain": "thehindu.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 386,
+   "relevant": 40
+  },
+  "thehindubusinessline.com": {
+   "domain": "thehindubusinessline.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 341,
+   "relevant": 38
+  },
+  "theprint.in": {
+   "domain": "theprint.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 176,
+   "relevant": 18
+  },
+  "theweek.in": {
+   "domain": "theweek.in",
+   "requests": 14,
+   "failed": 0,
+   "items": 116,
+   "relevant": 0
+  },
+  "timesofindia.indiatimes.com": {
+   "domain": "timesofindia.indiatimes.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 501,
+   "relevant": 89
+  },
+  "tribuneindia.com": {
+   "domain": "tribuneindia.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 130,
+   "relevant": 13
+  },
+  "yourstory.com": {
+   "domain": "yourstory.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 123,
+   "relevant": 22
+  },
+  "zeebiz.com": {
+   "domain": "zeebiz.com",
+   "requests": 14,
+   "failed": 0,
+   "items": 48,
+   "relevant": 4
+  }
+ }
+}

@@ -1,0 +1,5 @@
+# Schedule for the worker container (read by workers/scheduler.py). Times are IST (Asia/Kolkata).
+# min hour dom mon dow   command            (dow: 0 or 7 = Sunday)
+0  6  *  *  *   ./run_weekly.sh news       # daily headlines
+30 2  *  *  0   ./run_weekly.sh refresh    # deep refresh, Sunday night
+0  7  *  *  1   ./run_weekly.sh digest     # The GCC Weekly, Monday 07:00 IST

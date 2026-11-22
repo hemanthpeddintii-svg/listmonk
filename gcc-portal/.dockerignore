@@ -1,0 +1,16 @@
+**/node_modules
+**/.next
+**/.next-*
+.git
+.github
+.env
+.env.*
+!.env.example
+**/__pycache__
+**/*.pyc
+README.md
+DEPLOY.md
+docs
+run-test.sh
+**/*.log
+web/scripts/seed-demo.mjs

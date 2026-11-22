@@ -1,0 +1,29 @@
+# Root-level copy of gcc-portal/.github/workflows/migrate.yml. GitHub only reads workflows from the repository root,
+# so this copy is the one that actually runs while gcc-portal lives inside the listmonk repo.
+# Every step runs in ./gcc-portal. Names are prefixed 'gcc-portal' so they never clash with listmonk's own workflows.
+name: gcc-portal migrate-db
+# Manual: apply db/schema.sql to the production database (idempotent). Use after pulling schema changes
+# when the web app runs somewhere that does not migrate at boot (for example Vercel).
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    working-directory: gcc-portal
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: gcc-portal/web/package-lock.json
+      - run: npm ci
+        working-directory: gcc-portal/web
+      - run: node scripts/migrate.mjs
+        working-directory: gcc-portal/web
+        env:
+          SCHEMA_PATH: ${{ github.workspace }}/gcc-portal/db/schema.sql
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
